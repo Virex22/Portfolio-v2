@@ -68,5 +68,5 @@ jobs:
         env:
           DATABASE_URL: mysql://root:symfony@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony
 
-#      - name: Execute PHPStan
-#        run: vendor/bin/phpstan analyse src --level 3
+      - name: Execute PHPStan
+        run: vendor/bin/phpstan analyse src --level 3

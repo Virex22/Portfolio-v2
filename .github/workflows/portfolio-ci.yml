@@ -1,0 +1,72 @@
+name: Symfony CI
+on: [push, pull_request]
+jobs:
+  symfony:
+    name: Symfony (PHP ${{ matrix.php-versions }})
+    runs-on: ubuntu-latest
+
+    # Docs: https://docs.github.com/en/actions/using-containerized-services
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: symfony
+          MYSQL_DATABASE: symfony
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    strategy:
+      fail-fast: false
+      matrix:
+        php-versions: ['8.2']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: phpunit
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, pdo_mysql
+          coverage: xdebug
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Run Migration
+        run: |
+          php bin/console doctrine:database:create --if-not-exists
+          php bin/console doctrine:database:create --if-not-exists --env=test
+#          php bin/console doctrine:migrations:migrate --no-interaction
+#          php bin/console doctrine:migrations:migrate --no-interaction --env=test
+        env:
+          DATABASE_URL: mysql://root:symfony@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony
+
+#      - name: Install and build Npm dependencies
+#        run: |
+#          npm install
+#          npm run build
+
+      - name: Install PHPUnit
+        run: composer require --dev phpunit/phpunit
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit
+        env:
+          DATABASE_URL: mysql://root:symfony@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony
+
+      - name: Execute PHPStan
+        run: vendor/bin/phpstan analyse src --level 3

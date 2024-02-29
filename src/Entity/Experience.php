@@ -34,7 +34,7 @@ class Experience
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'experiences')]
     private Collection $skills;
 
-    #[ORM\ManyToMany(targetEntity: project::class, inversedBy: 'experiences')]
+    #[ORM\ManyToMany(targetEntity: Project::class, inversedBy: 'experiences')]
     private Collection $projects;
 
     public function __construct()
@@ -136,14 +136,14 @@ class Experience
     }
 
     /**
-     * @return Collection<int, project>
+     * @return Collection<int, Project>
      */
     public function getProject(): Collection
     {
         return $this->projects;
     }
 
-    public function addProject(project $project): static
+    public function addProject(Project $project): static
     {
         if (!$this->projects->contains($project)) {
             $this->projects->add($project);
@@ -152,7 +152,7 @@ class Experience
         return $this;
     }
 
-    public function removeProject(project $project): static
+    public function removeProject(Project $project): static
     {
         $this->projects->removeElement($project);
 

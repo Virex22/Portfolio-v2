@@ -25,7 +25,7 @@ class Skill
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\ManyToMany(targetEntity: formation::class, inversedBy: 'skills')]
+    #[ORM\ManyToMany(targetEntity: Formation::class, inversedBy: 'skills')]
     private Collection $formations;
 
     #[ORM\ManyToMany(targetEntity: Experience::class, inversedBy: 'skills')]
@@ -86,14 +86,14 @@ class Skill
     }
 
     /**
-     * @return Collection<int, formation>
+     * @return Collection<int, Formation>
      */
     public function getFormations(): Collection
     {
         return $this->formations;
     }
 
-    public function addFormation(formation $formation): static
+    public function addFormation(Formation $formation): static
     {
         if (!$this->formations->contains($formation)) {
             $this->formations->add($formation);
@@ -102,7 +102,7 @@ class Skill
         return $this;
     }
 
-    public function removeFormation(formation $formation): static
+    public function removeFormation(Formation $formation): static
     {
         $this->formations->removeElement($formation);
 

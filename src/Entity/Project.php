@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,18 @@ class Project
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
+
+    #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
+    private Collection $skills;
+
+    #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'project')]
+    private Collection $experiences;
+
+    public function __construct()
+    {
+        $this->skills = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +74,60 @@ class Project
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Skill>
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): static
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills->add($skill);
+            $skill->addProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): static
+    {
+        if ($this->skills->removeElement($skill)) {
+            $skill->removeProject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Experience>
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): static
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences->add($experience);
+            $experience->addProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): static
+    {
+        if ($this->experiences->removeElement($experience)) {
+            $experience->removeProject($this);
+        }
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SkillRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,25 @@ class Skill
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\ManyToMany(targetEntity: formation::class, inversedBy: 'skills')]
+    private Collection $formations;
+
+    #[ORM\ManyToMany(targetEntity: Experience::class, inversedBy: 'skills')]
+    private Collection $experiences;
+
+    #[ORM\ManyToMany(targetEntity: Project::class, inversedBy: 'skills')]
+    private Collection $projects;
+
+    #[ORM\ManyToOne(inversedBy: 'skills')]
+    private ?SkillGroup $skillGroups = null;
+
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
+        $this->projects = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +81,90 @@ class Skill
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, formation>
+     */
+    public function getFormations(): Collection
+    {
+        return $this->formations;
+    }
+
+    public function addFormation(formation $formation): static
+    {
+        if (!$this->formations->contains($formation)) {
+            $this->formations->add($formation);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(formation $formation): static
+    {
+        $this->formations->removeElement($formation);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Experience>
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): static
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences->add($experience);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): static
+    {
+        $this->experiences->removeElement($experience);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): static
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): static
+    {
+        $this->projects->removeElement($project);
+
+        return $this;
+    }
+
+    public function getSkillGroups(): ?SkillGroup
+    {
+        return $this->skillGroups;
+    }
+
+    public function setSkillGroups(?SkillGroup $skillGroups): static
+    {
+        $this->skillGroups = $skillGroups;
 
         return $this;
     }

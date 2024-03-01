@@ -55,10 +55,10 @@ jobs:
         env:
           DATABASE_URL: mysql://root:symfony@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony
 
-#      - name: Install and build Npm dependencies
-#        run: |
-#          npm install
-#          npm run build
+      - name: Install and build Npm dependencies
+        run: |
+          npm install
+          npm run build
 
       - name: Install PHPUnit
         run: composer require --dev phpunit/phpunit

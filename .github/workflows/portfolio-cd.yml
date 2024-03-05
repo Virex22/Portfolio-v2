@@ -18,7 +18,11 @@ jobs:
             cd ${{ secrets.PROJECT_PATH }}
             git pull origin main
             composer install
-            nvm use 16 && node -v
+            # Get nvm command
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+            nvm use 16
             npm i
             npm run build
             php bin/console cache:clear

@@ -1,0 +1,60 @@
+@import "../partials/footer.scss";
+@import "../partials/layout.scss";
+
+/* Main container */
+.maintenance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  .maintenance-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 80vw;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+      max-width: 95vw;
+    }
+
+    @media (max-width: $mobile) {
+      max-width: 100vw;
+      flex-direction: column;
+    }
+
+    .maintenance-text {
+      padding: 50px;
+      h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+
+        @media (max-width: $foldmobile) {
+          font-size: 1.5em;
+        }
+      }
+
+      p {
+        font-size: 1.25em;
+        margin-bottom: 10px;
+
+        @media (max-width: $foldmobile) {
+            font-size: 1em;
+        }
+      }
+    }
+
+    .maintenance-image {
+      img {
+        width: 100%;
+        max-width: 500px;
+
+        @media (max-width: $mobile) {
+          max-width: 300px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+

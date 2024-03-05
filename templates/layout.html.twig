@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<header>
-    <h1>Header</h1>
-</header>
-    {% block content %}{% endblock %}
-<footer>
-    <h1>Footer</h1>
-</footer>
+    <div class="layout-container">
+        {% block header %}
+        <header>
+            <h1>Header</h1>
+        </header>
+        {% endblock %}
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include 'partials/_footer.html.twig' %}
+        {% endblock %}
+    </div>
 {% endblock %}

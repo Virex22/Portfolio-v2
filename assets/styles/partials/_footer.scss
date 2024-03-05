@@ -1,0 +1,145 @@
+@import "variables";
+
+/* Global Footer */
+
+footer {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
+}
+
+.footer-part {
+  border: antiquewhite 1px solid;
+  margin: 0;
+}
+
+.network, .sitemap {
+  width: 30%;
+
+  @media (max-width: $tablet) {
+      width: 20%;
+  }
+
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+}
+
+.mention {
+  width: 40%;
+
+  @media (max-width: $tablet) {
+    width: 60%;
+  }
+
+  @media (max-width: $mobile) {
+    width: 100%;
+    order: 3;
+  }
+}
+
+/* Network Part */
+
+.footer-part.network {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 10px), 1fr));
+  gap: 10px;
+  margin: 0 auto;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 10px), 1fr));
+  }
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 10px), 1fr));
+  }
+  @media (max-width: $foldmobile) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .network-block {
+    list-style: none;
+    text-align: center;
+    padding: 15px;
+    margin: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+
+    @media (max-width: $foldmobile) {
+      padding: 5px;
+      margin: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+/* Mention Part */
+
+.mention {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  @media (max-width: $mobile) {
+    font-size: 0.8em;
+  }
+  @media (max-width: $foldmobile) {
+    font-size: 0.6em;
+  }
+}
+
+/* Sitemap Part */
+
+.footer-part.sitemap {
+  text-align: right;
+  padding: 10px 20px 10px;
+
+  @media (max-width: $mobile) {
+    text-align: center;
+    padding: 5px;
+  }
+
+  p.footer-title {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

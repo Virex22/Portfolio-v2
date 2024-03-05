@@ -1,0 +1,13 @@
+footer :
+  network :
+    title : Mes réseaux
+  sitemap :
+    title : Plan du site
+    home : Accueil
+    about : À propos
+    realisation : Réalisations
+    skills : Compétences
+    contact : Contact
+  legal :
+    text : Développement et intégration faite par moi même, maquette du site réalisée par
+    title : Mentions légales

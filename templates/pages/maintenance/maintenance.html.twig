@@ -2,19 +2,21 @@
 
 {% block title %}Vincent REMY - Site en maintenance{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
+{% block header %}{% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('maintenance') }}
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Maintenance</h1>
+    <div class="maintenance">
+        <div class="maintenance-wrapper">
+            <div class="maintenance-text">
+                <h1>Site en maintenance</h1>
+                <p>Merci de venir visiter mon site, malheureusement il est actuellement en maintenance. J'essais de le remettre en ligne au plus vite. merci de votre compréhension.</p>
+            </div>
+            <div class="maintenance-image">
+                <img src="{{ asset('images/maintenance.svg') }}" alt="Site en maintenance">
             </div>
         </div>
     </div>

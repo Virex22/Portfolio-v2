@@ -1,0 +1,27 @@
+name: Symfony CD
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}
+            git pull origin main
+            composer install
+            nvm use 16 && node -v
+            npm i
+            npm run build
+            php bin/console cache:clear
+            php bin/console doctrine:migrations:migrate --no-interaction
+            php bin/console cache:clear
+            php bin/console cache:warmup

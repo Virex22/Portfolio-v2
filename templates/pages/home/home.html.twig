@@ -1,13 +1,11 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Vincent REMY - Portfolio{% endblock %}
+{% block title %}Vincent REMY - Site en maintenance{% endblock %}
+
+{% block header %}{% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
+    {{ encore_entry_link_tags('maintenance') }}
 {% endblock %}
 
 {% block content %}

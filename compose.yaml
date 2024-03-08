@@ -3,6 +3,7 @@ version: '3'
 services:
   database:
     image: mysql:8.0
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: portfolio
@@ -15,6 +16,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    restart: always
     environment:
       PMA_HOST: database
       PMA_USER: root

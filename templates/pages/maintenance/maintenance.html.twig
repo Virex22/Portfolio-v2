@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Vincent REMY - Site en maintenance{% endblock %}
+{% block title %}Vincent REMY - {{ 'maintenance.title'|trans({}, 'maintenance')}}{% endblock %}
 
 {% block header %}{% endblock %}
 
@@ -12,11 +12,11 @@
     <div class="maintenance">
         <div class="maintenance-wrapper">
             <div class="maintenance-text">
-                <h1>Site en maintenance</h1>
-                <p>Merci de venir visiter mon site, malheureusement il est actuellement en maintenance. J'essais de le remettre en ligne au plus vite. merci de votre compréhension.</p>
+                <h1>{{ 'maintenance.title'|trans({}, 'maintenance') }}</h1>
+                <p>{{ 'maintenance.message'|trans({}, 'maintenance') }}</p>
             </div>
             <div class="maintenance-image">
-                <img src="{{ asset('images/maintenance.svg') }}" alt="Site en maintenance">
+                <img src="{{ asset('images/maintenance.svg') }}" alt="{{ 'maintenance.title'|trans({}, 'maintenance') | lower }}">
             </div>
         </div>
     </div>

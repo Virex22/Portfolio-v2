@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Vincent REMY - Site en maintenance{% endblock %}
+{% block title %}Vincent REMY - Portfolio{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('home') }}
@@ -8,10 +8,7 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Portfolio</h1>
-            </div>
-        </div>
+        {% include 'pages/home/partials/_hero.html.twig' %}
+
     </div>
 {% endblock %}

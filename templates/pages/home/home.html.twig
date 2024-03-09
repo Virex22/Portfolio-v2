@@ -6,9 +6,10 @@
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
-{% block content %}
-    <div class="container">
-        {% include 'pages/home/partials/_hero.html.twig' %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}
 
-    </div>
+{% block content %}
+        {% include 'pages/home/partials/_hero.html.twig' %}
 {% endblock %}

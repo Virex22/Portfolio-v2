@@ -1,3 +1,31 @@
 @import "../partials/footer.scss";
 @import "../partials/layout.scss";
 @import "../partials/navbar.scss";
+
+header {
+  position: relative;
+  width: 100%;
+}
+
+.swiper {
+  width: 100%;
+  height: 450px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 60px;
+  color: #111111;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://www.searchenginejournal.com/wp-content/uploads/2019/07/the-essential-guide-to-using-images-legally-online.png");
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

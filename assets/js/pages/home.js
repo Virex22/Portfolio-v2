@@ -5,11 +5,17 @@ import 'swiper/css/navigation';
 /* Swiper */
 
 import Swiper from 'swiper';
-import {Pagination} from 'swiper/modules';
+import {Pagination, Autoplay} from 'swiper/modules';
 
-Swiper.use([Pagination]);
+Swiper.use([Pagination, Autoplay]);
 
 new Swiper(".mySwiper", {
+    loop: true,
+    // autoplay: {
+    //     delay: 4000,
+    //     disableOnInteraction: false,
+    // },
+    speed: 1000,
     pagination: {
         el: ".swiper-pagination",
     },

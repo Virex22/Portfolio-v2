@@ -3,6 +3,9 @@
 @import "../partials/navbar.scss";
 $color-force: 0.7;
 
+/*
+  Hero section
+ */
 header {
   position: relative;
   width: 100%;
@@ -126,6 +129,10 @@ header {
   }
 }
 
+/*
+  Presentation section
+ */
+
 .presentation-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -133,7 +140,6 @@ header {
   grid-gap: 1rem;
   width: 80%;
   margin: 25px auto;
-  font-family: 'Inter', sans-serif;
 
   .presentation {
     display: flex;
@@ -168,5 +174,56 @@ header {
         color: #020202;
       }
     }
+  }
+}
+
+/*
+  Services section
+ */
+.services-swiper {
+  width: 100%;
+  height: 350px;
+  margin: 20px auto;
+  position: relative;
+
+  .swiper-wrapper {
+    height: 350px;
+    position: relative;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 300px;
+    height: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    .service-card-header {
+      .service-card-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .service-card-subtitle {
+        font-size: 14px;
+        color: #888888;
+      }
+    }
+
+    .service-card-description {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
   }
 }

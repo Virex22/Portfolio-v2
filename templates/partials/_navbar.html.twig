@@ -1,10 +1,10 @@
 <nav>
     <img src="{{ asset('images/logo.png') }}" alt="Logo">
     <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">À propos</a></li>
-        <li><a href="#">Réalisations</a></li>
-        <li><a href="#">Compétences</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">{{ "navbar.menu.home" | trans({}, "navbar") }}</a></li>
+        <li><a href="#">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
+        <li><a href="#">{{ "navbar.menu.realizations" | trans({}, "navbar") }}</a></li>
+        <li><a href="#">{{ "navbar.menu.skills" | trans({}, "navbar") }}</a></li>
+        <li><a href="#">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
     </ul>
 </nav>

@@ -155,8 +155,11 @@ header {
         font-size: 2rem;
         font-weight: 600;
         color: #000000;
-        margin: 0;
         flex: 1;
+      }
+
+      p{
+        margin: 0;
       }
 
       p:not(.presentation-title) {

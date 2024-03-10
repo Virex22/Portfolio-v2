@@ -12,3 +12,16 @@ home:
     slide4:
       title: Want to know more?
       subtitle: You just have to contact me
+  presentation:
+    about:
+      title: About
+      content: I am a web and mobile developer, passionate about new technologies and new web trends.
+    skill:
+      title: Skills
+      content: I have different skills in web and mobile development, I am a fullstack and software developer, so I can develop web applications in full, but also mobile applications, software extensions or video games.
+    passion:
+      title: Passions
+      content: Development has been a passion since I was 15, I started by creating mobile games, then I started developing game mods and then web and mobile applications.
+    realization:
+      title: Realizations
+      content: You will find on this site my achievements, whether they are personal projects or professional projects, as well as projects that I have carried out for school or for clients.

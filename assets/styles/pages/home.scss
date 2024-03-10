@@ -6,6 +6,7 @@ $color-force: 0.7;
 header {
   position: relative;
   width: 100%;
+  height: max-content;
 
   .swiper {
     width: 100%;
@@ -121,6 +122,48 @@ header {
 
     &-active {
       width: 30px;
+    }
+  }
+}
+
+.presentation-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1rem;
+  width: 80%;
+  margin: 25px auto;
+  font-family: 'Inter', sans-serif;
+
+  .presentation {
+    display: flex;
+    border: 2px solid #5F96AD;
+    border-radius: 20px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: 1rem
+    }
+
+    .presentation-right {
+      flex-direction: column;
+      display: flex;
+      margin: 1rem;
+
+      .presentation-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #000000;
+        margin: 0;
+        flex: 1;
+      }
+
+      p:not(.presentation-title) {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #020202;
+      }
     }
   }
 }

@@ -13,8 +13,8 @@
 {% block content %}
     {% include 'pages/home/partials/_hero.html.twig' %}
     {% include('pages/home/partials/_presentation.html.twig') %}
-    <h2 class="home-subtitle"> Services </h2>
+    <h2 class="home-subtitle"> {{ "home.title.presentation"| trans({}, 'home')}}</h2>
     {% include('pages/home/partials/_services.html.twig') %}
-    <h2 class="home-subtitle"> Compétences </h2>
+    <h2 class="home-subtitle"> {{ "home.title.skills"| trans({}, 'home')}}</h2>
     {% include('pages/home/partials/_skills.html.twig') %}
 {% endblock %}

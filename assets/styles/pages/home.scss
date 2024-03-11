@@ -2,6 +2,18 @@
 @import "../partials/layout.scss";
 @import "../partials/navbar.scss";
 $color-force: 0.7;
+$space-between-parts: 100px;
+
+/*
+  General styles
+ */
+
+h2.home-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7367D4;
+  margin: $space-between-parts 0 0 70px;
+}
 
 /*
   Hero section
@@ -139,7 +151,7 @@ header {
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 1rem;
   width: 80%;
-  margin: 25px auto;
+  margin: $space-between-parts auto;
 
   .presentation {
     display: flex;
@@ -180,10 +192,11 @@ header {
 /*
   Services section
  */
+
 .services-swiper {
   width: 100%;
   height: 350px;
-  margin: 20px auto;
+  margin: 10px auto;
   position: relative;
 
   .swiper-wrapper {
@@ -199,8 +212,29 @@ header {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .service-card-header {
+      display: flex;
+
+      .service-line-container {
+        display: flex;
+        margin: 0 5px;
+        .line {
+          background-color: #D1C3F3;
+          height: 100%;
+          width: 3px;
+          margin: 0 2px;
+          border-radius: 5px;
+        }
+      }
+
+      .service-card-header-txt {
+        padding: 15px 0;
+      }
+
       .service-card-title {
         font-size: 28px;
         font-weight: bold;

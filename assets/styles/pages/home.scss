@@ -261,3 +261,22 @@ header {
     right: 0;
   }
 }
+
+/*
+  Skills section
+ */
+.skills-swiper {
+    width: 100%;
+    height: 100px;
+    margin: 20px auto $space-between-parts;
+    position: relative;
+
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+
+  .swiper-slide, img {
+    width: 75px;
+    height: 75px;
+  }
+}

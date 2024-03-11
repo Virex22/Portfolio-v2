@@ -41,3 +41,19 @@ new Swiper(".services-swiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+/* Swiper for skills section */
+
+new Swiper(".skills-swiper", {
+    loop: true,
+    spaceBetween: 20,
+    slidesPerView: "auto",
+    speed: 1000,
+    slidesOffsetBefore: 50,
+    slidesOffsetAfter: 50,
+    preventInteractionOnTransition: true,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: true,
+    },
+});

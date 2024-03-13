@@ -3,11 +3,13 @@
 namespace App\DataFixtures\Entity;
 
 use App\Entity\Skill;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class SkillFixtures
+class SkillFixtures extends Fixture
 {
-    static int $count = 10;
+    // need to have more than skillGroupFixtures
+    static int $count = 20;
     public function getOrder(): int
     {
         return 4;

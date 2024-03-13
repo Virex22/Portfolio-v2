@@ -2,15 +2,15 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\Entity\Formation;
 use App\Entity\Skill;
-use App\Entity\SkillGroup;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
+class FormationFixtures extends Fixture implements DependentFixtureInterface
 {
-    static int $count = 5;
+    static int $count = 10;
 
     public function getDependencies() : array
     {
@@ -23,17 +23,18 @@ class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
     {
         $allSkills = $manager->getRepository(Skill::class)->findAll();
         for ($i = 1; $i <= self::$count; $i++) {
-            $skillGroup = new SkillGroup();
-            $skillGroup->setPriority($i);
-            $skillGroup->setAcquiredPercentage($i * 10);
-            $skillGroup->setCustomName('Custom Name ' . $i);
-            // add some skills to the skill group (unique)
-            $skillGroup->addSkill(array_pop($allSkills));
+            $formation = new Formation();
+            $formation->setName('Formation ' . $i);
+            $formation->setDescription('Description ' . $i);
+            $formation->setStartDate(new \DateTime('2021-01-01'));
+            $formation->setEndDate(new \DateTime('2021-12-31'));
+            $formation->addSkill(array_pop($allSkills));
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)
-                    $skillGroup->addSkill(array_pop($allSkills));
-            $manager->persist($skillGroup);
+                    $formation->addSkill(array_pop($allSkills));
+            $manager->persist($formation);
         }
         $manager->flush();
     }
+
 }

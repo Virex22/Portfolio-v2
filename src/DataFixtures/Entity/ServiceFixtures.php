@@ -9,10 +9,6 @@ use Doctrine\Persistence\ObjectManager;
 class ServiceFixtures extends Fixture
 {
     static int $count = 10;
-    public function getOrder(): int
-    {
-        return 2;
-    }
 
     public function load(ObjectManager $manager): void
     {

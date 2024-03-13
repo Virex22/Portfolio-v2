@@ -10,10 +10,7 @@ class SkillFixtures extends Fixture
 {
     // need to have more than skillGroupFixtures
     static int $count = 20;
-    public function getOrder(): int
-    {
-        return 4;
-    }
+
     public function load(ObjectManager $manager): void
     {
         for ($i = 1; $i <= self::$count; $i++) {

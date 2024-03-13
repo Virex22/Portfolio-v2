@@ -8,10 +8,6 @@ use Doctrine\Persistence\ObjectManager;
 
 class ConfigurationFixtures extends Fixture
 {
-    public function getOrder(): int
-    {
-        return 1;
-    }
     public function load(ObjectManager $manager): void
     {
         $configuration = new Configuration();

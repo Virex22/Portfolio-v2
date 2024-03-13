@@ -35,6 +35,11 @@ header {
         bottom: 0;
         height: 85%;
         width: auto;
+
+        @media (max-width: $tablet) {
+          right: 5%;
+          height: 50%;
+        }
       }
 
       .circle {
@@ -47,6 +52,13 @@ header {
         height: 350px;
         border-radius: 50%;
         background-color: white;
+
+        @media (max-width: $tablet) {
+          right: 8%;
+          width: 200px;
+          height: 200px;
+          bottom: 5%;
+        }
       }
 
       &.slide-1 .circle {
@@ -59,6 +71,16 @@ header {
         bottom: auto;
         top: auto;
         transform: translateY(50%);
+
+        @media (max-width: $small-desktop) {
+          left: 10%;
+        }
+        @media (max-width: $tablet) {
+          left: 0;
+          width: 100%;
+            transform: translate(0, -50%);
+          text-align: center;
+        }
       }
 
       .img-console {
@@ -69,19 +91,40 @@ header {
         height: 275px;
         width: auto;
         transform: translate(-75px, 0);
+        @media (max-width: $tablet) {
+            right: 5%;
+            height: 150px;
+            transform: translate(-50px, 0);
+            bottom: 10%;
+        }
       }
 
       .title, .subtitle {
         color: black;
         font-family: Inter, sans-serif;
         margin: 0 0 10px 20px;
+        @media (max-width: $tablet) {
+          margin: 0 0 10px 0;
+        }
       }
       .title {
         font-weight: 700;
         font-size: 32px;
+        @media (max-width: $small-desktop) {
+            font-size: 28px;
+        }
+        @media (max-width: $tablet) {
+            font-size: 24px;
+        }
       }
       .subtitle {
         font-size: 28px;
+        @media (max-width: $small-desktop) {
+            font-size: 24px;
+        }
+        @media (max-width: $tablet) {
+            font-size: 20px;
+        }
       }
 
       &::before {

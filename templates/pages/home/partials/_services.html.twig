@@ -2,7 +2,7 @@
 
 <div class="services-swiper swiper">
     <div class="swiper-wrapper">
-        {% for i in 1..15 %}
+        {% for service in services %}
             <div class="service-card swiper-slide">
                 <div class="service-card-header">
                     <div class="service-line-container">
@@ -10,11 +10,11 @@
                         <div class="line"></div>
                     </div>
                     <div class="service-card-header-txt">
-                        <p class="service-card-title">Service {{ i }}</p>
-                        <p class="service-card-subtitle">lorem ipsum</p>
+                        <p class="service-card-title">{{ service.name }}</p>
+                        <p class="service-card-subtitle">{{ service.name }}</p>
                     </div>
                 </div>
-                <p class="service-card-description">{% for j in 0..i %}Lorem ipilis fugi ipilis fugi {% endfor %}</p>
+                <p class="service-card-description">{{ service.description }}</p>
             </div>
         {% endfor %}
     </div>

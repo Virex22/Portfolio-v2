@@ -1,8 +1,9 @@
 <div class="skills-swiper swiper">
     <div class="swiper-wrapper">
-        {% for i in 1..25 %}
+        {% for skill in skills %}
             <div class="swiper-slide">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/280px-C_Programming_Language.svg.png" alt="logo">
+                <img src="{{ skill.badgeUrl }}"
+                     alt="{{ skill.name }}" >
             </div>
         {% endfor %}
     </div>

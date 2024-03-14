@@ -18,6 +18,8 @@ class ContactMessageFixtures extends Fixture
             $contactMessage->setMessage('Message ' . $i);
             $contactMessage->setSubject('Subject ' . $i);
             $contactMessage->setSurname('Surname ' . $i);
+            $contactMessage->setDateAdd(new \DateTime());
+            $contactMessage->setDateUpdate(new \DateTime());
             $manager->persist($contactMessage);
         }
         $manager->flush();

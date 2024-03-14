@@ -13,6 +13,8 @@ class ConfigurationFixtures extends Fixture
         $configuration = new Configuration();
         $configuration->setName('APP_MAINTENANCE');
         $configuration->setValue('false');
+        $configuration->setDateAdd(new \DateTime());
+        $configuration->setDateUpdate(new \DateTime());
         $manager->persist($configuration);
         $manager->flush();
     }

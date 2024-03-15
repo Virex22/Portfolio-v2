@@ -37,7 +37,6 @@ class Experience
     public function __construct()
     {
         $this->skills = new ArrayCollection();
-        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int

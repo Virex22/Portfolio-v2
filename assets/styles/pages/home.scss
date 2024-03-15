@@ -299,6 +299,7 @@ header {
     padding: 20px;
     position: relative;
     align-items: center;
+    justify-content: center;
 
     @media (max-width: $mobile) {
       height: 300px;
@@ -406,6 +407,7 @@ header {
 
   .swiper-wrapper {
     transition-timing-function: linear;
+    justify-content: center;
   }
 
   .swiper-slide, img {

@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
         return $this->render('pages/home/home.html.twig', [
             'services' => $serviceRepository->findBy([], ['priority' => 'ASC']),
-            'skills' => $skillRepository->findBy([], ['name' => 'ASC'])
+            'skills' => $skillRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 }

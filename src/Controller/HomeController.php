@@ -14,8 +14,8 @@ class HomeController extends AbstractController
     public function index(ServiceRepository $serviceRepository, SkillRepository $skillRepository): Response
     {
         return $this->render('pages/home/home.html.twig', [
-            'services' => $serviceRepository->findBy([], ['priority' => 'ASC'],1),
-            'skills' => $skillRepository->findBy([], ['name' => 'ASC'],1),
+            'services' => $serviceRepository->findBy([], ['priority' => 'ASC']),
+            'skills' => $skillRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 }

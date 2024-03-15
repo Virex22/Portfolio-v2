@@ -13,6 +13,7 @@ Swiper.use([Pagination, Autoplay, EffectFade, Navigation]);
 function centerSwiperIfFewSlides(swiper) {
     const swiperWrapper = swiper.el.querySelector('.swiper-wrapper');
     swiperWrapper.style.justifyContent = swiper.virtualSize < swiper.size ? 'flex-start' : 'center';
+    swiper.update();
 }
 
 /* Swiper for hero section */

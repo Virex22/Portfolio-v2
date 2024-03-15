@@ -10,6 +10,11 @@ import {Pagination, Autoplay, EffectFade, Navigation} from 'swiper/modules';
 
 Swiper.use([Pagination, Autoplay, EffectFade, Navigation]);
 
+function centerSwiperIfFewSlides(swiper) {
+    const swiperWrapper = swiper.el.querySelector('.swiper-wrapper');
+    swiperWrapper.style.justifyContent = swiper.virtualSize < swiper.size ? 'flex-start' : 'center';
+}
+
 /* Swiper for hero section */
 new Swiper(".hero-swiper", {
     loop: true,
@@ -40,6 +45,10 @@ new Swiper(".services-swiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+    on: {
+        resize: centerSwiperIfFewSlides,
+        init: centerSwiperIfFewSlides
+    }
 });
 
 /* Swiper for skills section */
@@ -56,6 +65,10 @@ new Swiper(".skills-swiper", {
         delay: 0,
         disableOnInteraction: true,
     },
+    on: {
+        resize: centerSwiperIfFewSlides,
+        init: centerSwiperIfFewSlides
+    }
 });
 
 /* Mobile Navbar */

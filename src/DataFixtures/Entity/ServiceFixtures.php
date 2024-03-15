@@ -16,6 +16,7 @@ class ServiceFixtures extends Fixture
             $service = new Service();
             $service->setName('Service ' . $i);
             $service->setDescription('Description ' . $i);
+            $service->setSubtitle('Subtitle ' . $i);
             $service->setPriority($i);
             $manager->persist($service);
         }

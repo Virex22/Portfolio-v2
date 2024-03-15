@@ -3,19 +3,19 @@
 {% block title %}Vincent REMY - Portfolio{% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Portfolio</h1>
-            </div>
-        </div>
-    </div>
+    {% include 'pages/home/partials/_hero.html.twig' %}
+    <h2 class="home-subtitle"> {{ "home.title.presentation"| trans({}, 'home')}}</h2>
+    {% include('pages/home/partials/_presentation.html.twig') %}
+    <h2 class="home-subtitle"> {{ "home.title.service"| trans({}, 'home')}}</h2>
+    {% include('pages/home/partials/_services.html.twig') %}
+    <h2 class="home-subtitle"> {{ "home.title.skills"| trans({}, 'home')}}</h2>
+    {% include('pages/home/partials/_skills.html.twig') %}
 {% endblock %}

@@ -1,0 +1,31 @@
+home:
+  hero:
+    slide1:
+      title: Bonjour je suis Vincent Rémy
+      subtitle: Je suis dévelopeur fullstack et logiciel
+    slide2:
+      title: Je suis un passionné depuis mes 13 ans !
+      subtitle: Tant par l’informatique que par le développement
+    slide3:
+        title: Je suis un vrai touche à tout !
+        subtitle: Venez découvrir mes compétences
+    slide4:
+        title: Envie d’en savoir plus ?
+        subtitle: Il ne vous reste qu’à me contacter
+  presentation:
+    about:
+      title: À propos
+      content: Je suis un développeur web et mobile, passionné par les nouvelles technologies et les nouvelles tendances du web.
+    skill:
+      title: Compétences
+      content: J'ai de différentes compétences dans le développement web et mobile, je suis un développeur fullstack et logiciel, je peux donc développer des applications web en integralité, mais aussi des applications mobiles. des extentions de logiciel ou jeux vidéo.
+    passion:
+      title: Passions
+      content: Le développement est une passion depuis mes 15 ans, j'ai commencé par créer des jeux mobiles, puis j'ai commencé à développer des mods de jeux puis des sites web, et enfin des applications web et mobiles.
+    realization:
+      title: Réalisations
+      content: Vous trouverez sur ce site mes réalisations, que ce soit des projets personnels ou des projets professionnels, ainsi que des projets que j'ai réalisé pour l'école ou pour des clients.
+  title:
+    presentation: Présentation
+    skills: Compétences
+    service: Réalisations

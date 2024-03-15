@@ -1,0 +1,10 @@
+<div class="skills-swiper swiper">
+    <div class="swiper-wrapper">
+        {% for skill in skills %}
+            <div class="swiper-slide">
+                <img src="{{ skill.badgeUrl }}"
+                     alt="{{ skill.name }}" >
+            </div>
+        {% endfor %}
+    </div>
+</div>

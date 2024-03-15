@@ -29,6 +29,12 @@ class ContactMessage
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $surname = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateAdd = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateUpdate = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +96,30 @@ class ContactMessage
     public function setSurname(?string $surname): static
     {
         $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getDateAdd(): ?\DateTimeInterface
+    {
+        return $this->dateAdd;
+    }
+
+    public function setDateAdd(\DateTimeInterface $dateAdd): static
+    {
+        $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    public function getDateUpdate(): ?\DateTimeInterface
+    {
+        return $this->dateUpdate;
+    }
+
+    public function setDateUpdate(\DateTimeInterface $dateUpdate): static
+    {
+        $this->dateUpdate = $dateUpdate;
 
         return $this;
     }

@@ -28,13 +28,9 @@ class Project
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
     private Collection $skills;
 
-    #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'project')]
-    private Collection $experiences;
-
     public function __construct()
     {
         $this->skills = new ArrayCollection();
-        $this->experiences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,33 +96,6 @@ class Project
     {
         if ($this->skills->removeElement($skill)) {
             $skill->removeProject($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Experience>
-     */
-    public function getExperiences(): Collection
-    {
-        return $this->experiences;
-    }
-
-    public function addExperience(Experience $experience): static
-    {
-        if (!$this->experiences->contains($experience)) {
-            $this->experiences->add($experience);
-            $experience->addProject($this);
-        }
-
-        return $this;
-    }
-
-    public function removeExperience(Experience $experience): static
-    {
-        if ($this->experiences->removeElement($experience)) {
-            $experience->removeProject($this);
         }
 
         return $this;

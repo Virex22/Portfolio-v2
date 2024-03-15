@@ -1,0 +1,23 @@
+{# En attendant les fixtures #}
+
+<div class="services-swiper swiper">
+    <div class="swiper-wrapper">
+        {% for service in services %}
+            <div class="service-card swiper-slide">
+                <div class="service-card-header">
+                    <div class="service-line-container">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="service-card-header-txt">
+                        <p class="service-card-title">{{ service.name }}</p>
+                        <p class="service-card-subtitle">{{ service.subtitle }}</p>
+                    </div>
+                </div>
+                <p class="service-card-description">{{ service.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

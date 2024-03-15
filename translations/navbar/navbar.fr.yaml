@@ -1,0 +1,7 @@
+navbar:
+  menu:
+    home: Accueil
+    about: À propos
+    realizations: Réalisations
+    skills: Compétences
+    contact: Contact

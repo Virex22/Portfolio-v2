@@ -1,8 +1,13 @@
-/* Global footer */
+@import "reset";
+/* Global layout */
 .layout-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -13,5 +18,4 @@ body {
 main {
   flex : 1;
   position: relative;
-  display: flex;
 }

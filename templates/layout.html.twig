@@ -3,9 +3,7 @@
 {% block body %}
     <div class="layout-container">
         {% block header %}
-        <header>
-            <h1>Header</h1>
-        </header>
+            {% include 'partials/_navbar.html.twig' %}
         {% endblock %}
         <main>
         {% block content %}{% endblock %}

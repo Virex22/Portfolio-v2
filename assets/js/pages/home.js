@@ -12,8 +12,11 @@ Swiper.use([Pagination, Autoplay, EffectFade, Navigation]);
 
 function centerSwiperIfFewSlides(swiper) {
     const swiperWrapper = swiper.el.querySelector('.swiper-wrapper');
-    swiperWrapper.style.justifyContent = swiper.virtualSize < swiper.size ? 'flex-start' : 'center';
-    swiper.update();
+    const totalWith = swiper.params.spaceBetween * (swiper.slidesSizesGrid.length) + swiper.slidesSizesGrid.reduce((a, b) => a + b, 0);
+    swiperWrapper.style.justifyContent = totalWith > window.innerWidth ? 'flex-start' : 'center';
+    if (totalWith > window.innerWidth) {
+        swiper.autoplay.start();
+    }
 }
 
 /* Swiper for hero section */
@@ -58,13 +61,10 @@ new Swiper(".skills-swiper", {
     loop: true,
     spaceBetween: 20,
     slidesPerView: "auto",
-    speed: 1000,
-    slidesOffsetBefore: 50,
-    slidesOffsetAfter: 50,
-    preventInteractionOnTransition: true,
+    speed: 500,
     autoplay: {
         delay: 0,
-        disableOnInteraction: true,
+        disableOnInteraction: false,
     },
     on: {
         resize: centerSwiperIfFewSlides,

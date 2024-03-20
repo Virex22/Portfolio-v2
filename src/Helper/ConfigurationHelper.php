@@ -46,7 +46,9 @@ class ConfigurationHelper
 
         if (!$configuration) {
             $configuration = (new Configuration())
-                ->setName($key);
+                ->setName($key)
+                ->setDateAdd(new \DateTime())
+                ->setDateUpdate(new \DateTime());
         }
 
         $configuration->setValue($value);

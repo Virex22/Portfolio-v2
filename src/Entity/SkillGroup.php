@@ -40,6 +40,9 @@ class SkillGroup
 
     public function getCustomName(): ?string
     {
+        if ($this->customName === null) {
+            return implode(', ', $this->skills->map(fn(Skill $skill) => $skill->getName())->toArray());
+        }
         return $this->customName;
     }
 

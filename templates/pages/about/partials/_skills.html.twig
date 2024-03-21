@@ -1,0 +1,9 @@
+<div class="skill-grid">
+    {% for skill in skillGroups %}
+        <div class="skill-group">
+            <p>{{ skill.customName }}</p>
+            <progress value="{{ skill.acquiredPercentage }}" max="100">{{ skill.acquiredPercentage }}%</progress>
+        </div>
+    {% endfor %}
+</div>
+

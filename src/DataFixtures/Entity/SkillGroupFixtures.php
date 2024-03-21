@@ -10,7 +10,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
 {
-    static int $count = 5;
+    static int $count = 15;
 
     public function getDependencies() : array
     {
@@ -26,7 +26,8 @@ class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
             $skillGroup = new SkillGroup();
             $skillGroup->setPriority($i);
             $skillGroup->setAcquiredPercentage($i * 10);
-            $skillGroup->setCustomName('Custom Name ' . $i);
+            if (rand(0, 1) === 1)
+                $skillGroup->setCustomName('Custom Name ' . $i);
             // add some skills to the skill group (unique)
             $skillGroup->addSkill(array_pop($allSkills));
             for ($j = 1; $j <= rand(1, 3); $j++)

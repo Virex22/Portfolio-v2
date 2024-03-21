@@ -1,0 +1,17 @@
+about:
+  hero:
+    bubble:
+        title: Envie de me connaître
+        text: Un peu plus ?
+    head:
+      title: Un esprit curieux
+      content: Je suis un développeur web fullstack avec une soif d'apprendre insatiable.
+    phone:
+      title: Une veille permanente
+      content: Toujours à l’affût des dernières tendances, je suis passionné par le web et les nouvelles technologies.
+    hand:
+      title: Une main vers l’avenir
+      content: Envie d'avancer ensemble ? N'hésitez pas à me contacter.
+    leg:
+      title: De solide Base
+      content: Je suis un développeur web fullstack sérieux et soucieux, vous pouvez me faire confiance.

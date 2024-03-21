@@ -2,28 +2,27 @@
     <div class="about-hero-container">
         <div class="text-bubble-container no-button-clicked">
             <div class="text-bubble-title">
-                <h1>Envie de
-                me connaître</h1>
-                <span>un peu plus ?</span>
+                <h1>{{ "about.hero.bubble.title" | trans({}, 'about') }}</h1>
+                <span>{{ "about.hero.bubble.text" | trans({}, 'about') }}</span>
             </div>
         </div>
         <div class="about-hero-img">
             <img alt="avatar" src="{{ asset('images/about/avatar.png') }}" class="img-avatar">
             <div class="circle-button head-circle-button"
-                 data-bubble-title="Un esprit curieux"
-                 data-bubble-content="Je suis un développeur web fullstack avec une soif d'apprendre insatiable.">
+                 data-bubble-title="{{ "about.hero.head.title" | trans({}, 'about') }}"
+                 data-bubble-content="{{ "about.hero.head.content" | trans({}, 'about') }}">
             </div>
             <div class="circle-button phone-circle-button"
-                    data-bubble-title="Une veille permanente"
-                    data-bubble-content="Toujours à l’affût des dernières tendances, je suis passionné par le web et les nouvelles technologies.">
+                    data-bubble-title="{{ "about.hero.phone.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.phone.content" | trans({}, 'about') }}">
             </div>
             <div class="circle-button hand-circle-button"
-                    data-bubble-title="Une main vers l’avenir"
-                    data-bubble-content="Envie d'avancer ensemble ? N'hésitez pas à me contacter.">
+                    data-bubble-title="{{ "about.hero.hand.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.hand.content" | trans({}, 'about') }}">
             </div>
             <div class="circle-button leg-circle-button"
-                    data-bubble-title="De solide Base"
-                    data-bubble-content="Je suis un développeur web fullstack sérieux et soucieux, vous pouvez me faire confiance.">
+                    data-bubble-title="{{ "about.hero.leg.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.leg.content" | trans({}, 'about') }}">
         </div>
             {% for i in 1..9 %}
                 <div class="circle-bubble circle-bubble-{{ i }}"></div>

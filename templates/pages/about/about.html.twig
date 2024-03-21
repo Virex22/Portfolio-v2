@@ -14,5 +14,14 @@
     {{ include('pages/about/partials/_hero.html.twig') }}
     <h2 class="home-subtitle"> Mes compétences </h2>
     {{ include('pages/about/partials/_skills.html.twig') }}
-    <h2 class="home-subtitle"> Mon parcours </h2>
+    <div class="about-bottom-container">
+        <div class="about-bottom-career">
+            <h2 class="home-subtitle"> Mon parcours </h2>
+            {{ include('pages/about/partials/_career.html.twig') }}
+        </div>
+        <div class="about-bottom-meet-me">
+            <h2 class="home-subtitle"> Convaincu ? <br /> Envie de se rencontrer ?</h2>
+            {{ include('pages/about/partials/_meet-me.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

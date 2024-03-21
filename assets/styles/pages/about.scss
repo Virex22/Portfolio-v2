@@ -341,3 +341,18 @@ progress::-moz-progress-bar {
   background-color: #d1c3f3;
   border-radius: 20px;
 }
+
+/* carrer and meet section */
+
+.about-bottom-container{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+
+  .about-bottom-career {
+
+  }
+  .about-bottom-meet-me {
+    width: 300px;
+  }
+}

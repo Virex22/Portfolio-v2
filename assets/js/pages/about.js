@@ -29,3 +29,17 @@ circleButton.forEach((button) => {
         chatBubble.classList.remove("no-button-clicked");
     });
 });
+
+
+const elem = document.querySelector(".about-bottom-meet-me");
+let elemY = elem.getBoundingClientRect().top + window.scrollY;
+
+elemY -= (window.innerHeight / 2) - (elem.offsetHeight / 2);
+window.addEventListener("scroll", () => {
+    if (window.scrollY > elemY) {
+        elem.classList.add("fixed");
+    } else {
+        elem.classList.remove("fixed");
+    }
+}
+);

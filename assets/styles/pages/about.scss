@@ -347,12 +347,46 @@ progress::-moz-progress-bar {
 .about-bottom-container{
   display: flex;
   justify-content: space-between;
+  margin: auto;
   width: 90%;
 
   .about-bottom-career {
-
+    // for test
+    height: 1500px;
   }
+
   .about-bottom-meet-me {
     width: 300px;
+    height: max-content;
+
+    &.fixed {
+      position: fixed;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+    }
+
+    h2.home-subtitle {
+      margin: $space-between-parts auto 20px;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn-multicolor {
+      display: block;
+      border: none;
+      cursor: pointer;
+      width: 80%;
+      color: #eeeeee;
+      margin: 10px auto;
+      background: linear-gradient(to right, #b7aeef 0%, #2b8cbf 100%);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      padding: 20px;
+    }
   }
 }

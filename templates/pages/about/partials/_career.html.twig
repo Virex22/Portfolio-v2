@@ -1,0 +1,25 @@
+<div class="career-timeline-container">
+    <div class="career-timeline">
+        <div class="center-line"></div>
+        {% for element in timeline %}
+            <div class="row">
+                <div class="item">
+                    <div class="date">
+                        <p>{{ element.startDate | date('M Y') }} {% if element.endDate %} - {{ element.endDate | date('M Y') }}{% endif %}</p>
+                    </div>
+                    <div class="content">
+                        <h3>{{ element.name }}</h3>
+                        <p>Developed and maintained websites for clients in the financial services industry.</p>
+                    </div>
+                </div>
+                <div class="circle">
+                    {% if element.type == 'formation' %}
+                        <img src="{{ asset('images/about/formation.svg') }}" alt="Formation">
+                    {% elseif element.type == 'experience' %}
+                        <img src="{{ asset('images/about/experience.svg') }}" alt="Experience">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -30,16 +30,20 @@ circleButton.forEach((button) => {
     });
 });
 
+/* handle timeline scroll */
 
-const elem = document.querySelector(".about-bottom-meet-me");
+const elem = document.querySelector(".about-bottom-meet-me:not(.keep)");
+const keepElem = document.querySelector(".about-bottom-meet-me.keep");
 let elemY = elem.getBoundingClientRect().top + window.scrollY;
 
 elemY -= (window.innerHeight / 2) - (elem.offsetHeight / 2);
 window.addEventListener("scroll", () => {
     if (window.scrollY > elemY) {
         elem.classList.add("fixed");
+        keepElem.style.display = "block";
     } else {
         elem.classList.remove("fixed");
+        keepElem.style.display = "none";
     }
 }
 );

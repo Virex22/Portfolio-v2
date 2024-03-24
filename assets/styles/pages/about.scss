@@ -382,6 +382,15 @@ h2.home-subtitle {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-gap: 20px;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+
+  @media (max-width: $mobile) {
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
 }
 
 .skill-group {

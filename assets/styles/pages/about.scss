@@ -114,6 +114,9 @@ h2.home-subtitle {
   position: relative;
   z-index: 1;
 
+  @media (max-width: $mobile) {
+    height: 650px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -133,9 +136,20 @@ h2.home-subtitle {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    @media (max-width: $mobile) {
+      height: 100%;
+      width: 100%;
+    }
+
+    @media (max-width: $foldmobile) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
     .text-bubble-container {
       width: 400px;
-      height: 200px;
+      min-height: 200px;
       position: relative;
       background-color: white;
       border: lightgray 1px solid;
@@ -143,6 +157,20 @@ h2.home-subtitle {
       display: flex;
       flex-direction: column;
       align-self: flex-end;
+
+      @media (max-width: $mobile) {
+        align-self: flex-start;
+        border-radius: 25px 25px 0 25px;
+        top: 10px;
+        right: -10px;
+        width: 95%;
+        margin: 10px 0;
+      }
+
+    @media (max-width: $foldmobile) {
+      width: 100%;
+      right: 0;
+    }
 
       &.no-button-clicked {
         .text-bubble-title {
@@ -159,6 +187,13 @@ h2.home-subtitle {
 
       &:not(.no-button-clicked) {
         .text-bubble-title {
+
+          @media (max-width: $foldmobile) {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+          }
+
           h1 {
             font-size: 1.5rem;
             font-weight: bold;
@@ -169,11 +204,23 @@ h2.home-subtitle {
             left: 40px;
             color: #968CAD;
 
+            @media (max-width: $foldmobile) {
+              position: relative;
+              top: 0;
+                left: 0;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+
             &::before {
               content: ">";
               position: absolute;
               left: -10px;
               color: #968CAD;
+
+              @media (max-width: $foldmobile) {
+                content: "";
+              }
             }
           }
 
@@ -186,6 +233,10 @@ h2.home-subtitle {
             bottom: 20px;
             left: 20px;
             color: #6c6c6c;
+
+            @media (max-width: $foldmobile) {
+              position: relative;
+            }
           }
         }
       }
@@ -196,11 +247,23 @@ h2.home-subtitle {
       width: 300px;
       position: relative;
 
+      @media (max-width: $mobile) {
+        bottom: 0;
+        right: 0;
+        height: 300px;
+        width: 300px;
+        align-self: flex-end;
+      }
+
       .circle-bubble {
         background-color: #d1c3f3;
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
+
+        @media (max-width: $foldmobile) {
+          display: none;
+        }
 
         &.circle-bubble-1 {
           height: 150px;

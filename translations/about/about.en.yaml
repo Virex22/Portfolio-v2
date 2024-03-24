@@ -1,0 +1,25 @@
+about:
+    hero:
+        bubble:
+          title: Want to know me
+          text: A little more?
+        head:
+          title: A curious mind
+          content: I am a fullstack web developer with an insatiable thirst for learning.
+        phone:
+          title: Permanent watch
+          content: Always on the lookout for the latest trends, I am passionate about the web and new technologies.
+        hand:
+          title: A hand towards the future
+          content: Want to move forward together? Do not hesitate to contact me.
+        leg:
+          title: Solid Base
+          content: I am a serious and caring fullstack web developer, you can trust me.
+    meetme:
+        button:
+          contactme: Contact me
+          mycv: My CV
+    title:
+      myskill: My skills
+      career: My professional experience
+      convinced: Convinced?

@@ -15,3 +15,11 @@ about:
     leg:
       title: De solide Base
       content: Je suis un développeur web fullstack sérieux et soucieux, vous pouvez me faire confiance.
+  meetme:
+    button:
+      contactme: Me contacter
+      mycv: Mon CV
+  title:
+    myskill: Mes compétences
+    career: Mon parcours professionnel
+    convinced: Convaincu ?

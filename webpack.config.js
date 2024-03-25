@@ -24,6 +24,7 @@ Encore
     // JavaScript
     .addEntry('app', './assets/app.js')
     .addEntry('home', './assets/js/pages/home.js')
+    .addEntry('about', './assets/js/pages/about.js')
 
     // SCSS
     .addEntry('maintenance', './assets/styles/pages/maintenance.scss')

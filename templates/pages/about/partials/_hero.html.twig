@@ -1,0 +1,32 @@
+<header class="about-hero">
+    <div class="about-hero-container">
+        <div class="text-bubble-container no-button-clicked">
+            <div class="text-bubble-title">
+                <h1>{{ "about.hero.bubble.title" | trans({}, 'about') }}</h1>
+                <span>{{ "about.hero.bubble.text" | trans({}, 'about') }}</span>
+            </div>
+        </div>
+        <div class="about-hero-img">
+            <img alt="avatar" src="{{ asset('images/about/avatar.png') }}" class="img-avatar">
+            <div class="circle-button head-circle-button"
+                 data-bubble-title="{{ "about.hero.head.title" | trans({}, 'about') }}"
+                 data-bubble-content="{{ "about.hero.head.content" | trans({}, 'about') }}">
+            </div>
+            <div class="circle-button phone-circle-button"
+                    data-bubble-title="{{ "about.hero.phone.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.phone.content" | trans({}, 'about') }}">
+            </div>
+            <div class="circle-button hand-circle-button"
+                    data-bubble-title="{{ "about.hero.hand.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.hand.content" | trans({}, 'about') }}">
+            </div>
+            <div class="circle-button leg-circle-button"
+                    data-bubble-title="{{ "about.hero.leg.title" | trans({}, 'about') }}"
+                    data-bubble-content="{{ "about.hero.leg.content" | trans({}, 'about') }}">
+        </div>
+            {% for i in 1..9 %}
+                <div class="circle-bubble circle-bubble-{{ i }}"></div>
+            {% endfor %}
+        </div>
+    </div>
+</header>

@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class SkillFixtures extends Fixture
 {
     // need to have more than skillGroupFixtures
-    static int $count = 20;
+    static int $count = 35;
 
     public function load(ObjectManager $manager): void
     {

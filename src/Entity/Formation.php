@@ -23,7 +23,7 @@ class Formation
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $StartDate = null;
+    private ?\DateTimeInterface $startDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $EndDate = null;
@@ -67,12 +67,12 @@ class Formation
 
     public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->StartDate;
+        return $this->startDate;
     }
 
-    public function setStartDate(\DateTimeInterface $StartDate): static
+    public function setStartDate(\DateTimeInterface $startDate): static
     {
-        $this->StartDate = $StartDate;
+        $this->startDate = $startDate;
 
         return $this;
     }

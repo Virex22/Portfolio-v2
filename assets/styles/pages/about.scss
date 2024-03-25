@@ -443,12 +443,23 @@ progress::-moz-progress-bar {
     align-items: center;
   }
 
+  @media (max-width: $mobile) {
+    width: 95%;
+  }
+
   .about-bottom-career {
     width: 65%;
     margin: auto;
 
+    h2.home-subtitle {
+      @media (max-width: $small-desktop) {
+        margin: $space-between-parts-responsive 0;
+        text-align: center;
+      }
+    }
+
     @media (max-width: $tablet) {
-        width: 90%;
+        width: 100%;
     }
   }
 
@@ -502,13 +513,29 @@ progress::-moz-progress-bar {
       position: relative;
       margin: 50px 0;
 
+      @media (max-width: $mobile) {
+        margin: 20px 0;
+        width: 100%;
+      }
+
       &:nth-child(odd) {
         justify-content: flex-start;
+        @media (max-width: $mobile) {
+          justify-content: flex-end;
+        }
 
         .item::before {
           right: -7px;
             border-top: 1px solid #d1c3f3;
             border-right: 1px solid #d1c3f3;
+
+          @media (max-width: $mobile) {
+            left: -7px;
+            border-bottom: 1px solid #d1c3f3;
+            border-left: 1px solid #d1c3f3;
+            border-top: none;
+            border-right: none;
+          }
         }
       }
 
@@ -525,6 +552,13 @@ progress::-moz-progress-bar {
       .item {
         position: relative;
         width: calc(50% - 40px);
+
+        @media (max-width: $mobile) {
+            width: 95%;
+        }
+        @media (max-width: $foldmobile) {
+            width: 100%;
+        }
 
         h3 {
           font-size: 1.5rem;
@@ -562,6 +596,18 @@ progress::-moz-progress-bar {
           width: 15px;
           background-color: #f3f3f3;
           transform: rotate(45deg);
+
+          @media (max-width: $mobile) {
+            display: none;
+          }
+
+          @media (max-width: $mobile) {
+            display: block;
+          }
+
+          @media (max-width: $foldmobile) {
+            display: none;
+          }
         }
       }
 
@@ -582,10 +628,25 @@ progress::-moz-progress-bar {
         box-shadow: 0 0 0 3px #aba1ec, inset 0 2px 0 rgba(0, 0, 0, 0.08),
         0 3px 0 4px rgba(0, 0, 0, 0.05);
 
+
+        @media (max-width: $mobile) {
+          left: 0;
+          width: 25px;
+          height: 25px;
+        }
+
+        @media (max-width: $foldmobile) {
+          display: none;
+        }
+
         img {
           width: 25px;
           height: 25px;
           filter: invert(1);
+          @media (max-width: $mobile) {
+            width: 15px;
+            height: 15px;
+          }
         }
       }
     }
@@ -599,5 +660,12 @@ progress::-moz-progress-bar {
     width: 4px;
     background-color: #b7aeef;
     transform: translateX(-50%);
-  }
+
+    @media (max-width: $mobile) {
+      left: 0;
+    }
+
+    @media (max-width: $foldmobile) {
+      display: none;
+    }}
 }

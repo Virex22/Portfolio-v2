@@ -438,9 +438,18 @@ progress::-moz-progress-bar {
   margin: auto;
   width: 90%;
 
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .about-bottom-career {
     width: 65%;
     margin: auto;
+
+    @media (max-width: $tablet) {
+        width: 90%;
+    }
   }
 
   .about-bottom-meet-me {

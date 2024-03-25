@@ -463,10 +463,16 @@ progress::-moz-progress-bar {
     }
   }
 
+  /* Meet me section */
+
   .about-bottom-meet-me {
     width: 300px;
     height: max-content;
     position: relative;
+
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
 
     &.fixed {
       position: fixed;
@@ -478,10 +484,35 @@ progress::-moz-progress-bar {
     h2.home-subtitle {
       margin: $space-between-parts auto 20px;
       text-align: center;
+      @media (max-width: $tablet) {
+        margin: $space-between-parts-responsive auto 20px;
+      }
     }
 
     a {
       text-decoration: none;
+
+      @media (max-width: $tablet) {
+        width: 50%;
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 20px auto;
+
+        @media (max-width: $tablet) {
+          flex-direction: row;
+            justify-content: space-around;
+          width: 100%;
+        }
+        @media (max-width: $mobile) {
+            flex-direction: column;
+        }
     }
 
     .btn-multicolor {

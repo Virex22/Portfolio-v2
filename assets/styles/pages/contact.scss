@@ -39,6 +39,7 @@
   .form-wrapper {
     flex: 1;
     padding: 20px;
+    width: 100%;
   }
 
   aside {
@@ -67,5 +68,53 @@
   }
   p {
     text-align: justify;
+  }
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+
+  &> div {
+    margin: 25px 0;
+    &> div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  label {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin: 10px 0 2px;
+  }
+  input, textarea {
+      padding: 10px;
+      border: 1px solid #575757;
+      border-radius: 5px;
+      font-size: 1em;
+  }
+  textarea {
+    resize: vertical;
+  }
+  button {
+    padding: 20px;
+    width: 50%;
+    margin: 20px auto;
+    background-color: white;
+    color: #575757;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid #575757;
+    border-radius: 10px;
+    &:hover {
+      background-color: darken(white, 10%);
+      border: 1px solid darken(white, 10%);
+      color: black;
+    }
   }
 }

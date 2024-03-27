@@ -6,6 +6,8 @@ use App\Entity\ContactMessage;
 use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -53,7 +55,7 @@ class ContactType extends AbstractType
                 ]
             )
             ->add('message',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Message',
                     'attr' => [
@@ -65,9 +67,17 @@ class ContactType extends AbstractType
                 'mapped' => false,
                 'constraints' => new Recaptcha3([
                     'message' => 'reCaptcha validation failed',
-                    'action_name' => 'contact',
                 ]),
             ])
+            ->add('submit',
+                SubmitType::class,
+                [
+                    'label' => 'Send Message',
+                    'attr' => [
+                        'class' => 'btn btn-primary',
+                    ],
+                ]
+            )
         ;
     }
 

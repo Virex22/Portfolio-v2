@@ -16,41 +16,38 @@
     </div>
     <div class="container">
        <div class="form-wrapper">
-           <h1>Me contacter</h1>
+           <h1>{{ "contact.title"|trans({}, 'contact') }}</h1>
            <p>
-               Besoin d’en savoir plus ? Envie d’avancer ensemble ? <br />
-               Vous pouvez me contacter, c’est juste en dessous !
+               {{ "contact.description.line1"|trans({}, 'contact') }}
+                <br />
+               {{ "contact.description.line2"|trans({}, 'contact') }}
            </p>
        </div>
        <aside>
            <div>
-               <h2>Coordonnées</h2>
+               <h2>{{ "contact.contact.title"|trans({}, 'contact') }}</h2>
                <ul>
-                   <li>Adresse : 1 rue de la Paix, <br /> 75000 Paris</li>
-                   <li>Téléphone : 01 23 45 67 89</li>
-                   <li>Email : vincentremy222@gmail.com</li>
+                   <li>{{ "contact.contact.phone"|trans({}, 'contact') }} 06 50 76 00 28</li>
+                   <li>{{ "contact.contact.email"|trans({}, 'contact') }}</li>
                </ul>
            </div>
            <div>
-               <h2>Mentions légales</h2>
-               <p>
-                   Ce site est édité par Vincent REMY, <br />
-                   1 rue de la Paix, 75000 Paris
-               </p>
+               <h2>{{ "contact.legal.title"|trans({}, 'contact') }}</h2>
+               <p>{{ "contact.legal.address"|trans({}, 'contact') }}</p>
            </div>
            <div>
-               <h2>FAQ</h2>
-               <h3>Quels sont vos disponibilités ?</h3>
+               <h2>{{ "contact.faq.title"|trans({}, 'contact') }}</h2>
+               <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
                <p>
-                   Je suis actuellement en mission et je ne serai pas disponible avant fin octobre 2022. Vous pouvez toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau pour le développement de votre projet.
+                   {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
                </p>
-               <h3>Quels sont vos tarifs ?</h3>
+               <h3>{{ "contact.faq.pricing.title"|trans({}, 'contact') }}</h3>
                <p>
-                   La tarification dépend du projet et surtout du temps qui sera nécessaire pour le mener à bien. À titre indicatif mon tarif journalier moyen se situe aux alentour de 700€/jour.
+                  {{ "contact.faq.pricing.answer"|trans({}, 'contact') }}
                </p>
-               <h3>Effectuez-vous des missions en Agence ?</h3>
+               <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
                <p>
-                   J'effectue l'ensemble de mes missions à distance.
+                   {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
                </p>
            </div>
        </aside>

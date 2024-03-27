@@ -9,8 +9,11 @@
   align-items: center;
   background: url('../../images/banner-background.png') no-repeat center center fixed;
   background-size: cover;
-  position: relative;
   height: 30vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 
   div::before {
     content: "";
@@ -20,5 +23,49 @@
     bottom: 0;
     left: 0;
     background-color: rgba(212, 227, 255, 0.9);
+  }
+}
+
+.container {
+  width: 80vw;
+  margin: 50px auto;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 70vh;
+  display: flex;
+
+  .form-wrapper {
+    flex: 1;
+    padding: 20px;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+  }
+
+  h1,h2,h3 {
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.75em;
+    margin: 0 0 20px;
+  }
+  h3 {
+    margin: 5px 0;
+  }
+  p, li, h3{
+    font-size: 1.1em;
+    line-height: 1.4;
+  }
+  p {
+    text-align: justify;
   }
 }

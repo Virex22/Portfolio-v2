@@ -21,3 +21,23 @@ contact:
     missions:
       title: Effectuez-vous des missions en Agence ?
       answer: J'effectue l'ensemble de mes missions à distance.
+type:
+  name:
+    label: Prénom ou nom de l'entreprise
+    placeholder: Vincent ou Chaussea
+  surname:
+    label: Nom (optionnel)
+    placeholder: REMY
+  email:
+    label: Email
+    placeholder: vincentremy222@gmail.com
+  subject:
+    label: Objet
+    placeholder: Demande de devis
+  message:
+    label: Message
+    placeholder: Bonjour Vincent, je souhaiterais obtenir un devis pour la création d'un script d'automatisation de tâches.
+  captcha:
+    error: La vérification captcha a échoué. Veuillez réessayer.
+  submit:
+    label: Envoyer le message

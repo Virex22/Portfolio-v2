@@ -21,3 +21,23 @@ contact:
     missions:
       title: Do you carry out missions in an Agency?
       answer: I carry out all my missions remotely.
+type:
+  name:
+    label: First name or company name
+    placeholder: Vincent or Chaussea
+  surname:
+    label: Last name (optional)
+    placeholder: REMY
+  email:
+    label: Email
+    placeholder: vincentremy222@gmail.com
+  subject:
+    label: Subject
+    placeholder: Quote request
+  message:
+    label: Message
+    placeholder: Hello Vincent, I would like to get a quote for the creation of a task automation script.
+  captcha:
+    error: Captcha verification failed. Please try again.
+  submit:
+    label: Send the message

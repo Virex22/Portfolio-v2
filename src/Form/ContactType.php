@@ -11,27 +11,30 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Translation\TranslatableMessage;
 
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        //translating the form
+
         $builder
             ->add('name',
                 TextType::class,
                 [
-                    'label' => 'First Name or Company Name',
+                    'label' => new TranslatableMessage('type.name.label', [], 'contact'),
                     'attr' => [
-                        'placeholder' => 'Enter your first name',
+                        'placeholder' => new TranslatableMessage('type.name.placeholder', [], 'contact'),
                     ],
                 ]
             )
             ->add('surname',
                 TextType::class,
                 [
-                    'label' => 'Last Name',
+                    'label' => new TranslatableMessage('type.surname.label', [], 'contact'),
                     'attr' => [
-                        'placeholder' => 'Enter your last name',
+                        'placeholder' => new TranslatableMessage('type.surname.placeholder', [], 'contact'),
                     ],
                     'required' => false,
                 ]
@@ -39,40 +42,40 @@ class ContactType extends AbstractType
             ->add('email',
                 TextType::class,
                 [
-                    'label' => 'Email',
+                    'label' => new TranslatableMessage('type.email.label', [], 'contact'),
                     'attr' => [
-                        'placeholder' => 'Enter your email',
+                        'placeholder' => new TranslatableMessage('type.email.placeholder', [], 'contact'),
                     ],
                 ]
             )
             ->add('subject',
                 TextType::class,
                 [
-                    'label' => 'Subject',
+                    'label' => new TranslatableMessage('type.subject.label', [], 'contact'),
                     'attr' => [
-                        'placeholder' => 'Enter the subject',
+                        'placeholder' => new TranslatableMessage('type.subject.placeholder', [], 'contact'),
                     ],
                 ]
             )
             ->add('message',
                 TextareaType::class,
                 [
-                    'label' => 'Message',
+                    'label' => new TranslatableMessage('type.message.label', [], 'contact'),
                     'attr' => [
-                        'placeholder' => 'Enter your message',
+                        'placeholder' => new TranslatableMessage('type.message.placeholder', [], 'contact'),
                     ],
                 ]
             )
             ->add('captcha', Recaptcha3Type::class, [
                 'mapped' => false,
                 'constraints' => new Recaptcha3([
-                    'message' => 'reCaptcha validation failed',
+                    'message' => new TranslatableMessage('type.captcha.error', [], 'contact'),
                 ]),
             ])
             ->add('submit',
                 SubmitType::class,
                 [
-                    'label' => 'Send Message',
+                    'label' => new TranslatableMessage('type.submit.label', [], 'contact'),
                     'attr' => [
                         'class' => 'btn btn-primary',
                     ],

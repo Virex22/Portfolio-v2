@@ -26,5 +26,13 @@ services:
     depends_on:
       - database
 
+  mailtrap:
+    image: dbck/mailtrap
+    restart: always
+    ports:
+      - "8025:80"
+      - "2525:25"
+      - "2465:465"
+
 volumes:
   db_data: {}

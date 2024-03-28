@@ -21,6 +21,7 @@ contact:
     missions:
       title: Effectuez-vous des missions en Agence ?
       answer: J'effectue l'ensemble de mes missions à distance.
+  success: Votre message a bien été envoyé.
 type:
   name:
     label: Prénom ou nom de l'entreprise

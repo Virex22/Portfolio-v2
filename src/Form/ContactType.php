@@ -12,13 +12,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Translation\TranslatableMessage;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        //translating the form
-
         $builder
             ->add('name',
                 TextType::class,
@@ -68,9 +67,7 @@ class ContactType extends AbstractType
             )
             ->add('captcha', Recaptcha3Type::class, [
                 'mapped' => false,
-                'constraints' => new Recaptcha3([
-                    'message' => new TranslatableMessage('type.captcha.error', [], 'contact'),
-                ]),
+                'constraints' => new Recaptcha3([]),
             ])
             ->add('submit',
                 SubmitType::class,

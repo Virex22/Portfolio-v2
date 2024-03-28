@@ -21,6 +21,8 @@ contact:
     missions:
       title: Do you carry out missions in an Agency?
       answer: I carry out all my missions remotely.
+    success: Your message has been sent successfully.
+    error: An error occurred while sending your message. Please try again.
 type:
   name:
     label: First name or company name

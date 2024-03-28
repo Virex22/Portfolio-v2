@@ -36,10 +36,25 @@
   min-height: 70vh;
   display: flex;
 
+  @media (max-width: $small-desktop) {
+    width: 95vw;
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $foldmobile) {
+    padding: 10px;
+  }
+
   .form-wrapper {
     flex: 1;
     padding: 20px;
     width: 100%;
+    @media (max-width: $tablet) {
+      padding: 5px;
+    }
   }
 
   aside {
@@ -47,17 +62,37 @@
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
+
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
   }
 
   h1,h2,h3 {
     font-weight: 700;
+    @media (max-width: $tablet) {
+      text-align: center;
+      margin: 20px 0;
+    }
   }
   h1 {
     font-size: 2em;
+
+    @media (max-width: $foldmobile) {
+      font-size: 1.75em;
+    }
   }
   h2 {
     font-size: 1.75em;
     margin: 0 0 20px;
+    @media (max-width: $tablet) {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    @media (max-width: $foldmobile) {
+      font-size: 1.5em;
+    }
   }
   h3 {
     margin: 5px 0;
@@ -65,9 +100,19 @@
   p, li, h3{
     font-size: 1.1em;
     line-height: 1.4;
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+
+    @media (max-width: $foldmobile) {
+      font-size: 0.9em;
+    }
   }
   p {
     text-align: justify;
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
   }
 }
 
@@ -111,12 +156,20 @@ form {
     font-weight: 700;
     font-size: 0.9em;
     margin: 10px 0 2px;
+
+    @media (max-width: $foldmobile) {
+      font-size: 0.75em;
+    }
   }
   input, textarea {
       padding: 10px;
       border: 1px solid #575757;
       border-radius: 5px;
       font-size: 1em;
+
+    @media (max-width: $foldmobile) {
+      font-size: 0.9em;
+    }
   }
   textarea {
     resize: vertical;
@@ -135,6 +188,10 @@ form {
       background-color: darken(white, 10%);
       border: 1px solid darken(white, 10%);
       color: black;
+    }
+
+    @media (max-width: $mobile) {
+        width: 100%;
     }
   }
 }

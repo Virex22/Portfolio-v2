@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Vincent REMY - Portfolio{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('contact') }}
+{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <div></div>
+    </div>
+    <div class="container">
+       <div class="form-wrapper">
+           <h1>{{ "contact.title"|trans({}, 'contact') }}</h1>
+           <p>
+               {{ "contact.description.line1"|trans({}, 'contact') }}
+                <br />
+               {{ "contact.description.line2"|trans({}, 'contact') }}
+           </p>
+
+           {{ form_start(form) }}
+               <div>
+                   {% if success is defined %}
+                       {% if success %}
+                           <div class="alert alert-success">
+                               {{ "contact.success"|trans({}, 'contact') }}
+                           </div>
+                       {% else %}
+                           <div class="alert alert-danger">
+                               {{ "type.captcha.error"|trans({}, 'contact') }}
+                           </div>
+                       {% endif %}
+                   {% endif %}
+                   {{ form_row(form.name) }}
+                   {{ form_row(form.surname) }}
+                   {{ form_row(form.email) }}
+                   {{ form_row(form.subject) }}
+                   {{ form_row(form.message) }}
+                   {{ form_row(form.submit) }}
+               </div>
+           {{ form_end(form) }}
+       </div>
+       <aside>
+           <div>
+               <h2>{{ "contact.contact.title"|trans({}, 'contact') }}</h2>
+               <ul>
+                   <li>{{ "contact.contact.phone"|trans({}, 'contact') }} 06 50 76 00 28</li>
+                   <li>{{ "contact.contact.email"|trans({}, 'contact') }} vincentremy222@gmail.com</li>
+               </ul>
+           </div>
+           <div>
+               <h2>{{ "contact.legal.title"|trans({}, 'contact') }}</h2>
+               <p>{{ "contact.legal.address"|trans({}, 'contact') }}</p>
+           </div>
+           <div>
+               <h2>{{ "contact.faq.title"|trans({}, 'contact') }}</h2>
+               <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
+               <p>
+                   {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
+               </p>
+               <h3>{{ "contact.faq.pricing.title"|trans({}, 'contact') }}</h3>
+               <p>
+                  {{ "contact.faq.pricing.answer"|trans({}, 'contact') }}
+               </p>
+               <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
+               <p>
+                   {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
+               </p>
+           </div>
+       </aside>
+    </div>
+{% endblock %}

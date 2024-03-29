@@ -1,0 +1,53 @@
+{# templates/emails/contact_message.html.twig #}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Message de Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Nouveau Message de Contact</h1>
+    <p>Bonjour,</p>
+    <p>Vous avez reçu un nouveau message de contact de la part de {{ contactMessage.getName() }} {{ contactMessage.getSurname() }} le {{ contactMessage.getDateAdd()|date('d/m/Y H:i:s') }}.</p>
+    <p>Sujet du message : {{ contactMessage.getSubject() }}</p>
+    <p>Voici le contenu du message :</p>
+    <p>{{ contactMessage.getMessage() }}</p>
+    <p>Vous pouvez répondre à ce message à l'adresse suivante : {{ contactMessage.getEmail() }}</p>
+    <p>Cordialement,</p>
+</div>
+</body>
+</html>

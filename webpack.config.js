@@ -26,6 +26,7 @@ Encore
     .addEntry('home', './assets/js/pages/home.js')
     .addEntry('about', './assets/js/pages/about.js')
     .addEntry('contact', './assets/js/pages/contact.js')
+    .addEntry('projects', './assets/js/pages/projects.js')
 
     // SCSS
     .addEntry('maintenance', './assets/styles/pages/maintenance.scss')

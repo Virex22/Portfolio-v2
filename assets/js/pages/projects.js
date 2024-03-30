@@ -1,0 +1,1 @@
+import "../../styles/pages/projects.scss";

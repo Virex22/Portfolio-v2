@@ -1,0 +1,67 @@
+<div class="projects-container">
+    <div class="filter-projects">
+        {#        filre disponible : technologie, soft skill; trie disponible: date, temps passé #}
+        {% include 'pages/projects/_partials/components/_select.html.twig' with {
+            'label': 'Technologie',
+            'name': 'technology',
+            'options': [
+                {'value': 'php', 'label': 'PHP', 'img': 'https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg'},
+                {'value': 'javascript', 'label': 'Javascript'},
+                {'value': 'html', 'label': 'HTML'},
+                {'value': 'css', 'label': 'CSS'},
+                {'value': 'python', 'label': 'Python'},
+                {'value': 'java', 'label': 'Java'},
+                {'value': 'c', 'label': 'C'},
+                {'value': 'c++', 'label': 'C++'},
+                {'value': 'c#', 'label': 'C#'},
+                {'value': 'ruby', 'label': 'Ruby'},
+                {'value': 'swift', 'label': 'Swift'},
+                {'value': 'kotlin', 'label': 'Kotlin'},
+                {'value': 'dart', 'label': 'Dart'},
+                {'value': 'go', 'label': 'Go'},
+                {'value': 'rust', 'label': 'Rust'},
+                {'value': 'typescript', 'label': 'Typescript'},
+                {'value': 'scala', 'label': 'Scala'},
+                {'value': 'r', 'label': 'R'},
+                {'value': 'shell', 'label': 'Shell'},
+                {'value': 'sql', 'label': 'SQL'},
+                {'value': 'mongodb', 'label': 'MongoDB'},
+                {'value': 'mysql', 'label': 'MySQL'},
+                {'value': 'postgresql', 'label': 'PostgreSQL'},
+                {'value': 'oracle', 'label': 'Oracle'},
+                {'value': 'firebase', 'label': 'Firebase'},
+                {'value': 'sqlite', 'label': 'SQLite'}
+            ]} %}
+        {% include 'pages/projects/_partials/components/_select.html.twig' with {
+            'label': 'Soft skill',
+            'name': 'softSkill',
+            'options': [
+                {'value': 'communication', 'label': 'Communication'},
+                {'value': 'teamwork', 'label': 'Travail en équipe'}
+            ]
+        } %}
+        {% include 'pages/projects/_partials/components/_select.html.twig' with {
+            'label': 'Trie par',
+            'name': 'sort',
+            'options': [
+                {'value': 'date', 'label': 'Date'},
+                {'value': 'timeSpent', 'label': 'Temps passé'}
+            ]
+        } %}
+    </div>
+    <div class="project-grid">
+        {% for project in projects %}
+            <div class="project-card">
+                <div class="project-card-image">
+                    {#  placeholder for the first dev #}
+                    <img src="https://picsum.photos/200/300" alt="project image">
+                </div>
+                <div class="project-card-content">
+                    <h2 class="project-card-title">{{ project.name }}</h2>
+                    <p class="project-card-description">{{ project.description }}</p>
+                </div>
+                <button class="project-card-button">Voir le projet</button>
+            </div>
+        {% endfor %}
+    </div>
+</div>

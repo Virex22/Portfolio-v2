@@ -10,21 +10,28 @@
         {% if softFacetOptions is not empty %}
             {% include 'pages/projects/_partials/components/_select.html.twig' with {
                 'label': 'Soft skill',
-                'name': 'softSkill',
+                'name': 'soft-skill',
                 'options': softFacetOptions} %}
         {% endif %}
         {% include 'pages/projects/_partials/components/_select.html.twig' with {
             'label': 'Trie par',
             'name': 'sort',
             'options': [
-                {'value': 'date', 'label': 'Date'},
-                {'value': 'timeSpent', 'label': 'Temps passé'}
+                {'value': 'pertinence', 'label': 'Pertinence'},
+                {'value': 'bdate-desc', 'label': 'Date de début (plus récent)'},
+                {'value': 'bdate-asc', 'label': 'Date de début (plus ancien)'},
+                {'value': 'edate-desc', 'label': 'Date de fin (plus récent)'},
+                {'value': 'edate-asc', 'label': 'Date de fin (plus ancien)'},
+                {'value': 'duration-desc', 'label': 'Durée (plus long)'},
+                {'value': 'duration-asc', 'label': 'Durée (plus court)'}
             ]
         } %}
     </div>
     <div class="project-grid">
         {% for project in projects %}
-            <div class="project-card">
+            {% set encodedSkills = project.skills | map(s => s.id) | join(',') | base64_encode %}
+            {#  placeholder for the first dev #}
+            <div class="project-card" data-skill="{{ encodedSkills }}" data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
                 <div class="project-card-image">
                     {#  placeholder for the first dev #}
                     <img src="https://picsum.photos/200/300" alt="project image">

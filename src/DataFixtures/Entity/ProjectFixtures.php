@@ -26,6 +26,8 @@ class ProjectFixtures extends Fixture
             $project->setName('Project ' . $i);
             $project->setDescription('Description ' . $i);
             $project->setContent('Content ' . $i);
+            $project->setStartDate(new \DateTime('now - ' . $i . ' years'));
+            $project->setEndDate(new \DateTime('now - ' . ($i - 1) . ' years - ' . $i . ' days'));
 
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)

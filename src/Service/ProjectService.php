@@ -23,7 +23,12 @@ class ProjectService
     public function getFacetOptionsWithType(string $type): array
     {
         $skills = $this->skillRepository->findAllByType($type);
-        $skillsOptions = [];
+        $skillsOptions = [
+            [
+                'value' => 'all',
+                'label' => 'Tous'
+            ]
+        ];
 
         foreach ($skills as $skill) {
             $skillsOptions[] = [

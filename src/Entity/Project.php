@@ -28,6 +28,12 @@ class Project
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
     private Collection $skills;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $startDate = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $endDate = null;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
@@ -97,6 +103,30 @@ class Project
         if ($this->skills->removeElement($skill)) {
             $skill->removeProject($this);
         }
+
+        return $this;
+    }
+
+    public function getStartDate(): ?\DateTimeInterface
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(\DateTimeInterface $startDate): static
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $endDate): static
+    {
+        $this->endDate = $endDate;
 
         return $this;
     }

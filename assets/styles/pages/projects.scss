@@ -69,9 +69,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 250px;
     padding: 0 0 20px;
+    transition: 0.1s ease;
 
     &.hidden {
-      display: none;
+      transform: scale(0.01);
+    }
+    &:not(.hidden) {
+      transform: scale(1);
     }
 
     &:hover {

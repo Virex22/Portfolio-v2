@@ -34,9 +34,22 @@ const handleFilterChange = () => {
         });
 
         if (isMatch)
-            card.classList.remove('hidden');
+        {
+            setTimeout(() => {
+                card.style = null;
+                //timeout to let the transition effect work (not NaN scale)
+                setTimeout(() => {
+                card.classList.remove('hidden');
+                }, 10);
+            }, 90);
+        }
         else
+        {
             card.classList.add('hidden');
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 90);
+        }
     });
 };
 

@@ -22,5 +22,6 @@ const select = document.querySelectorAll('.tom-select');
 select.forEach((elem) => {
     new TomSelect(elem, {
         mode: 'single',
+        controlInput: null
     });
 });

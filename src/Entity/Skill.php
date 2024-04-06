@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\SkillType;
 use App\Repository\SkillRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -24,6 +25,9 @@ class Skill
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private string $type = SkillType::TECH_SKILL;
 
     #[ORM\ManyToMany(targetEntity: Formation::class, inversedBy: 'skills')]
     private Collection $formations;
@@ -81,6 +85,22 @@ class Skill
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        if (!in_array($type, SkillType::toArray())) {
+            throw new \InvalidArgumentException('Invalid type');
+        }
+
+        $this->type = $type;
 
         return $this;
     }

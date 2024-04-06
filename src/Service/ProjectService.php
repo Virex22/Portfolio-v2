@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Enum\SkillType;
+use App\Enum\ESkillType;
 use App\Repository\SkillRepository;
 
 class ProjectService
@@ -17,7 +17,7 @@ class ProjectService
     /**
      * Get technical facet options for projects.
      *
-     * @param string $type SkillType The skill type in SkillType enum.
+     * @param string $type ESkillType The skill type in ESkillType enum.
      * @return array
      */
     public function getFacetOptionsWithType(string $type): array

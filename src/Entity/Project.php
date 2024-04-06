@@ -34,9 +34,13 @@ class Project
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $endDate = null;
 
+    #[ORM\OneToMany(targetEntity: ProjectContent::class, mappedBy: 'project', orphanRemoval: true)]
+    private Collection $projectContents;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
+        $this->projectContents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,6 +131,36 @@ class Project
     public function setEndDate(\DateTimeInterface $endDate): static
     {
         $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProjectContent>
+     */
+    public function getProjectContents(): Collection
+    {
+        return $this->projectContents;
+    }
+
+    public function addProjectContent(ProjectContent $projectContent): static
+    {
+        if (!$this->projectContents->contains($projectContent)) {
+            $this->projectContents->add($projectContent);
+            $projectContent->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProjectContent(ProjectContent $projectContent): static
+    {
+        if ($this->projectContents->removeElement($projectContent)) {
+            // set the owning side to null (unless already changed)
+            if ($projectContent->getProject() === $this) {
+                $projectContent->setProject(null);
+            }
+        }
 
         return $this;
     }

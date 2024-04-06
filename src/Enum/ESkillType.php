@@ -1,7 +1,7 @@
 <?php
 namespace App\Enum;
 
-class SkillType
+class ESkillType
 {
 public const TECH_SKILL = 'technical';
 public const SOFT_SKILL = 'soft';

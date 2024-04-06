@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Skill;
-use App\Enum\SkillType;
+use App\Enum\ESkillType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -24,7 +24,7 @@ class SkillRepository extends ServiceEntityRepository
 
     public function findAllByType(string $type): array
     {
-        if (!in_array($type, SkillType::toArray())) {
+        if (!in_array($type, ESkillType::toArray())) {
             throw new \InvalidArgumentException('Invalid skill type');
         }
 

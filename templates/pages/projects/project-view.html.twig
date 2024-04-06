@@ -12,8 +12,7 @@
 
 {% block content %}
     {% include 'pages/projects/_partials/_hero.html.twig' with {
-        title: 'Mes realisations',
-        description: 'Voici une sélection de projets que j\'ai eu le privilège de diriger ou de contribuer activement'
+        'title': project.name,
+        'description': project.description,
     } %}
-    {% include 'pages/projects/_partials/_projects.html.twig' %}
 {% endblock %}

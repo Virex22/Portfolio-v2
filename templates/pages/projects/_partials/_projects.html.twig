@@ -31,16 +31,20 @@
         {% for project in projects %}
             {% set encodedSkills = project.skills | map(s => s.id) | join(',') | base64_encode %}
             {#  placeholder for the first dev #}
-            <div class="project-card" data-skill="{{ encodedSkills }}" data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
-                <div class="project-card-image">
-                    {#  placeholder for the first dev #}
-                    <img src="https://picsum.photos/200/300" alt="project image">
-                </div>
+            <div class="project-card" data-skill="{{ encodedSkills }}"
+                 data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
+                <a href="{{ path('project_show', {'id': project.id}) }}">
+                    <div class="project-card-image">
+                        {#  placeholder for the first dev #}
+                        <img src="https://picsum.photos/200/300" alt="project image">
+                    </div>
+                </a>
                 <div class="project-card-content">
-                    <h2 class="project-card-title">{{ project.name }}</h2>
+                    <a href="{{ path('project_show', {'id': project.id}) }}">
+                        <h2 class="project-card-title">{{ project.name }}</h2></a>
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
-                <button class="project-card-button">Voir le projet</button>
+                <button class="project-card-button" onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet</button>
             </div>
         {% endfor %}
     </div>

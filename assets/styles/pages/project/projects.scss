@@ -40,6 +40,7 @@
     &.hidden {
       transform: scale(0.01);
     }
+
     &:not(.hidden) {
       transform: scale(1);
     }
@@ -121,6 +122,7 @@
   .ts-wrapper {
     margin-top: 10px;
   }
+
   .select-box {
     position: relative;
     font-family: Arial, sans-serif;

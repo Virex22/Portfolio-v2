@@ -13,7 +13,7 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
 {
     static int $count = 50;
 
-    public function getDependencies() : array
+    public function getDependencies(): array
     {
         return [
             ProjectFixtures::class,

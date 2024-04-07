@@ -7,11 +7,11 @@ home:
       title: Je suis un passionné depuis mes 13 ans !
       subtitle: Tant par l’informatique que par le développement
     slide3:
-        title: Je suis un vrai touche à tout !
-        subtitle: Venez découvrir mes compétences
+      title: Je suis un vrai touche à tout !
+      subtitle: Venez découvrir mes compétences
     slide4:
-        title: Envie d’en savoir plus ?
-        subtitle: Il ne vous reste qu’à me contacter
+      title: Envie d’en savoir plus ?
+      subtitle: Il ne vous reste qu’à me contacter
   presentation:
     about:
       title: À propos

@@ -42,17 +42,17 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("scroll", () => {
-    const inResponsive = window.getComputedStyle(document.querySelector(".about-bottom-container")).getPropertyValue("flex-direction") === "column";
-    console.log(inResponsive);
-    if (inResponsive && !elem.classList.contains("fixed")) {
-        return;
+        const inResponsive = window.getComputedStyle(document.querySelector(".about-bottom-container")).getPropertyValue("flex-direction") === "column";
+        console.log(inResponsive);
+        if (inResponsive && !elem.classList.contains("fixed")) {
+            return;
+        }
+        if (window.scrollY > elemY) {
+            elem.classList.add("fixed");
+            keepElem.style.display = "block";
+        } else {
+            elem.classList.remove("fixed");
+            keepElem.style.display = "none";
+        }
     }
-    if (window.scrollY > elemY) {
-        elem.classList.add("fixed");
-        keepElem.style.display = "block";
-    } else {
-        elem.classList.remove("fixed");
-        keepElem.style.display = "none";
-    }
-}
 );

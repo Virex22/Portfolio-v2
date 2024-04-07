@@ -1,8 +1,8 @@
 about:
   hero:
     bubble:
-        title: Envie de me connaître
-        text: Un peu plus ?
+      title: Envie de me connaître
+      text: Un peu plus ?
     head:
       title: Un esprit curieux
       content: Je suis un développeur web fullstack avec une soif d'apprendre insatiable.

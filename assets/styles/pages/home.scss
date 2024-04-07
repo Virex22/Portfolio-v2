@@ -88,7 +88,7 @@ header {
         @media (max-width: $tablet) {
           left: 0;
           width: 100%;
-            transform: translate(0, -50%);
+          transform: translate(0, -50%);
           text-align: center;
         }
       }
@@ -102,10 +102,10 @@ header {
         width: auto;
         transform: translate(-75px, 0);
         @media (max-width: $tablet) {
-            right: 5%;
-            height: 150px;
-            transform: translate(-50px, 0);
-            bottom: 10%;
+          right: 5%;
+          height: 150px;
+          transform: translate(-50px, 0);
+          bottom: 10%;
         }
       }
 
@@ -117,23 +117,25 @@ header {
           margin: 0 0 10px 0;
         }
       }
+
       .title {
         font-weight: 700;
         font-size: 32px;
         @media (max-width: $small-desktop) {
-            font-size: 28px;
+          font-size: 28px;
         }
         @media (max-width: $tablet) {
-            font-size: 24px;
+          font-size: 24px;
         }
       }
+
       .subtitle {
         font-size: 28px;
         @media (max-width: $small-desktop) {
-            font-size: 24px;
+          font-size: 24px;
         }
         @media (max-width: $tablet) {
-            font-size: 20px;
+          font-size: 20px;
         }
       }
 
@@ -261,10 +263,10 @@ header {
         }
       }
 
-      p{
-          display: flex;
-          align-items: center;
-          flex: 1;
+      p {
+        display: flex;
+        align-items: center;
+        flex: 1;
       }
 
       p:not(.presentation-title) {
@@ -326,6 +328,7 @@ header {
       .service-line-container {
         display: flex;
         margin: 0 5px;
+
         .line {
           background-color: #D1C3F3;
           height: 100%;
@@ -333,9 +336,9 @@ header {
           margin: 0 2px;
           border-radius: 5px;
 
-            @media (max-width: $mobile) {
-              width: 2px;
-            }
+          @media (max-width: $mobile) {
+            width: 2px;
+          }
         }
       }
 
@@ -370,9 +373,9 @@ header {
       align-items: center;
       display: flex;
 
-        @media (max-width: $mobile) {
-            font-size: 12px;
-        }
+      @media (max-width: $mobile) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -395,13 +398,13 @@ header {
   Skills section
  */
 .skills-swiper {
-    width: 100%;
-    height: 100px;
-    margin: 20px auto $space-between-parts;
-    position: relative;
+  width: 100%;
+  height: 100px;
+  margin: 20px auto $space-between-parts;
+  position: relative;
 
   @media (max-width: $mobile) {
-   margin: 20px auto $space-between-parts-responsive;
+    margin: 20px auto $space-between-parts-responsive;
   }
 
   .swiper-wrapper {

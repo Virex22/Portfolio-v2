@@ -17,19 +17,19 @@
     } %}
     {% for content in project.projectContents %}
         <section class="project-content {{ content.viewType }}">
-            {%  if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
+            {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
                 <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
-            {%  endif %}
+            {% endif %}
 
-            {%  if content.viewType != 'AllImage' %}
+            {% if content.viewType != 'AllImage' %}
                 <div class="text-content">
                     <p>{{ content.textContent }}</p>
                 </div>
-            {%  endif %}
+            {% endif %}
 
-            {%  if content.viewType == 'ImageRight' %}
+            {% if content.viewType == 'ImageRight' %}
                 <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
-            {%  endif %}
+            {% endif %}
         </section>
-    {%  endfor %}
+    {% endfor %}
 {% endblock %}

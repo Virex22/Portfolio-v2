@@ -44,7 +44,9 @@
                         <h2 class="project-card-title">{{ project.name }}</h2></a>
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
-                <button class="project-card-button" onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet</button>
+                <button class="project-card-button"
+                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet
+                </button>
             </div>
         {% endfor %}
     </div>

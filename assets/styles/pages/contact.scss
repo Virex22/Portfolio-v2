@@ -68,13 +68,14 @@
     }
   }
 
-  h1,h2,h3 {
+  h1, h2, h3 {
     font-weight: 700;
     @media (max-width: $tablet) {
       text-align: center;
       margin: 20px 0;
     }
   }
+
   h1 {
     font-size: 2em;
 
@@ -82,6 +83,7 @@
       font-size: 1.75em;
     }
   }
+
   h2 {
     font-size: 1.75em;
     margin: 0 0 20px;
@@ -94,10 +96,12 @@
       font-size: 1.5em;
     }
   }
+
   h3 {
     margin: 5px 0;
   }
-  p, li, h3{
+
+  p, li, h3 {
     font-size: 1.1em;
     line-height: 1.4;
     @media (max-width: $tablet) {
@@ -108,6 +112,7 @@
       font-size: 0.9em;
     }
   }
+
   p {
     text-align: justify;
     @media (max-width: $tablet) {
@@ -143,9 +148,10 @@ form {
   gap: 20px;
   justify-content: center;
 
-  &> div {
+  & > div {
     margin: 25px 0;
-    &> div {
+
+    & > div {
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -161,19 +167,22 @@ form {
       font-size: 0.75em;
     }
   }
+
   input, textarea {
-      padding: 10px;
-      border: 1px solid #575757;
-      border-radius: 5px;
-      font-size: 1em;
+    padding: 10px;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    font-size: 1em;
 
     @media (max-width: $foldmobile) {
       font-size: 0.9em;
     }
   }
+
   textarea {
     resize: vertical;
   }
+
   button {
     padding: 20px;
     width: 50%;
@@ -184,6 +193,7 @@ form {
     transition: background-color 0.3s;
     border: 1px solid #575757;
     border-radius: 10px;
+
     &:hover {
       background-color: darken(white, 10%);
       border: 1px solid darken(white, 10%);
@@ -191,7 +201,7 @@ form {
     }
 
     @media (max-width: $mobile) {
-        width: 100%;
+      width: 100%;
     }
   }
 }

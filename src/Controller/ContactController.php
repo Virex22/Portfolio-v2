@@ -25,8 +25,7 @@ class ContactController extends AbstractController
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $params['success'] = $contactService->handleForm($form->getData());
-            }
-            else {
+            } else {
                 $params['success'] = false;
             }
         }

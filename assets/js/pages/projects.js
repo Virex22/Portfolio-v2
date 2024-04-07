@@ -33,18 +33,15 @@ const handleFilterChange = () => {
             return projectSkills.includes(filter);
         });
 
-        if (isMatch)
-        {
+        if (isMatch) {
             setTimeout(() => {
                 card.style = null;
                 //timeout to let the transition effect work (not NaN scale)
                 setTimeout(() => {
-                card.classList.remove('hidden');
+                    card.classList.remove('hidden');
                 }, 10);
             }, 90);
-        }
-        else
-        {
+        } else {
             card.classList.add('hidden');
             setTimeout(() => {
                 card.style.display = 'none';

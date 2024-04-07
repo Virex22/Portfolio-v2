@@ -12,7 +12,8 @@ use Exception;
 class ExperienceFixtures extends Fixture
 {
     static int $count = 10;
-    public function getDependencies() : array
+
+    public function getDependencies(): array
     {
         return [
             SkillFixtures::class

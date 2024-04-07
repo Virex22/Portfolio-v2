@@ -1,17 +1,43 @@
 <footer>
     <div class="footer-part network">
-            <div class="network-block"><a href="https://www.youtube.com/channel/UCA5GNHsUW0LybjZjlDiOWPQ" target="_blank"><img src="{{ asset('images/youtube.svg') }}" alt="youtube svg"/>Youtube</a></div>
-            <div class="network-block"><a href="https://www.codingame.com/profile/1fdf1790089d2e14a7ba6dba93aeabb40764934" target="_blank"><img src="{{ asset('images/codingame.svg') }}" alt="codingame svg"/>Codingame</a></div>
-            <div class="network-block"><a href="https://github.com/Virex22" target="_blank"><img src="{{ asset('images/github.svg') }}" alt="github svg"/>Github</a></div>
-            <div class="network-block"><a href="https://discord.com/invite/D96cKg3" target="_blank"><img src="{{ asset('images/discord.svg') }}" alt="discord svg"/>Discord</a></div>
-            <div class="network-block"><a href="https://www.linkedin.com/in/vincent-remy2/" target="_blank"><img src="{{ asset('images/linkedin.svg') }}" alt="linkedin svg"/>Linkedin</a></div>
+        <div class="network-block">
+            <a href="https://www.youtube.com/channel/UCA5GNHsUW0LybjZjlDiOWPQ" target="_blank">
+                <img src="{{ asset('images/youtube.svg') }}" alt="youtube svg"/>
+                Youtube
+            </a>
+        </div>
+        <div class="network-block">
+            <a href="https://www.codingame.com/profile/1fdf1790089d2e14a7ba6dba93aeabb40764934" target="_blank">
+                <img src="{{ asset('images/codingame.svg') }}" alt="codingame svg"/>
+                Codingame
+            </a>
+        </div>
+        <div class="network-block">
+            <a href="https://github.com/Virex22" target="_blank">
+                <img src="{{ asset('images/github.svg') }}" alt="github svg"/>
+                Github
+            </a>
+        </div>
+        <div class="network-block">
+            <a href="https://discord.com/invite/D96cKg3" target="_blank">
+                <img src="{{ asset('images/discord.svg') }}" alt="discord svg"/>
+                Discord
+            </a>
+        </div>
+        <div class="network-block">
+            <a href="https://www.linkedin.com/in/vincent-remy2/" target="_blank">
+                <img src="{{ asset('images/linkedin.svg') }}" alt="linkedin svg"/>
+                Linkedin
+            </a>
+        </div>
     </div>
     <div class="footer-part mention">
-        <span>©️Vincent REMY 2022-{{ "now"|date("Y") }}, <a href="#">{{ "footer.legal.title" | trans({}, 'footer') }}</a></span>
-        <span> {{ "footer.legal.text" | trans({}, 'footer') }} <a href="#">Valentin</a></span>
+        <span>©️Vincent REMY 2022-{{ "now"|date("Y") }}, <a
+                    href="#">{{ "footer.legal.title" | trans({}, 'footer') }}</a></span>
+        <span>{{ "footer.legal.text" | trans({}, 'footer') }} <a href="#">Valentin</a></span>
     </div>
     <div class="footer-part sitemap">
-        <p  class="footer-title">{{ "footer.sitemap.title" | trans({}, 'footer') }}</p>
+        <p class="footer-title">{{ "footer.sitemap.title" | trans({}, 'footer') }}</p>
         <ul>
             <li><a href="#">{{ "footer.sitemap.home" | trans({}, 'footer') }}</a></li>
             <li><a href="#">{{ "footer.sitemap.about" | trans({}, 'footer') }}</a></li>

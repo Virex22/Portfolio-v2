@@ -36,7 +36,5 @@ class KernelRequestListener
 
         $event->setResponse($response);
         $event->stopPropagation();
-
-        $event->stopPropagation();
     }
 }

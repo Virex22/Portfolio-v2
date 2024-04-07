@@ -20,6 +20,13 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
         ];
     }
 
+    private function getRandomSizedImage(): string
+    {
+        $width = rand(400, 800);
+        $height = rand(400, 800);
+        return "https://via.placeholder.com/{$width}x{$height}";
+    }
+
     public function load(ObjectManager $manager): void
     {
         $allProjects = $manager->getRepository(Project::class)->findAll();
@@ -34,14 +41,14 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             } elseif ($rand4 === 2) {
                 $projectContent->setViewType(EProjectViewType::ALL_IMAGE);
-                $projectContent->setImgUrl('https://via.placeholder.com/600x400');
+                $projectContent->setImgUrl($this->getRandomSizedImage());
             } elseif ($rand4 === 3) {
                 $projectContent->setViewType(EProjectViewType::IMAGE_LEFT);
-                $projectContent->setImgUrl('https://via.placeholder.com/600x400');
+                $projectContent->setImgUrl($this->getRandomSizedImage());
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             } else {
                 $projectContent->setViewType(EProjectViewType::IMAGE_RIGHT);
-                $projectContent->setImgUrl('https://via.placeholder.com/600x400');
+                $projectContent->setImgUrl($this->getRandomSizedImage());
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             }
 

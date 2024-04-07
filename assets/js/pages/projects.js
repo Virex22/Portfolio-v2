@@ -1,4 +1,4 @@
-import "../../styles/pages/projects.scss";
+import "../../styles/pages/project/projects.scss";
 import TomSelect from 'tom-select';
 
 /* Selectize part */

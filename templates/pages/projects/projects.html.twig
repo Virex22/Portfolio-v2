@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Vincent REMY - Portfolio{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('projects') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('projects') }}
+{% endblock %}
+
+{% block content %}
+    {% include 'pages/projects/_partials/_hero.html.twig' with {
+        title: 'projects.list.title'|trans({}, 'projects'),
+        description: 'projects.list.description'|trans({}, 'projects'),
+    } %}
+    {% include 'pages/projects/_partials/_projects.html.twig' %}
+{% endblock %}

@@ -28,9 +28,19 @@ class Project
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
     private Collection $skills;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $startDate = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $endDate = null;
+
+    #[ORM\OneToMany(targetEntity: ProjectContent::class, mappedBy: 'project', orphanRemoval: true)]
+    private Collection $projectContents;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
+        $this->projectContents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,6 +106,60 @@ class Project
     {
         if ($this->skills->removeElement($skill)) {
             $skill->removeProject($this);
+        }
+
+        return $this;
+    }
+
+    public function getStartDate(): ?\DateTimeInterface
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(\DateTimeInterface $startDate): static
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $endDate): static
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProjectContent>
+     */
+    public function getProjectContents(): Collection
+    {
+        return $this->projectContents;
+    }
+
+    public function addProjectContent(ProjectContent $projectContent): static
+    {
+        if (!$this->projectContents->contains($projectContent)) {
+            $this->projectContents->add($projectContent);
+            $projectContent->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProjectContent(ProjectContent $projectContent): static
+    {
+        if ($this->projectContents->removeElement($projectContent)) {
+            // set the owning side to null (unless already changed)
+            if ($projectContent->getProject() === $this) {
+                $projectContent->setProject(null);
+            }
         }
 
         return $this;

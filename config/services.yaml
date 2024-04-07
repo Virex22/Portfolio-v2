@@ -11,3 +11,6 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    App\Twig\AppExtension:
+        tags: ['twig.extension']

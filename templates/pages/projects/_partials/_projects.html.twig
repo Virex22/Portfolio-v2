@@ -1,0 +1,53 @@
+<div class="projects-container">
+    <div class="filter-projects">
+        {#        filre disponible : technologie, soft skill; trie disponible: date, temps passé #}
+        {% if technicalFacetOptions|length > 1 %}
+            {% include 'pages/projects/_partials/components/_select.html.twig' with {
+                'label': 'projects.list.filter.technology' | trans({}, 'projects'),
+                'name': 'technology',
+                'options': technicalFacetOptions} %}
+        {% endif %}
+        {% if softFacetOptions|length > 1 %}
+            {% include 'pages/projects/_partials/components/_select.html.twig' with {
+                'label': 'projects.list.filter.softskill' | trans({}, 'projects'),
+                'name': 'soft-skill',
+                'options': softFacetOptions} %}
+        {% endif %}
+        {% include 'pages/projects/_partials/components/_select.html.twig' with {
+            'label': 'projects.list.filter.sortby.title' | trans({}, 'projects'),
+            'name': 'sort',
+            'options': [
+                {'value': 'pertinence', 'label': 'projects.list.filter.sortby.relevance' | trans({}, 'projects')},
+                {'value': 'bdate-desc', 'label': 'projects.list.filter.sortby.bdate-desc' | trans({}, 'projects')},
+                {'value': 'bdate-asc', 'label': 'projects.list.filter.sortby.bdate-asc' | trans({}, 'projects')},
+                {'value': 'edate-desc', 'label': 'projects.list.filter.sortby.edate-desc' | trans({}, 'projects')},
+                {'value': 'edate-asc', 'label': 'projects.list.filter.sortby.edate-asc' | trans({}, 'projects')},
+                {'value': 'duration-desc', 'label': 'projects.list.filter.sortby.duration-desc' | trans({}, 'projects')},
+                {'value': 'duration-asc', 'label': 'projects.list.filter.sortby.duration-asc' | trans({}, 'projects')}
+            ]
+        } %}
+    </div>
+    <div class="project-grid">
+        {% for project in projects %}
+            {% set encodedSkills = project.skills | map(s => s.id) | join(',') | base64_encode %}
+            {#  placeholder for the first dev #}
+            <div class="project-card" data-skill="{{ encodedSkills }}"
+                 data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
+                <a href="{{ path('project_show', {'id': project.id}) }}">
+                    <div class="project-card-image">
+                        {#  placeholder for the first dev #}
+                        <img src="https://picsum.photos/200/300" alt="project image">
+                    </div>
+                </a>
+                <div class="project-card-content">
+                    <a href="{{ path('project_show', {'id': project.id}) }}">
+                        <h2 class="project-card-title">{{ project.name }}</h2></a>
+                    <p class="project-card-description">{{ project.description }}</p>
+                </div>
+                <button class="project-card-button"
+                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+</div>

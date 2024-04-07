@@ -5,13 +5,14 @@ namespace App\DataFixtures\Entity;
 use App\Entity\Project;
 use App\Entity\Skill;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ProjectFixtures extends Fixture
+class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
     static int $count = 10;
 
-    public function getDependencies() : array
+    public function getDependencies(): array
     {
         return [
             SkillFixtures::class
@@ -26,6 +27,8 @@ class ProjectFixtures extends Fixture
             $project->setName('Project ' . $i);
             $project->setDescription('Description ' . $i);
             $project->setContent('Content ' . $i);
+            $project->setStartDate(new \DateTime('now - ' . $i . ' years'));
+            $project->setEndDate(new \DateTime('now - ' . ($i - 1) . ' years - ' . $i . ' days'));
 
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)

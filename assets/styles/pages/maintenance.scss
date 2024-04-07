@@ -33,6 +33,7 @@
 
     .maintenance-text {
       padding: 50px;
+
       h1 {
         font-size: 1.8em;
         margin-bottom: 10px;
@@ -47,7 +48,7 @@
         margin-bottom: 10px;
 
         @media (max-width: $foldmobile) {
-            font-size: 1em;
+          font-size: 1em;
         }
       }
     }

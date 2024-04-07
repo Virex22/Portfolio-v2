@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Vincent REMY - {{ 'maintenance.title'|trans({}, 'maintenance')}}{% endblock %}
+{% block title %}Vincent REMY - {{ 'maintenance.title'|trans({}, 'maintenance') }}{% endblock %}
 
 {% block header %}{% endblock %}
 
@@ -16,7 +16,8 @@
                 <p>{{ 'maintenance.message'|trans({}, 'maintenance') }}</p>
             </div>
             <div class="maintenance-image">
-                <img src="{{ asset('images/maintenance.svg') }}" alt="{{ 'maintenance.title'|trans({}, 'maintenance') | lower }}">
+                <img src="{{ asset('images/maintenance.svg') }}"
+                     alt="{{ 'maintenance.title'|trans({}, 'maintenance') | lower }}">
             </div>
         </div>
     </div>

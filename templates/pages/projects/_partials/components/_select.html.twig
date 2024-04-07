@@ -1,0 +1,8 @@
+<div class="select-box {{ name }}">
+    <label for="{{ name }}">{{ label }}</label>
+    <select name="{{ name }}" id="{{ name }}" class="tom-select">
+        {% for key, option in options %}
+            <option value="{{ option.value }}">{{ option.label }}</option>
+        {% endfor %}
+    </select>
+</div>

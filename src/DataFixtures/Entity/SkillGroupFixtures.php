@@ -12,7 +12,7 @@ class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
 {
     static int $count = 15;
 
-    public function getDependencies() : array
+    public function getDependencies(): array
     {
         return [
             SkillFixtures::class

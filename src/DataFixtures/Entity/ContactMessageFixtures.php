@@ -9,6 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 class ContactMessageFixtures extends Fixture
 {
     static int $count = 5;
+
     public function load(ObjectManager $manager): void
     {
         for ($i = 1; $i <= self::$count; $i++) {

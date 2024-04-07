@@ -1,13 +1,13 @@
-footer :
-  network :
-    title : My network
-  sitemap :
-    title : Sitemap
-    home : Home
-    about : About
-    realisation : Realisations
-    skills : Skills
-    contact : Contact
-  legal :
-    text : Developpement and Integration by myself, maquette by
-    title : Legal mention
+footer:
+  network:
+    title: My network
+  sitemap:
+    title: Sitemap
+    home: Home
+    about: About
+    projects: Projects
+    skills: Skills
+    contact: Contact
+  legal:
+    text: Developpement and Integration by myself, maquette by
+    title: Legal mention

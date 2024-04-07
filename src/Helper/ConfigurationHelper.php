@@ -27,7 +27,7 @@ class ConfigurationHelper
         if ($configuration instanceof Configuration)
             return $configuration->getValue();
 
-        if ($defaultValue !== null){
+        if ($defaultValue !== null) {
             $this->setConfiguration($key, $defaultValue);
             return $defaultValue;
         }

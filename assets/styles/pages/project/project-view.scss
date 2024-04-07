@@ -1,0 +1,46 @@
+@import "../../partials/footer";
+@import "../../partials/layout";
+@import "../../partials/navbar";
+@import "hero";
+
+/* Project View part */
+section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px;
+  max-width: 1225px;
+  display: flex;
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+  @media (max-width: $foldmobile) {
+    padding: 10px;
+  }
+
+  img {
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    @media (max-width: $foldmobile) {
+      margin: 0 auto 10px;
+    }
+  }
+
+  .text-content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 20px;
+      @media (max-width: $foldmobile) {
+        margin: 10px;
+      }
+    }
+  }
+}

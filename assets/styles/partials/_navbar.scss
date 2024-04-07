@@ -45,15 +45,15 @@ nav {
 
     &.active {
       .line:nth-child(1) {
-       transform: translate(0,11px) rotate(45deg)
+        transform: translate(0, 11px) rotate(45deg)
       }
 
       .line:nth-child(2) {
-          opacity: 0;
+        opacity: 0;
       }
 
       .line:nth-child(3) {
-          transform: translate(0,-11px) rotate(-45deg)
+        transform: translate(0, -11px) rotate(-45deg)
       }
     }
   }
@@ -88,19 +88,20 @@ nav {
       box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.0705882353);
       z-index: 1000;
 
-        li {
-          padding: 15px;
-          border-bottom: 1px solid #f2f2f2;
-          text-align: center;
-          &:first-child {
-            border-top: 1px solid #f2f2f2;
-          }
+      li {
+        padding: 15px;
+        border-bottom: 1px solid #f2f2f2;
+        text-align: center;
 
-          a {
-            display: block;
-            font-size: 1.25em;
-          }
+        &:first-child {
+          border-top: 1px solid #f2f2f2;
         }
+
+        a {
+          display: block;
+          font-size: 1.25em;
+        }
+      }
     }
 
     li {
@@ -112,7 +113,7 @@ nav {
       border-right: 1px solid #f2f2f2;
 
       &:last-child {
-          border-right: none;
+        border-right: none;
       }
 
       a {
@@ -139,12 +140,12 @@ nav {
 /* Obfuscate page content */
 
 .obfuscate-page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  backdrop-filter: blur(5px);
 }

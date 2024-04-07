@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Vincent REMY - Portfolio{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('project-view') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('project-view') }}
+{% endblock %}
+
+{% block content %}
+    {% include 'pages/projects/_partials/_hero.html.twig' with {
+        'title': project.name,
+        'description': project.description,
+    } %}
+    {% for content in project.projectContents %}
+        <section class="project-content {{ content.viewType }}">
+            {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
+                <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
+            {% endif %}
+
+            {% if content.viewType != 'AllImage' %}
+                <div class="text-content">
+                    <p>{{ content.textContent }}</p>
+                </div>
+            {% endif %}
+
+            {% if content.viewType == 'ImageRight' %}
+                <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
+            {% endif %}
+        </section>
+    {% endfor %}
+{% endblock %}

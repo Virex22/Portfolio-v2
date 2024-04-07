@@ -1,6 +1,7 @@
 @import "../../partials/footer";
 @import "../../partials/layout";
 @import "../../partials/navbar";
+@import "../../partials/variables";
 @import "hero";
 @import 'tom-select/src/scss/tom-select.default.scss';
 
@@ -18,6 +19,14 @@
     margin: auto;
     gap: 20px;
     position: relative;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+
+    @media (max-width: $mobile) {
+      grid-template-columns: repeat(1, minmax(250px, 1fr));
+    }
   }
 
   .project-card {
@@ -100,6 +109,11 @@
   width: 100%;
   padding: 20px 0;
 
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   label {
     font-size: 1rem;
   }
@@ -111,5 +125,9 @@
     position: relative;
     font-family: Arial, sans-serif;
     width: 250px;
+
+    @media (max-width: $tablet) {
+      margin: 20px 0;
+    }
   }
 }

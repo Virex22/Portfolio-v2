@@ -1,29 +1,29 @@
 <div class="projects-container">
     <div class="filter-projects">
         {#        filre disponible : technologie, soft skill; trie disponible: date, temps passé #}
-        {% if technicalFacetOptions is not empty %}
+        {% if technicalFacetOptions|length > 1 %}
             {% include 'pages/projects/_partials/components/_select.html.twig' with {
-                'label': 'Technologie',
+                'label': 'projects.list.filter.technology' | trans({}, 'projects'),
                 'name': 'technology',
                 'options': technicalFacetOptions} %}
         {% endif %}
-        {% if softFacetOptions is not empty %}
+        {% if softFacetOptions|length > 1 %}
             {% include 'pages/projects/_partials/components/_select.html.twig' with {
-                'label': 'Soft skill',
+                'label': 'projects.list.filter.softskill' | trans({}, 'projects'),
                 'name': 'soft-skill',
                 'options': softFacetOptions} %}
         {% endif %}
         {% include 'pages/projects/_partials/components/_select.html.twig' with {
-            'label': 'Trie par',
+            'label': 'projects.list.filter.sortby.title' | trans({}, 'projects'),
             'name': 'sort',
             'options': [
-                {'value': 'pertinence', 'label': 'Pertinence'},
-                {'value': 'bdate-desc', 'label': 'Date de début (plus récent)'},
-                {'value': 'bdate-asc', 'label': 'Date de début (plus ancien)'},
-                {'value': 'edate-desc', 'label': 'Date de fin (plus récent)'},
-                {'value': 'edate-asc', 'label': 'Date de fin (plus ancien)'},
-                {'value': 'duration-desc', 'label': 'Durée (plus long)'},
-                {'value': 'duration-asc', 'label': 'Durée (plus court)'}
+                {'value': 'pertinence', 'label': 'projects.list.filter.sortby.relevance' | trans({}, 'projects')},
+                {'value': 'bdate-desc', 'label': 'projects.list.filter.sortby.bdate-desc' | trans({}, 'projects')},
+                {'value': 'bdate-asc', 'label': 'projects.list.filter.sortby.bdate-asc' | trans({}, 'projects')},
+                {'value': 'edate-desc', 'label': 'projects.list.filter.sortby.edate-desc' | trans({}, 'projects')},
+                {'value': 'edate-asc', 'label': 'projects.list.filter.sortby.edate-asc' | trans({}, 'projects')},
+                {'value': 'duration-desc', 'label': 'projects.list.filter.sortby.duration-desc' | trans({}, 'projects')},
+                {'value': 'duration-asc', 'label': 'projects.list.filter.sortby.duration-asc' | trans({}, 'projects')}
             ]
         } %}
     </div>

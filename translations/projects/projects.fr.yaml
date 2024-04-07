@@ -1,0 +1,16 @@
+projects:
+  list:
+    title: Mes realisations
+    description: Voici une sélection de projets que j'ai eu le privilège de diriger ou de contribuer activement
+    filter:
+      technology: Technologie
+      softskill: Soft Skill
+      sortby:
+        title: Trier par
+        relevance: Pertinance
+        bdate-desc: Date de début (décroissant)
+        bdate-asc: Date de début (croissant)
+        edate-desc: Date de fin (décroissant)
+        edate-asc: Date de fin (croissant)
+        duration-desc: Durée (décroissant)
+        duration-asc: Durée (croissant)

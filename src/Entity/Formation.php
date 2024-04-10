@@ -28,7 +28,7 @@ class Formation
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $EndDate = null;
 
-    #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'formation')]
+    #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'formations')]
     private Collection $skills;
 
     public function __construct()

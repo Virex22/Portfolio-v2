@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 /**
  * @extends ServiceEntityRepository<Administrator>
  *
+ * @phpstan-ignore-next-line -> auto-generated repository class
  * @implements PasswordUpgraderInterface<Administrator>
  *
  * @method Administrator|null find($id, $lockMode = null, $lockVersion = null)

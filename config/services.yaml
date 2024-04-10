@@ -1,4 +1,5 @@
 parameters:
+    admin_path: '%env(ADMIN_PATH)%'
 
 services:
     _defaults:

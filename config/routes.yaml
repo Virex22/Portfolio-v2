@@ -3,3 +3,7 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+admin_routes:
+    resource: ../src/Controller/Admin/
+    type: annotation
+    prefix: '%admin_path%'

@@ -1,0 +1,9 @@
+vich_uploader:
+  db_driver: orm
+  mappings:
+    app_skill:
+      uri_prefix: /uploads/skills
+      delete_on_update: true
+      delete_on_remove: true
+      upload_destination: '%kernel.project_dir%/public/uploads/skills'
+      namer: Vich\UploaderBundle\Naming\OrignameNamer

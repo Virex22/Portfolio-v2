@@ -8,8 +8,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
+#[Vich\Uploadable()]
 class Skill
 {
     #[ORM\Id]
@@ -22,6 +25,9 @@ class Skill
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $badgeUrl = null;
+
+    #[Vich\UploadableField(mapping: 'app_skill', fileNameProperty: 'badgeUrl')]
+    private ?File $badgeFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
@@ -40,6 +46,9 @@ class Skill
 
     #[ORM\ManyToOne(inversedBy: 'skills')]
     private ?SkillGroup $skillGroups = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private \DateTimeInterface $updatedAt;
 
     public function __construct()
     {
@@ -76,6 +85,20 @@ class Skill
 
         return $this;
     }
+    public function setBadgeFile(?File $badgeFile = null): void
+    {
+        $this->badgeFile = $badgeFile;
+
+        if (null !== $badgeFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getBadgeFile(): ?File
+    {
+        return $this->badgeFile;
+    }
+
 
     public function getDescription(): ?string
     {
@@ -187,5 +210,22 @@ class Skill
         $this->skillGroups = $skillGroups;
 
         return $this;
+    }
+
+    public function getUpdatedAt(): \DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 }

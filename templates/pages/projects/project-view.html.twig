@@ -18,17 +18,17 @@
     {% for content in project.projectContents %}
         <section class="project-content {{ content.viewType }}">
             {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
-                <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
             {% endif %}
 
             {% if content.viewType != 'AllImage' %}
                 <div class="text-content">
-                    <p>{{ content.textContent }}</p>
+                    <p>{{ content.textContent | raw }}</p>
                 </div>
             {% endif %}
 
             {% if content.viewType == 'ImageRight' %}
-                <img src="{{ content.imgUrl }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
             {% endif %}
         </section>
     {% endfor %}

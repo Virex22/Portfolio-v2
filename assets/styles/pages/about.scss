@@ -605,6 +605,16 @@ progress::-moz-progress-bar {
           background-color: #f3f3f3;
           border-radius: 0 0 10px 10px;
           border: #d1c3f3 1px solid;
+          div {
+            display: flex;
+            img {
+              width: 25px;
+              height: max-content;
+              border-radius: 15px;
+              object-fit: contain;
+              margin-right: 10px;
+            }
+          }
         }
 
         .date {

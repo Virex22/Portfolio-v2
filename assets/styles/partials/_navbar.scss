@@ -58,10 +58,12 @@ nav {
     }
   }
 
-  img {
-    align-self: center;
-    height: 50px;
+  &>a:first-child {
     margin: 0 25px;
+    align-self: center;
+    img {
+      height: 50px;
+    }
   }
 
   ul {

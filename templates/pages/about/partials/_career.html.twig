@@ -8,8 +8,11 @@
                         <p>{{ element.startDate | date('M Y') }} {% if element.endDate %} - {{ element.endDate | date('M Y') }}{% endif %}</p>
                     </div>
                     <div class="content">
-                        <h3>{{ element.name }}</h3>
-                        <p>Developed and maintained websites for clients in the financial services industry.</p>
+                        <div>
+                            <img src="{{element.logoUrl}}" alt="{{ element.name }}">
+                            <h3>{{ element.name }}</h3>
+                        </div>
+                        <p>{{ element.description | raw }}</p>
                     </div>
                 </div>
                 <div class="circle">

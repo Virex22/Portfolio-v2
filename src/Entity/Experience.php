@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ExperienceRepository::class)]
+#[Vich\Uploadable]
 class Experience
 {
     #[ORM\Id]
@@ -28,11 +31,20 @@ class Experience
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $EndDate = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $compangyLogoUrl = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $logo = null;
+
+    #[Vich\UploadableField(mapping: 'experience_logos', fileNameProperty: 'logo')]
+    private ?File $logoFile = null;
 
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'experiences')]
     private Collection $skills;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function __construct()
     {
@@ -92,14 +104,52 @@ class Experience
         return $this;
     }
 
-    public function getCompangyLogoUrl(): ?string
+    public function getLogo(): ?string
     {
-        return $this->compangyLogoUrl;
+        return $this->logo;
     }
 
-    public function setCompangyLogoUrl(?string $compangyLogoUrl): static
+    public function setLogo(?string $logo): static
     {
-        $this->compangyLogoUrl = $compangyLogoUrl;
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getLogoFile(): ?File
+    {
+        return $this->logoFile;
+    }
+
+    public function setLogoFile(?File $logoFile = null): void
+    {
+        $this->logoFile = $logoFile;
+
+        if (null !== $logoFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }

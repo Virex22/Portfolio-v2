@@ -25,14 +25,17 @@ class AboutService
      *        'type' => 'formation',
      *       'startDate' => 2021-01-01,
      *      'endDate' => 2021-01-01,
-     *  'name' => 'formation name',
+     *      'name' => 'formation name',
+     *      'logoUrl' => 'logo image',
+     *     'description' => 'description',
      *    ],
      *      2 => [
      *      'type' => 'experience',
      *     'startDate' => 2020-01-01,
      *     'endDate' => 2021-01-01,
      *      'name' => 'experience name',
-     *      'logo' => 'company logo url',
+     *     'logoUrl' => 'logo image',
+     *    'description' => 'description',
      *      ]
      */
     public function getTimeLineData(): array
@@ -48,6 +51,8 @@ class AboutService
                 'startDate' => $formation->getStartDate(),
                 'endDate' => $formation->getEndDate(),
                 'name' => $formation->getName(),
+                'logoUrl' => '/uploads/formations/' . $formation->getLogo(),
+                'description' => $formation->getDescription(),
             ];
         }
 
@@ -57,7 +62,8 @@ class AboutService
                 'startDate' => $experience->getStartDate(),
                 'endDate' => $experience->getEndDate(),
                 'name' => $experience->getCompagnyName(),
-                'logo' => $experience->getCompangyLogoUrl(),
+                'logoUrl' => '/uploads/experiences/' . $experience->getLogo(),
+                'description' => $experience->getDescription(),
             ];
         }
 

@@ -6,8 +6,11 @@ use App\Enum\EProjectViewType;
 use App\Repository\ProjectContentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectContentRepository::class)]
+#[Vich\Uploadable]
 class ProjectContent
 {
     #[ORM\Id]
@@ -22,7 +25,10 @@ class ProjectContent
     private ?string $view_type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $img_url = null;
+    private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'project_content_images', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $text_content = null;
@@ -30,6 +36,9 @@ class ProjectContent
     #[ORM\ManyToOne(inversedBy: 'projectContents')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Project $project = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -64,14 +73,40 @@ class ProjectContent
         return $this;
     }
 
-    public function getImgUrl(): ?string
+    public function getImage(): ?string
     {
-        return $this->img_url;
+        return $this->image;
     }
 
-    public function setImgUrl(?string $img_url): static
+    public function setImage(?string $image): static
     {
-        $this->img_url = $img_url;
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

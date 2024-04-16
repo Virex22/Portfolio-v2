@@ -11,14 +11,17 @@ select.forEach((elem) => {
 });
 
 /* Handle facet filter */
-const filters = [
+let filters = [
     document.querySelector('.select-box.technology'),
     document.querySelector('.select-box.soft-skill')
 ];
+// remove options if is null (twig not render the option if no project match it)
+filters = filters.filter((filter) => { return filter !== null; });
 const sortSelect = document.querySelector('.select-box.sort');
-
 //handle all filters change but not the sort
 const handleFilterChange = () => {
+    console.log('filter change');
+    console.log(filters);
     const filtersValues = Array.from(filters).map((filter) => {
         return filter.querySelector('.item').getAttribute('data-value');
     }).filter((value) => {

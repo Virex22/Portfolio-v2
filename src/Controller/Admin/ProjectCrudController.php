@@ -4,9 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Project;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -15,11 +18,27 @@ class ProjectCrudController extends AbstractCrudController
         return Project::class;
     }
 
+    private function formatValue($value)
+    {
+        $skills = [];
+        foreach ($value as $skill) {
+            $skills[] = $skill->getName();
+        }
+        return implode(', ', $skills);
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
-            TextEditorField::new('description'),
+            TextField::new('description'),
+            AssociationField::new('skills')
+                ->formatValue(fn ($value) => $this->formatValue($value))
+                ->setFormTypeOption('label', 'name')
+                ->setFormTypeOption('by_reference', false)
+                ->autocomplete(),
+            TextField::new('coverImageFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('coverImage')->setBasePath('/uploads/projects')->onlyOnIndex(),
         ];
     }
 }

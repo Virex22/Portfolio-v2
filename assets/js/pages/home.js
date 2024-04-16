@@ -62,6 +62,7 @@ new Swiper(".skills-swiper", {
     spaceBetween: 20,
     slidesPerView: "auto",
     speed: 500,
+    allowTouchMove: false,
     autoplay: {
         delay: 0,
         disableOnInteraction: false,

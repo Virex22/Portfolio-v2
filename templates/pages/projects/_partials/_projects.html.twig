@@ -1,6 +1,6 @@
 <div class="projects-container">
     <div class="filter-projects">
-        {#        filre disponible : technologie, soft skill; trie disponible: date, temps passé #}
+        {#        filtre disponible : technologie, soft skill; trie disponible: date, temps passé #}
         {% if technicalFacetOptions|length > 1 %}
             {% include 'pages/projects/_partials/components/_select.html.twig' with {
                 'label': 'projects.list.filter.technology' | trans({}, 'projects'),
@@ -36,7 +36,7 @@
                 <a href="{{ path('project_show', {'id': project.id}) }}">
                     <div class="project-card-image">
                         {#  placeholder for the first dev #}
-                        <img src="https://picsum.photos/200/300" alt="project image">
+                        <img src="{{ vich_uploader_asset(project, 'coverImageFile') }}" alt="{{ project.name }}">
                     </div>
                 </a>
                 <div class="project-card-content">

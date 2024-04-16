@@ -7,3 +7,27 @@ vich_uploader:
       delete_on_remove: true
       upload_destination: '%kernel.project_dir%/public/uploads/skills'
       namer: Vich\UploaderBundle\Naming\OrignameNamer
+    project_cover_images:
+      uri_prefix: /uploads/projects
+      delete_on_update: true
+      delete_on_remove: true
+      upload_destination: '%kernel.project_dir%/public/uploads/projects'
+      namer: Vich\UploaderBundle\Naming\OrignameNamer
+    project_content_images:
+      uri_prefix: /uploads/projects-content
+      delete_on_update: true
+      delete_on_remove: true
+      upload_destination: '%kernel.project_dir%/public/uploads/projects-content'
+      namer: Vich\UploaderBundle\Naming\OrignameNamer
+    experience_logos:
+      uri_prefix: /uploads/experiences
+      delete_on_update: true
+      delete_on_remove: true
+      upload_destination: '%kernel.project_dir%/public/uploads/experiences'
+      namer: Vich\UploaderBundle\Naming\OrignameNamer
+    formation_logos:
+      uri_prefix: /uploads/formations
+      delete_on_update: true
+      delete_on_remove: true
+      upload_destination: '%kernel.project_dir%/public/uploads/formations'
+      namer: Vich\UploaderBundle\Naming\OrignameNamer

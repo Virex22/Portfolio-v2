@@ -23,3 +23,11 @@ about:
     myskill: My skills
     career: My professional experience
     convinced: Convinced?
+    skill:
+      summary: See the details of skill levels
+      content:
+        0: Never heard of this subject.
+        25: Basic knowledge, but no practical experience.
+        50: Intermediate knowledge, with practical experience on a few projects.
+        75: Good knowledge, with practical experience on several projects and the ability to understand how the subject works in addition to using it.
+        100: Complete mastery of the subject, with in-depth experience and the ability to present the subject to others with ease.

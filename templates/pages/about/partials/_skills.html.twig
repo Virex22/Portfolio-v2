@@ -6,15 +6,14 @@
         </div>
     {% endfor %}
 </div>
-
 <details class="skill-explanation">
-    <summary>Voir les détails des niveaux de compétence</summary>
+    <summary> {{ "about.skill.summary" | trans({}, 'about') }} </summary>
     <ul class="skill-explanation-content">
-        <li>0% : Jamais entendu parler de ce sujet.</li>
-        <li>25% : Connaissance de base, mais pas de grosse expérience pratique.</li>
-        <li>50% : Connaissance intermédiaire, avec une expérience pratique sur quelques projets.</li>
-        <li>75% : Bonne connaissance, avec une expérience pratique sur plusieurs projets et la capacité de comprendre comment fonctionne le sujet en plus de l'utiliser.</li>
-        <li>100% : Maîtrise complète du sujet, avec une expérience approfondie et la capacité de restituer le sujet à d'autres personnes avec aisance.</li>
+        <li>0% : {{ "about.skill.content.0" | trans({}, 'about') }}</li>
+        <li>25% : {{ "about.skill.content.25" | trans({}, 'about') }}</li>
+        <li>50% : {{ "about.skill.content.50" | trans({}, 'about') }}</li>
+        <li>75% : {{ "about.skill.content.75" | trans({}, 'about') }}</li>
+        <li>100% : {{ "about.skill.content.100" | trans({}, 'about') }}</li>
     </ul>
 </details>
 

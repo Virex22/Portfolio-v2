@@ -23,3 +23,11 @@ about:
     myskill: Mes compétences
     career: Mon parcours professionnel
     convinced: Convaincu ?
+  skill:
+    summary: Voir les détails des niveaux de compétence
+    content:
+        0: Jamais entendu parler de ce sujet.
+        25: Connaissance de base, mais pas de grosse expérience pratique.
+        50: Connaissance intermédiaire, avec une expérience pratique sur quelques projets.
+        75: Bonne connaissance, avec une expérience pratique sur plusieurs projets et la capacité de comprendre comment fonctionne le sujet en plus de l'utiliser.
+        100: Maîtrise complète du sujet, avec une expérience approfondie et la capacité de restituer le sujet à d'autres personnes avec aisance.

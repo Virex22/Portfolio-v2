@@ -22,8 +22,8 @@
             {% endif %}
 
             {% if content.viewType != 'AllImage' %}
-                <div class="text-content">
-                    <p>{{ content.textContent | raw }}</p>
+                <div class="text-content wysiwyg-render">
+                    {{ content.textContent | raw }}
                 </div>
             {% endif %}
 

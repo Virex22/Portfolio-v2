@@ -1,6 +1,7 @@
 @import "../../partials/footer";
 @import "../../partials/layout";
 @import "../../partials/navbar";
+@import "../../partials/render-wysiwyg";
 @import "hero";
 
 /* Project View part */
@@ -32,6 +33,8 @@ section {
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    text-align: center;
 
     p {
       font-size: 1.2rem;

@@ -24,14 +24,21 @@ class ProjectContentCrudController extends AbstractCrudController
     {
         return [
             AssociationField::new('project')
-                ->formatValue(fn ($value) => $value->getName())
+                ->formatValue(fn($value) => $value->getName())
                 ->autocomplete(),
             NumberField::new('position'),
             TextField::new('view_type'),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyOnForms(),
             ImageField::new('image')->setBasePath('/uploads/projects-content')->onlyOnIndex(),
-            TextEditorField::new('text_content'),
+            TextEditorField::new('text_content')
+                // set text center aligned to twix editor
+                ->setTrixEditorConfig([
+                    'toolbar' => [
+                        'text-align-center',
+                    ]
+                ]),
         ];
+
     }
 
     public function configureCrud(Crud $crud): Crud

@@ -28,7 +28,6 @@ class ExperienceFixtures extends Fixture
         $allSkills = $manager->getRepository(Skill::class)->findAll();
         for ($i = 1; $i <= self::$count; $i++) {
             $experience = new Experience();
-            $experience->setCompangyLogoUrl('https://via.placeholder.com/150');
             $experience->setCompagnyName('Compagny ' . $i);
             $experience->setPostName('Post ' . $i);
             $experience->setStartDate(new DateTime('now - ' . $i . ' years'));

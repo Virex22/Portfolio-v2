@@ -81,18 +81,6 @@ class Project
         return $this;
     }
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): static
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Skill>
      */

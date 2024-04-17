@@ -41,14 +41,11 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             } elseif ($rand4 === 2) {
                 $projectContent->setViewType(EProjectViewType::ALL_IMAGE);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
             } elseif ($rand4 === 3) {
                 $projectContent->setViewType(EProjectViewType::IMAGE_LEFT);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             } else {
                 $projectContent->setViewType(EProjectViewType::IMAGE_RIGHT);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
                 $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
             }
 

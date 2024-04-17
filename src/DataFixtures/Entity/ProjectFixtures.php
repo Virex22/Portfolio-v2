@@ -26,7 +26,6 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             $project = new Project();
             $project->setName('Project ' . $i);
             $project->setDescription('Description ' . $i);
-            $project->setContent('Content ' . $i);
             $project->setStartDate(new \DateTime('now - ' . $i . ' years'));
             $project->setEndDate(new \DateTime('now - ' . ($i - 1) . ' years - ' . $i . ' days'));
 

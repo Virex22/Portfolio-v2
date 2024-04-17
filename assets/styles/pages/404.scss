@@ -1,0 +1,72 @@
+@import "../partials/footer.scss";
+@import "../partials/layout.scss";
+@import "../partials/navbar.scss";
+@import "../partials/variables.scss";
+
+.error404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @media (max-width: $mobile) {
+    position: relative;
+  }
+
+  .error404-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 80vw;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+      max-width: 95vw;
+    }
+
+    @media (max-width: $mobile) {
+      max-width: 100vw;
+      flex-direction: column;
+    }
+
+    .error404-text {
+      padding: 50px;
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+
+        @media (max-width: $foldmobile) {
+          font-size: 2em;
+        }
+      }
+
+      p {
+        font-size: 1.25em;
+        margin-bottom: 10px;
+
+        @media (max-width: $foldmobile) {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .error404-image {
+      img {
+        width: 100%;
+        max-width: 500px;
+
+        @media (max-width: $mobile) {
+          max-width: 300px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+
+

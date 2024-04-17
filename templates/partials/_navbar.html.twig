@@ -12,5 +12,18 @@
         <li><a href="{{ path('portfolio_about') }}">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
         <li><a href="{{ path('portfolio_projects') }}">{{ "navbar.menu.projects" | trans({}, "navbar") }}</a></li>
         <li><a href="{{ path('portfolio_contact') }}">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
+        <li>
+            <div class="language">
+                {% if app.request.locale == 'fr' %}
+                    <a href="{{ path('portfolio_locale', {'locale': 'en'}) }}" class="fr">
+                        <img src="{{ asset('images/fr.svg') }}" alt="Translation">
+                    </a>
+                {% else %}
+                    <a href="{{ path('portfolio_locale', {'locale': 'fr'}) }}" class="en">
+                        <img src="{{ asset('images/en.svg') }}" alt="Translation">
+                    </a>
+                {% endif %}
+            </div>
+        </li>
     </ul>
 </nav>

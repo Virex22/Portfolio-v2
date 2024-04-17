@@ -6,9 +6,7 @@ use App\Helper\ConfigurationHelper;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
-use Symfony\Component\Security\Http\Attribute\CurrentUser;
+use Symfony\Component\Translation\LocaleSwitcher;
 use Twig\Environment;
 
 class KernelRequestListener
@@ -16,11 +14,13 @@ class KernelRequestListener
     public static $maintenanceConfigKey = 'APP_MAINTENANCE';
     private Environment $twig;
     private ConfigurationHelper $configurationHelper;
+    private LocaleSwitcher $localeSwitcher;
 
-    public function __construct(Environment $twig, ConfigurationHelper $configurationHelper)
+    public function __construct(Environment $twig, ConfigurationHelper $configurationHelper, LocaleSwitcher $localeSwitcher)
     {
         $this->twig = $twig;
         $this->configurationHelper = $configurationHelper;
+        $this->localeSwitcher = $localeSwitcher;
     }
 
     #[AsEventListener(event: RequestEvent::class, priority: 5000)]
@@ -45,6 +45,35 @@ class KernelRequestListener
 
         $event->setResponse($response);
         $event->stopPropagation();
+    }
+
+    #[AsEventListener(event: RequestEvent::class)]
+    public function onKernelRequestLocale(RequestEvent $event): void
+    {
+        $request = $event->getRequest();
+        $locale = $request->getSession()->get('_locale');
+
+        if (!$locale) {
+            try {
+                $availableLocales = json_decode($this->configurationHelper->getConfiguration('APP_SUPPORTED_LOCALES'));
+                if (!is_array($availableLocales)) {
+                    $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', "['en','fr']");
+                    return;
+                }
+                if (!in_array($locale, $availableLocales)) {
+                    return;
+                }
+            } catch (\Exception $e) {
+                $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', "['en','fr']");
+                return;
+            }
+        }
+
+        $this->localeSwitcher->setLocale($locale);
+
+        if ($locale) {
+            $request->setLocale($locale);
+        }
     }
 
     private function getExcludeRoutes(): array

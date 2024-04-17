@@ -1,4 +1,5 @@
 import "../../styles/pages/about.scss";
+import "../utility/mobile-navbar";
 
 /* animate hero bubbles */
 const bubbles = document.querySelectorAll(".circle-bubble");

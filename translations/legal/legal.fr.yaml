@@ -1,0 +1,48 @@
+legal:
+  title: Mentions légales
+  intro: "Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, dite LCEN, nous portons à la connaissance des utilisateurs et visiteurs du site les informations suivantes :"
+  section1:
+    title: Informations légales
+    owner:
+      status: Statut du propriétaire
+      info: Le propriétaire est
+      address: Adresse du propriétaire
+    creator:
+      info: Le créateur du site est
+    publisher:
+      info: Le responsable de la publication est
+      contact: Contactez le responsable de la publication
+      physical: Le responsable de la publication est une personne physique
+    webmaster:
+      info: Le Webmaster est
+      contact: Contactez le Webmaster
+    host:
+      info: L'hébergeur du site est
+  section2:
+    title: Présentation et principe
+    website:
+      presentation: Le site
+      presentation.continue: rassemble un ensemble de services, dans l'état, mis à la disposition des utilisateurs.
+      disclaimer: Il est précisé ici qu'ils doivent rester courtois et faire preuve de bonne foi tant envers les autres utilisateurs qu'envers le webmaster du site.
+  section3:
+    title: Accessibilité
+    accessibility:
+      info: Le site est en principe accessible aux utilisateurs 24 heures sur 24, 7 jours sur 7, sauf interruption, programmée ou non, pour les besoins de sa maintenance ou en cas de force majeure.
+      interruption: En cas d'impossibilité d'accès au service, le site s'engage à faire son maximum pour rétablir l'accès au service.
+      unavailability: Étant soumis uniquement à une obligation de moyens, le site ne peut être tenu responsable de tout dommage, quelle qu'en soit la nature, résultant de l'indisponibilité du service.
+  section4:
+    title: Propriété intellectuelle
+    intellectual_property: Vincent REMY est le propriétaire exclusif de tous les droits de propriété intellectuelle ou détient les droits d'utilisation sur tous les éléments accessibles sur le site, tant sur la structure que sur les textes, images, graphismes, logo, icônes, sons, logiciels...
+    reproduction: "Toute reproduction totale ou partielle du site, représentation, modification, publication, adaptation totale ou partielle de l'un quelconque de ces éléments, quel que soit le moyen ou le processus utilisé, est interdite, sauf autorisation écrite de Vincent REMY, propriétaire du site à l'adresse e-mail : vincentremy222@gmail.com, à défaut de quoi elle sera considérée comme constitutive d'une contrefaçon et passible de poursuites conformément aux dispositions des articles L.335-2 et suivants du Code de la propriété intellectuelle."
+
+  section5:
+    title: Liens hypertextes et cookies
+    hyperlinks_cookies: Le site contient un certain nombre de liens hypertextes vers d'autres sites (partenaires, informations, etc.) mis en place avec l'autorisation de Vincent REMY. Cependant, Vincent REMY n'a pas la possibilité de vérifier tout le contenu des sites ainsi visités et décline donc toute responsabilité de ce fait quant aux éventuels risques de contenu illicite.
+    hyperlinks_content: L'utilisateur est informé que lors de ses visites sur le site, un ou des cookies sont susceptibles de s'installer automatiquement sur son ordinateur via son logiciel de navigation. Un cookie est un bloc de données qui ne permet pas de l'identifier, mais qui enregistre des informations relatives à la navigation de celui-ci sur le site.
+    cookies_info: "La configuration du logiciel de navigation permet d'informer de la présence de cookie(s) et éventuellement de la refuser de la manière décrite à l'adresse suivante : www.cnil.fr. L'utilisateur peut cependant configurer le navigateur de son ordinateur pour refuser l'installation des cookies, sachant que le refus d'installation d'un cookie peut entraîner l'impossibilité d'accéder à certains services. Pour tout blocage des cookies, tapez dans votre moteur de recherche : blocage des cookies et suivez les instructions en fonction de votre version."
+  section6:
+    title: Protection des biens et des personnes - gestion des données personnelles
+    data_rights: "Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, tout utilisateur dispose d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles le concernant. Pour l'exercer, adressez votre demande à l'adresse du site par email : vincentremy222@gmail.com."
+    info_publishing: Aucune information personnelle de l'utilisateur du site n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers.
+    user_rights: "Les utilisateurs ont le droit d'accéder, de rectifier, de supprimer et de s'opposer aux données personnelles les concernant. Pour exercer ce droit, les utilisateurs peuvent envoyer leur demande au site via email à : vincentremy222@gmail.com."
+  or: ou

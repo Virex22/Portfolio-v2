@@ -33,17 +33,16 @@
     </div>
     <div class="footer-part mention">
         <span>©️Vincent REMY 2022-{{ "now"|date("Y") }}, <a
-                    href="#">{{ "footer.legal.title" | trans({}, 'footer') }}</a></span>
-        <span>{{ "footer.legal.text" | trans({}, 'footer') }} <a href="#">Valentin</a></span>
+                    href="{{ path('portfolio_legal') }}">{{ "footer.legal.title" | trans({}, 'footer') }}</a></span>
+        <span>{{ "footer.legal.text" | trans({}, 'footer') }} Valentin HOFFART</span>
     </div>
     <div class="footer-part sitemap">
         <p class="footer-title">{{ "footer.sitemap.title" | trans({}, 'footer') }}</p>
         <ul>
-            <li><a href="#">{{ "footer.sitemap.home" | trans({}, 'footer') }}</a></li>
-            <li><a href="#">{{ "footer.sitemap.about" | trans({}, 'footer') }}</a></li>
-            <li><a href="#">{{ "footer.sitemap.projects" | trans({}, 'footer') }}</a></li>
-            <li><a href="#">{{ "footer.sitemap.skills" | trans({}, 'footer') }}</a></li>
-            <li><a href="#">{{ "footer.sitemap.contact" | trans({}, 'footer') }}</a></li>
+            <li><a href="{{ path('portfolio_home') }}">{{ "footer.sitemap.home" | trans({}, 'footer') }}</a></li>
+            <li><a href="{{ path('portfolio_about') }}">{{ "footer.sitemap.about" | trans({}, 'footer') }}</a></li>
+            <li><a href="{{ path('portfolio_projects') }}">{{ "footer.sitemap.projects" | trans({}, 'footer') }}</a></li>
+            <li><a href="{{ path('portfolio_contact') }}">{{ "footer.sitemap.contact" | trans({}, 'footer') }}</a></li>
         </ul>
     </div>
 </footer>

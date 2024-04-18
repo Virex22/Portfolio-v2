@@ -1,0 +1,61 @@
+@import "../partials/footer.scss";
+@import "../partials/layout.scss";
+@import "../partials/navbar.scss";
+@import "../partials/variables.scss";
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+
+  br {
+    margin-bottom: 5px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .section {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+legal:
+  title: Legal notice
+  intro: "In accordance with the provisions of Articles 6-III and 19 of Law No. 2004-575 of June 21, 2004 on Confidence in the Digital Economy, known as LCEN, we bring to the attention of users and visitors to the site the following information:"
+  section1:
+    title: Legal information
+    owner:
+      status: Owner Status
+      info: The Owner is
+      address: Owner address
+    creator:
+      info: The Creator of the site is
+    publisher:
+      info: The publication manager is
+      contact: Contact the publication manager
+      physical: The publication manager is a Physical person
+    webmaster:
+      info: The Webmaster is
+      contact: Contact the Webmaster
+    host:
+      info: The site host is
+  section2:
+    title: Presentation and principle
+    website:
+      presentation: The website
+      presentation.continue: brings together a set of services, in the state, made available to users.
+      disclaimer: It is specified here that they must remain courteous and demonstrate good faith both towards other users and towards the webmaster of the site.
+  section3:
+    title: Accessibility
+    accessibility:
+      info: The site is in principle accessible to users 24 hours a day, 7 days a week, except for interruption, scheduled or not, for the purposes of its maintenance or in the event of force majeure.
+      interruption: In the event of impossibility of access to the service, the site undertakes to do its utmost to restore access to the service.
+      unavailability: Being subject only to an obligation of means, the site cannot be held responsible for any damage, whatever its nature, resulting from the unavailability of the service.
+  section4:
+    title: Intellectual property
+    intellectual_property: Vincent REMY is the exclusive owner of all the intellectual property rights or holds the rights of use on all the elements accessible on the site, both on the structure and on the texts, images, graphics, logo, icons, sounds, software...
+    reproduction: Any total or partial reproduction of the site, representation, modification, publication, total or partial adaptation of any of these elements, whatever the means or process used, is prohibited, unless authorized.
+
+  section5:
+    title: Hypertext links and cookies
+    hyperlinks_cookies: The site contains a certain number of hypertext links to other sites (partners, information, etc.) set up with the authorization of Vincent REMY. However, Vincent REMY does not have the possibility of verifying all the content of the sites thus visited and therefore declines all responsibility for this fact as regards the possible risks of illegal content."
+    hyperlinks_content: The user is informed that during his visits to the site, one or more cookies are likely to be automatically installed on his computer via his browser software. A cookie is a block of data which does not allow the user to be identified, but which records information relating to his browsing on the site.
+    cookies_info: "The configuration of the navigation software makes it possible to inform of the presence of a cookie and possibly to refuse it in the manner described at the following address: www.cnil.fr. The user can however configure the browser of his computer to refuse the installation of cookies, knowing that the refusal to install a cookie may make it impossible to access certain services. For any blocking of cookies, type in your search engine: blocking cookies and follow the instructions according to your version."
+
+  section6:
+    title: Protection of property and people - management of personal data
+    data_rights: "In accordance with the provisions of articles 38 and following of law 78-17 of January 6, 1978 relating to data processing, files and freedoms, any user has a right of access, rectification, deletion and opposition. personal data concerning him. To exercise this right, send your request to the website by email: vincentremy222@gmail.com."
+    info_publishing: No personal information of the user of the site is published without the user's knowledge, exchanged, transferred, assigned or sold on any medium whatsoever to third parties.
+    user_rights: "Users have the right to access, rectify, delete, and oppose personal data concerning them. To exercise this right, users can send their request to the website via email at: vincentremy222@gmail.com."
+  or: or

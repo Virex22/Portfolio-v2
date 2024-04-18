@@ -51,9 +51,12 @@ class KernelRequestListener
     public function onKernelRequestLocale(RequestEvent $event): void
     {
         $request = $event->getRequest();
-        // handle session manually because priority is too high for session listener
-        session_start();
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
         $locale = $_SESSION['_sf2_attributes']['_locale'] ?? null;
+        session_write_close();
 
         if (!$locale) {
             try {

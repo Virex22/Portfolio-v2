@@ -45,7 +45,7 @@
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
                 <button class="project-card-button"
-                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet
+                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'"> {{ 'projects.list.button' | trans({}, 'projects') }}
                 </button>
             </div>
         {% endfor %}

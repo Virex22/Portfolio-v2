@@ -23,10 +23,10 @@ class Formation implements ITranslatable
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Translatable("formation.name")]
+    #[Translatable(key: "formation.name")]
     private ?string $name = null;
 
-    #[Translatable("formation.description")]
+    #[Translatable(key: "formation.description")]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 use App\Attributes\Translatable;
+use App\Entity\Project;
 use App\Entity\Translation;
 use App\Helper\LocaleHelper;
 use App\Interface\ITranslatable;

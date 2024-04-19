@@ -24,7 +24,7 @@ class ProjectContentCrudController extends AbstractCrudController
     {
         return [
             AssociationField::new('project')
-                ->formatValue(fn($value) => $value->getName())
+                ->formatValue(fn($value) => $value->getId())
                 ->autocomplete(),
             NumberField::new('position'),
             TextField::new('view_type'),

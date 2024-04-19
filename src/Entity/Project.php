@@ -23,10 +23,10 @@ class Project implements ITranslatable
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Translatable("project.name")]
+    #[Translatable(key: "project.name")]
     private ?string $name = null;
 
-    #[Translatable("project.description")]
+    #[Translatable(key: "project.description")]
     private ?string $description = null;
 
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
@@ -208,6 +208,6 @@ class Project implements ITranslatable
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->name ?? '[project]' . $this->id;
     }
 }

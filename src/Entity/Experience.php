@@ -23,10 +23,10 @@ class Experience implements ITranslatable
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Translatable("experience.compagnyName")]
-    private ?string $compagnyName = null;
+    #[Translatable(key: "experience.companyName")]
+    private ?string $companyName = null;
 
-    #[Translatable("experience.postName")]
+    #[Translatable(key: "experience.postName")]
     private ?string $postName = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -35,7 +35,7 @@ class Experience implements ITranslatable
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $EndDate = null;
 
-    #[Translatable("experience.description")]
+    #[Translatable(key: "experience.description")]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -60,14 +60,14 @@ class Experience implements ITranslatable
         return $this->id;
     }
 
-    public function getCompagnyName(): ?string
+    public function getCompanyName(): ?string
     {
-        return $this->compagnyName;
+        return $this->companyName;
     }
 
-    public function setCompagnyName(string $compagnyName): static
+    public function setCompanyName(string $companyName): static
     {
-        $this->compagnyName = $compagnyName;
+        $this->companyName = $companyName;
 
         return $this;
     }

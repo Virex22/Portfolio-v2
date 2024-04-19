@@ -2,6 +2,7 @@
 
 namespace App\Attributes;
 
+use App\Entity\Project;
 use Attribute;
 use ReflectionClass;
 
@@ -39,11 +40,12 @@ class Translatable
     {
         $reflectionClass = new ReflectionClass($entity);
         $property = $reflectionClass->getProperty($fieldName);
+
         $attributes = $property->getAttributes(Translatable::class);
         if (!empty($attributes)) {
-            return $attributes[0]->getArguments()['key'] ?? '';
+            return $attributes[0]->getArguments()['key'] ?? throw new \Exception('Key is not defined for field ' . $fieldName . ' in ' . $reflectionClass->getName());
         }
-        return '';
+        throw new \Exception('Field is not translatable');
     }
 
 }

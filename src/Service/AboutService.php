@@ -61,7 +61,7 @@ class AboutService
                 'type' => 'experience',
                 'startDate' => $experience->getStartDate(),
                 'endDate' => $experience->getEndDate(),
-                'name' => $experience->getCompagnyName(),
+                'name' => $experience->getCompanyName(),
                 'logoUrl' => '/uploads/experiences/' . $experience->getLogo(),
                 'description' => $experience->getDescription(),
             ];

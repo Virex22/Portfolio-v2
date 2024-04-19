@@ -1,33 +1,33 @@
 about:
-  hero:
-    bubble:
-      title: Want to know me
-      text: A little more?
-    head:
-      title: A curious mind
-      content: I am a fullstack web developer with an insatiable thirst for learning.
-    phone:
-      title: Permanent watch
-      content: Always on the lookout for the latest trends, I am passionate about the web and new technologies.
-    hand:
-      title: A hand towards the future
-      content: Want to move forward together? Do not hesitate to contact me.
-    leg:
-      title: Solid Base
-      content: I am a serious and caring fullstack web developer, you can trust me.
-  meetme:
-    button:
-      contactme: Contact me
-      mycv: My CV
-  title:
-    myskill: My skills
-    career: My professional experience
-    convinced: Convinced?
+    hero:
+        bubble:
+            title: Want to know me
+            text: A little more?
+        head:
+            title: A curious mind
+            content: I am a fullstack web developer with an insatiable thirst for learning.
+        phone:
+            title: Permanent watch
+            content: Always on the lookout for the latest trends, I am passionate about the web and new technologies.
+        hand:
+            title: A hand towards the future
+            content: Want to move forward together? Do not hesitate to contact me.
+        leg:
+            title: Solid Base
+            content: I am a serious and caring fullstack web developer, you can trust me.
+    meetme:
+        button:
+            contactme: Contact me
+            mycv: My CV
+    title:
+        myskill: My skills
+        career: My professional experience
+        convinced: Convinced?
     skill:
-      summary: See the details of skill levels
-      content:
-        0: Never heard of this subject.
-        25: Basic knowledge, but no practical experience.
-        50: Intermediate knowledge, with practical experience on a few projects.
-        75: Good knowledge, with practical experience on several projects and the ability to understand how the subject works in addition to using it.
-        100: Complete mastery of the subject, with in-depth experience and the ability to present the subject to others with ease.
+        summary: See the details of skill levels
+        content:
+            0: Never heard of this subject.
+            25: Basic knowledge, but no practical experience.
+            50: Intermediate knowledge, with practical experience on a few projects.
+            75: Good knowledge, with practical experience on several projects and the ability to understand how the subject works in addition to using it.
+            100: Complete mastery of the subject, with in-depth experience and the ability to present the subject to others with ease.

@@ -2,10 +2,13 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Skill;
 use App\Helper\LocaleHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\VichUploaderBundle;
 
 class SkillFixtures extends Fixture
 {
@@ -17,7 +20,7 @@ class SkillFixtures extends Fixture
         for ($i = 1; $i <= self::$count; $i++) {
             $skill = new Skill();
             $this->setLocaleFields($skill, $i);
-            $skill->setBadgeUrl('https://via.placeholder.com/150');
+            $skill->setBadgeFile(FileHelper::createUploadedFile('skill' . $i . '.webp'));
             $manager->persist($skill);
         }
         $manager->flush();

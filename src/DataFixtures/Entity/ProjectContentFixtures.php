@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Project;
 use App\Entity\ProjectContent;
 use App\Helper\LocaleHelper;
@@ -21,13 +22,6 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
         ];
     }
 
-    private function getRandomSizedImage(): string
-    {
-        $width = rand(400, 800);
-        $height = rand(400, 800);
-        return "https://via.placeholder.com/{$width}x{$height}";
-    }
-
     public function load(ObjectManager $manager): void
     {
         $allProjects = $manager->getRepository(Project::class)->findAll();
@@ -42,11 +36,14 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
                 $this->setLocaleFields($projectContent, $i);
            } elseif ($rand4 === 2) {
                 $projectContent->setViewType(EProjectViewType::ALL_IMAGE);
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
             } elseif ($rand4 === 3) {
                 $projectContent->setViewType(EProjectViewType::IMAGE_LEFT);
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
                 $this->setLocaleFields($projectContent, $i);
             } else {
                 $projectContent->setViewType(EProjectViewType::IMAGE_RIGHT);
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
                 $this->setLocaleFields($projectContent, $i);
             }
 

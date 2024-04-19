@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Formation;
 use App\Entity\Skill;
 use App\Helper\LocaleHelper;
@@ -28,6 +29,7 @@ class FormationFixtures extends Fixture implements DependentFixtureInterface
             $this->setLocaleFields($formation, $i);
             $formation->setStartDate(new \DateTime('2021-01-01'));
             $formation->setEndDate(new \DateTime('2021-12-31'));
+            $formation->setLogoFile(FileHelper::createUploadedFile('formation' . $i . '.webp'));
             $formation->addSkill(array_pop($allSkills));
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)

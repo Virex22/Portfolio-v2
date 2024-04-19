@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Experience;
 use App\Entity\Skill;
 use DateTime;
@@ -31,6 +32,7 @@ class ExperienceFixtures extends Fixture
             $this->setLocaleFields($experience, $i);
             $experience->setStartDate(new DateTime('now - ' . $i . ' years'));
             $experience->setEndDate(new DateTime('now - ' . ($i - 1) . ' years'));
+            $experience->setLogoFile(FileHelper::createUploadedFile('experience' . $i . '.webp'));
 
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)

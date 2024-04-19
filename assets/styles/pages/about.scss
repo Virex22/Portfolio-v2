@@ -648,8 +648,8 @@ progress::-moz-progress-bar {
             display: flex;
             img {
               width: 25px;
-              height: max-content;
-              border-radius: 15px;
+              height: 25px;
+              border-radius: 50%;
               object-fit: contain;
               margin-right: 10px;
             }

@@ -1,45 +1,46 @@
 contact:
-  title: Contact me
-  description:
-    line1: Need to know more? Want to move forward together?
-    line2: You can contact me, it's just below!
-  contact:
-    title: Contact information
-    phone: "Phone :"
-    email: "Email :"
-  legal:
-    title: Legal notice
-    address: This site is published by Vincent REMY.
-  faq:
-    title: FAQ
-    availability:
-      title: What are your availabilities?
-      answer: I am currently on a mission and I will not be available until the end of October 2022. However, you can request a quote in order to plan ahead and reserve a slot for the development of your project.
-    pricing:
-      title: What are your prices?
-      answer: The pricing depends on the project and especially on the time it will take to complete it. As an indication, my average daily rate is around €700/day.
-    missions:
-      title: Do you carry out missions in an Agency?
-      answer: I carry out all my missions remotely.
-    success: Your message has been sent successfully.
-    error: An error occurred while sending your message. Please try again.
+    title: Contact me
+    description:
+        line1: Need to know more? Want to move forward together?
+        line2: You can contact me, it's just below!
+    contact:
+        title: Contact information
+        phone: "Phone :"
+        email: "Email :"
+    legal:
+        title: Legal notice
+        address: This site is published by Vincent REMY.
+    faq:
+        title: FAQ
+        availability:
+            title: What are your availabilities?
+            answer: I am currently on a mission and I will not be available until the end of October 2022. However, you can request a quote in order to plan ahead and reserve a slot for the development of your project.
+        pricing:
+            title: What are your prices?
+            answer: The pricing depends on the project and especially on the time it will take to complete it. As an indication, my average daily rate is around €700/day.
+        missions:
+            title: Do you carry out missions in an Agency?
+            answer: I carry out all my missions remotely.
+        success: Your message has been sent successfully.
+        error: An error occurred while sending your message. Please try again.
+    notice: By sending this form, you accept that your data will be used and processed to contact you.
 type:
-  name:
-    label: First name or company name
-    placeholder: Vincent or Chaussea
-  surname:
-    label: Last name (optional)
-    placeholder: REMY
-  email:
-    label: Email
-    placeholder: vincentremy222@gmail.com
-  subject:
-    label: Subject
-    placeholder: Quote request
-  message:
-    label: Message
-    placeholder: Hello Vincent, I would like to get a quote for the creation of a task automation script.
-  captcha:
-    error: Captcha verification failed. Please try again.
-  submit:
-    label: Send the message
+    name:
+        label: First name or company name
+        placeholder: Vincent or Chaussea
+    surname:
+        label: Last name (optional)
+        placeholder: REMY
+    email:
+        label: Email
+        placeholder: vincentremy222@gmail.com
+    subject:
+        label: Subject
+        placeholder: Quote request
+    message:
+        label: Message
+        placeholder: Hello Vincent, I would like to get a quote for the creation of a task automation script.
+    captcha:
+        error: Captcha verification failed. Please try again.
+    submit:
+        label: Send the message

@@ -28,8 +28,7 @@ class ExperienceFixtures extends Fixture
         $allSkills = $manager->getRepository(Skill::class)->findAll();
         for ($i = 1; $i <= self::$count; $i++) {
             $experience = new Experience();
-            $experience->setCompagnyName('Compagny ' . $i);
-            $experience->setPostName('Post ' . $i);
+            $this->setLocaleFields($experience, $i);
             $experience->setStartDate(new DateTime('now - ' . $i . ' years'));
             $experience->setEndDate(new DateTime('now - ' . ($i - 1) . ' years'));
 
@@ -40,5 +39,15 @@ class ExperienceFixtures extends Fixture
             $manager->persist($experience);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(Experience $experience, int $i): void
+    {
+        $locales = ['en', 'fr'];
+        foreach ($locales as $locale) {
+            $experience->setTranslatedField('compagnyName', "Compagny $i $locale", $locale);
+            $experience->setTranslatedField('postName', "Post $i $locale", $locale);
+            $experience->setTranslatedField('description', "Description $i $locale", $locale);
+        }
     }
 }

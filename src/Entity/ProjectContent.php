@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
 use App\Enum\EProjectViewType;
+use App\Interface\ITranslatable;
 use App\Repository\ProjectContentRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -11,8 +14,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectContentRepository::class)]
 #[Vich\Uploadable]
-class ProjectContent
+class ProjectContent implements ITranslatable
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -30,7 +34,7 @@ class ProjectContent
     #[Vich\UploadableField(mapping: 'project_content_images', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Translatable(key: 'project_content.text_content')]
     private ?string $text_content = null;
 
     #[ORM\ManyToOne(inversedBy: 'projectContents')]

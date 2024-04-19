@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
 use App\Enum\ESkillType;
+use App\Interface\ITranslatable;
 use App\Repository\SkillRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -13,14 +16,15 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
 #[Vich\Uploadable()]
-class Skill
+class Skill implements ITranslatable
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable(key: 'skill.name')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -29,7 +33,7 @@ class Skill
     #[Vich\UploadableField(mapping: 'app_skill', fileNameProperty: 'badgeUrl')]
     private ?File $badgeFile = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Translatable(key: 'skill.description')]
     private ?string $description = null;
 
     #[ORM\Column(type: 'string', length: 50)]
@@ -60,18 +64,6 @@ class Skill
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getBadgeUrl(): ?string
@@ -224,8 +216,20 @@ class Skill
         return $this;
     }
 
-    public function __toString(): string
+    public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function setName(?string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName() ?? '';
     }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
+use App\Interface\ITranslatable;
 use App\Repository\ExperienceRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -12,17 +15,18 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ExperienceRepository::class)]
 #[Vich\Uploadable]
-class Experience
+class Experience implements ITranslatable
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable("experience.compagnyName")]
     private ?string $compagnyName = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable("experience.postName")]
     private ?string $postName = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -31,7 +35,7 @@ class Experience
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $EndDate = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[Translatable("experience.description")]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]

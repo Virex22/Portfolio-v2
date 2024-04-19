@@ -3,6 +3,7 @@
 namespace App\DataFixtures\Entity;
 
 use App\Entity\Skill;
+use App\Helper\LocaleHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -15,11 +16,19 @@ class SkillFixtures extends Fixture
     {
         for ($i = 1; $i <= self::$count; $i++) {
             $skill = new Skill();
-            $skill->setName('Skill ' . $i);
-            $skill->setDescription('Description ' . $i);
+            $this->setLocaleFields($skill, $i);
             $skill->setBadgeUrl('https://via.placeholder.com/150');
             $manager->persist($skill);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(Skill $skill, int $i): void
+    {
+        $locales = LocaleHelper::getLocales();
+        foreach ($locales as $locale) {
+            $skill->setTranslatedField('name', 'Skill ' . $i . ' ' . $locale, $locale);
+            $skill->setTranslatedField('description', 'Description ' . $i . ' ' . $locale, $locale);
+        }
     }
 }

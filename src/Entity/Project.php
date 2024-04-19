@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
+use App\Interface\ITranslatable;
 use App\Repository\ProjectRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -12,17 +15,18 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 #[Vich\Uploadable]
-class Project
+class Project implements ITranslatable
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable("project.name")]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[Translatable("project.description")]
     private ?string $description = null;
 
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]

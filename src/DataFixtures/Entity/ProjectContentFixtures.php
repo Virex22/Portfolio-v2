@@ -4,6 +4,7 @@ namespace App\DataFixtures\Entity;
 
 use App\Entity\Project;
 use App\Entity\ProjectContent;
+use App\Helper\LocaleHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -38,15 +39,15 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
             $rand4 = rand(1, 4);
             if ($rand4 === 1) {
                 $projectContent->setViewType(EProjectViewType::ALL_TEXT);
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
-            } elseif ($rand4 === 2) {
+                $this->setLocaleFields($projectContent, $i);
+           } elseif ($rand4 === 2) {
                 $projectContent->setViewType(EProjectViewType::ALL_IMAGE);
             } elseif ($rand4 === 3) {
                 $projectContent->setViewType(EProjectViewType::IMAGE_LEFT);
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
+                $this->setLocaleFields($projectContent, $i);
             } else {
                 $projectContent->setViewType(EProjectViewType::IMAGE_RIGHT);
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
+                $this->setLocaleFields($projectContent, $i);
             }
 
             $projectContent->setPosition($project->getProjectContents()->count() + 1);
@@ -54,5 +55,13 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
             $manager->persist($projectContent);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(ProjectContent $projectContent, int $i): void
+    {
+        $locales = LocaleHelper::getLocales();
+        foreach ($locales as $locale) {
+            $projectContent->setTranslatedField('text_content', 'Project Content ' . $i . ' ' . $locale, $locale);
+        }
     }
 }

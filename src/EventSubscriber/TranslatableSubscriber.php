@@ -19,7 +19,6 @@ use Doctrine\ORM\Mapping\PreRemove;
 use Doctrine\ORM\Mapping\PreUpdate;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\String\Inflector\EnglishInflector;
 
 #[AsDoctrineListener(event: Events::postPersist)]
 #[AsDoctrineListener(event: Events::preUpdate)]

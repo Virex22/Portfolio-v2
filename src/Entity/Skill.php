@@ -33,9 +33,6 @@ class Skill implements ITranslatable
     #[Vich\UploadableField(mapping: 'app_skill', fileNameProperty: 'badgeUrl')]
     private ?File $badgeFile = null;
 
-    #[Translatable(key: 'skill.description')]
-    private ?string $description = null;
-
     #[ORM\Column(type: 'string', length: 50)]
     private string $type = ESkillType::TECH_SKILL;
 

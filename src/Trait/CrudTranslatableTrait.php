@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Trait;
+
+use App\Entity\Skill;
+use App\Helper\LocaleHelper;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+
+trait CrudTranslatableTrait
+{
+    private RequestStack $requestStack;
+
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->persistTranslatedFields($entityManager, $entityInstance);
+        parent::persistEntity($entityManager, $entityInstance);
+    }
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->persistTranslatedFields($entityManager, $entityInstance);
+        parent::updateEntity($entityManager, $entityInstance);
+    }
+
+    private function persistTranslatedFields(EntityManagerInterface $entityManager, Skill $entityInstance): void
+    {
+        $currentLocale = LocaleHelper::getLocales()[0];
+        if ($this->requestStack->getCurrentRequest()) {
+            $currentLocale = $this->requestStack->getCurrentRequest()->getLocale();
+        }
+
+        $entityInstance->saveTranslations($entityManager, $currentLocale);
+    }
+}

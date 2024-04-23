@@ -41,7 +41,7 @@ class ExperienceCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('compagnyName'),
+            TextField::new('companyName'),
             TextField::new('postName'),
             TextEditorField::new('description'),
             DateTimeField::new('startDate'),

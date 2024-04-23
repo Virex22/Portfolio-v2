@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Attributes\Translatable;
-use App\Interface\ITranslatable;
 use App\Repository\ProjectRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -15,7 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 #[Vich\Uploadable]
-class Project implements ITranslatable
+class Project
 {
     use TranslatableTrait;
     #[ORM\Id]

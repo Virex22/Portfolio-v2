@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Attributes\Translatable;
-use App\Interface\ITranslatable;
 use App\Repository\ExperienceRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -15,7 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ExperienceRepository::class)]
 #[Vich\Uploadable]
-class Experience implements ITranslatable
+class Experience
 {
     use TranslatableTrait;
     #[ORM\Id]

@@ -31,7 +31,6 @@ class SkillFixtures extends Fixture
         $locales = LocaleHelper::getLocales();
         foreach ($locales as $locale) {
             $skill->setTranslatedField('name', 'Skill ' . $i . ' ' . $locale, $locale);
-            $skill->setTranslatedField('description', 'Description ' . $i . ' ' . $locale, $locale);
         }
     }
 }

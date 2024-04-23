@@ -51,6 +51,7 @@ class AboutService
                 'startDate' => $formation->getStartDate(),
                 'endDate' => $formation->getEndDate(),
                 'name' => $formation->getName(),
+                'subtitle' => $formation->getSchoolName(),
                 'logoUrl' => '/uploads/formations/' . $formation->getLogo(),
                 'description' => $formation->getDescription(),
             ];
@@ -62,6 +63,7 @@ class AboutService
                 'startDate' => $experience->getStartDate(),
                 'endDate' => $experience->getEndDate(),
                 'name' => $experience->getCompanyName(),
+                'subtitle' => $experience->getPostName(),
                 'logoUrl' => '/uploads/experiences/' . $experience->getLogo(),
                 'description' => $experience->getDescription(),
             ];

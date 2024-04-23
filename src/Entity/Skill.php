@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Attributes\Translatable;
 use App\Enum\ESkillType;
-use App\Interface\ITranslatable;
 use App\Repository\SkillRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
 #[Vich\Uploadable()]
-class Skill implements ITranslatable
+class Skill
 {
     use TranslatableTrait;
     #[ORM\Id]
@@ -86,19 +85,6 @@ class Skill implements ITranslatable
     public function getBadgeFile(): ?File
     {
         return $this->badgeFile;
-    }
-
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): static
-    {
-        $this->description = $description;
-
-        return $this;
     }
 
     public function getType(): string

@@ -47,7 +47,7 @@ class ExperienceFixtures extends Fixture
     {
         $locales = ['en', 'fr'];
         foreach ($locales as $locale) {
-            $experience->setTranslatedField('compagnyName', "Compagny $i $locale", $locale);
+            $experience->setTranslatedField('companyName', "Company $i $locale", $locale);
             $experience->setTranslatedField('postName', "Post $i $locale", $locale);
             $experience->setTranslatedField('description', "Description $i $locale", $locale);
         }

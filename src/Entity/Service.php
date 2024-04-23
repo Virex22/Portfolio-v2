@@ -3,14 +3,13 @@
 namespace App\Entity;
 
 use App\Attributes\Translatable;
-use App\Interface\ITranslatable;
 use App\Repository\ServiceRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
-class Service implements ITranslatable
+class Service
 {
     use TranslatableTrait;
     #[ORM\Id]

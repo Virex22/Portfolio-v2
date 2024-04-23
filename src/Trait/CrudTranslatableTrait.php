@@ -23,7 +23,7 @@ trait CrudTranslatableTrait
         parent::updateEntity($entityManager, $entityInstance);
     }
 
-    private function persistTranslatedFields(EntityManagerInterface $entityManager, Skill $entityInstance): void
+    private function persistTranslatedFields(EntityManagerInterface $entityManager, object $entityInstance): void
     {
         $currentLocale = LocaleHelper::getLocales()[0];
         if ($this->requestStack->getCurrentRequest()) {

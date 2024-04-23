@@ -632,13 +632,6 @@ progress::-moz-progress-bar {
           width: 100%;
         }
 
-        h3 {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #7367D4;
-          margin-bottom: 20px;
-        }
-
         .content {
           padding: 20px;
           background-color: #f3f3f3;
@@ -647,12 +640,28 @@ progress::-moz-progress-bar {
           div {
             display: flex;
             img {
-              width: 25px;
-              height: 25px;
+              width: 64px;
+              height: 64px;
               border-radius: 50%;
               object-fit: contain;
               margin-right: 10px;
             }
+            h3 {
+              font-size: 1.5rem;
+              font-weight: bold;
+              color: #7367D4;
+            }
+            p {
+              font-size: 1.25rem;
+              color: #8a7fd4;
+            }
+            &>div {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              margin-bottom: 0;
+            }
+            margin-bottom: 10px;
           }
         }
 

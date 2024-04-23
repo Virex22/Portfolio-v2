@@ -13,6 +13,10 @@ trait TranslatableTrait
 
     public function setTranslatedField(string $fieldName, string $value, string $locale): void
     {
+        $availableFields = Translatable::getTranslatableFields($this);
+        if (!in_array($fieldName, $availableFields)) {
+            throw new \InvalidArgumentException("Field $fieldName is not translatable or not exists in " . get_class($this));
+        }
         if (!isset($this->translatedFields[$fieldName])) {
             $this->translatedFields[$fieldName] = [];
         }
@@ -53,7 +57,7 @@ trait TranslatableTrait
                 $translations[0]->setValue($this->$field);
                 $entityManager->persist($translations[0]);
             }
-            $entityManager->flush();
         }
+        $entityManager->flush();
     }
 }

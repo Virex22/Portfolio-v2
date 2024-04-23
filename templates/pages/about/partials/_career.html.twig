@@ -10,7 +10,10 @@
                     <div class="content">
                         <div>
                             <img src="{{element.logoUrl}}" alt="{{ element.name }}">
-                            <h3>{{ element.name }}</h3>
+                            <div>
+                                <h3>{{ element.name }}</h3>
+                                <p>{{ element.subtitle }}</p>
+                            </div>
                         </div>
                         <p>{{ element.description | raw }}</p>
                     </div>

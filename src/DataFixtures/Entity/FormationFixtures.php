@@ -45,6 +45,7 @@ class FormationFixtures extends Fixture implements DependentFixtureInterface
         foreach ($locales as $locale) {
             $formation->setTranslatedField('name', "Name $i $locale", $locale);
             $formation->setTranslatedField('description', "Description $i $locale", $locale);
+            $formation->setTranslatedField('schoolName', "School $i $locale", $locale);
         }
     }
 

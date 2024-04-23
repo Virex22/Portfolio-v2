@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Attributes\Translatable;
 use App\Enum\EProjectViewType;
-use App\Interface\ITranslatable;
 use App\Repository\ProjectContentRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\DBAL\Types\Types;
@@ -14,7 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectContentRepository::class)]
 #[Vich\Uploadable]
-class ProjectContent implements ITranslatable
+class ProjectContent
 {
     use TranslatableTrait;
     #[ORM\Id]

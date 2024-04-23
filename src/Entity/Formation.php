@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Attributes\Translatable;
-use App\Interface\ITranslatable;
 use App\Repository\FormationRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -15,7 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: FormationRepository::class)]
 #[Vich\Uploadable]
-class Formation implements ITranslatable
+class Formation
 {
     use TranslatableTrait;
     #[ORM\Id]
@@ -25,6 +24,9 @@ class Formation implements ITranslatable
 
     #[Translatable(key: "formation.name")]
     private ?string $name = null;
+
+    #[Translatable(key: "formation.school_name")]
+    private ?string $schoolName = null;
 
     #[Translatable(key: "formation.description")]
     private ?string $description = null;
@@ -65,6 +67,18 @@ class Formation implements ITranslatable
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSchoolName(): ?string
+    {
+        return $this->schoolName;
+    }
+
+    public function setSchoolName(string $schoolName): static
+    {
+        $this->schoolName = $schoolName;
 
         return $this;
     }

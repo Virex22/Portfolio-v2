@@ -3,10 +3,8 @@
 namespace App\EventSubscriber;
 
 use App\Attributes\Translatable;
-use App\Entity\Project;
 use App\Entity\Translation;
 use App\Helper\LocaleHelper;
-use App\Interface\ITranslatable;
 use App\Repository\TranslationRepository;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
@@ -37,13 +35,13 @@ class TranslatableSubscriber implements EventSubscriberInterface
         $this->requestStack = $requestStack;
     }
 
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
-            Events::postPersist,
-            Events::preUpdate,
-            Events::postLoad,
-            Events::preRemove,
+            Events::postPersist => 'postPersist',
+            Events::preUpdate => 'preUpdate',
+            Events::postLoad => 'postLoad',
+            Events::preRemove => 'preRemove',
         ];
     }
 
@@ -63,7 +61,7 @@ class TranslatableSubscriber implements EventSubscriberInterface
     public function postLoad($event): void
     {
         $entity = $event->getObject();
-        if (!($entity instanceof ITranslatable)) {
+        if (!Translatable::isTranslatableEntity($entity)) {
             return;
         }
         $locale = LocaleHelper::getLocales()[0];
@@ -78,7 +76,7 @@ class TranslatableSubscriber implements EventSubscriberInterface
     public function preRemove($event): void
     {
         $entity = $event->getObject();
-        if (!($entity instanceof ITranslatable)) {
+        if (!Translatable::isTranslatableEntity($entity)) {
             return;
         }
         $translations = $this->translationRepository->findBy(['entity_id' => $entity->getId()]);
@@ -90,7 +88,7 @@ class TranslatableSubscriber implements EventSubscriberInterface
 
     private function persistTranslatedFields(object $entity): void
     {
-        if (!($entity instanceof ITranslatable)) {
+        if (!Translatable::isTranslatableEntity($entity)) {
             return;
         }
         $translatableFields = Translatable::getTranslatableFields($entity);
@@ -140,5 +138,4 @@ class TranslatableSubscriber implements EventSubscriberInterface
             }
         }
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace App\Attributes;
 
-use App\Entity\Project;
 use Attribute;
 use ReflectionClass;
 

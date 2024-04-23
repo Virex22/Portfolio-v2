@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Attributes\Translatable;
-use App\Interface\ITranslatable;
 use App\Repository\SkillGroupRepository;
 use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,9 +11,10 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SkillGroupRepository::class)]
-class SkillGroup implements ITranslatable
+class SkillGroup
 {
     use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

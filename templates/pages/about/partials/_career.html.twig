@@ -19,6 +19,11 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="elements-skills-container">
+                            {% for skill in element.skills %}
+                                <span>{{ skill.name }}</span>
+                            {% endfor %}
+                        </div>
                         <p>{{ element.description | raw }}</p>
                     </div>
                 </div>

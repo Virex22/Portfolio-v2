@@ -633,12 +633,33 @@ progress::-moz-progress-bar {
         }
 
         .content {
+
+          .elements-skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 5px 0;
+
+            span {
+              cursor: default;
+              color: #6c63ff;
+              border: 1px solid #6c63ff;
+              padding: 5px 10px;
+              border-radius: 20px;
+              margin: 5px;
+              font-size: 0.8rem;
+            }
+          }
+
           padding: 20px;
           background-color: #f3f3f3;
           border-radius: 0 0 10px 10px;
           border: #d1c3f3 1px solid;
+
           div {
             display: flex;
+
             img {
               width: 64px;
               height: 64px;
@@ -646,38 +667,43 @@ progress::-moz-progress-bar {
               object-fit: contain;
               margin-right: 10px;
             }
+
             h3 {
               font-size: 1.5rem;
               font-weight: bold;
               color: #7367D4;
             }
+
             p {
               span {
                 font-size: 1rem;
               }
+
               color: #8a7fd4;
               font-size: 1.25rem;
               display: flex;
-              svg{
+
+              svg {
                 height: 1rem;
                 width: 1rem;
                 object-fit: contain;
                 margin: 0 0 0 10px;
-                  fill: #9c94d4;
+                fill: #9c94d4;
               }
+
               .location {
                 display: flex;
                 align-items: center;
                 color: #9c94d4;
               }
             }
-            &>div {
+
+            & > div {
               display: flex;
               flex-direction: column;
               justify-content: space-around;
               margin-bottom: 0;
             }
-            margin-bottom: 10px;
           }
         }
 

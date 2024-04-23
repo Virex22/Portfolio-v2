@@ -39,6 +39,11 @@
                         <img src="{{ vich_uploader_asset(project, 'coverImageFile') }}" alt="{{ project.name }}">
                     </div>
                 </a>
+                <div class="project-card-skills-container">
+                    {% for skill in project.skills %}
+                        <span>{{ skill.name }}</span>
+                    {% endfor %}
+                </div>
                 <div class="project-card-content">
                     <a href="{{ path('project_show', {'id': project.id}) }}">
                         <h2 class="project-card-title">{{ project.name }}</h2></a>

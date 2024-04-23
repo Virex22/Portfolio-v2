@@ -33,9 +33,31 @@
     background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 300px;
     padding: 0 0 20px;
     transition: 0.1s ease;
+
+    @media (max-width: $foldmobile) {
+      width: 250px;
+    }
+
+    .project-card-skills-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 5px 0;
+
+      span {
+        cursor: default;
+        color: #6c63ff;
+        border: 1px solid #6c63ff;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin: 5px;
+        font-size: 0.8rem;
+      }
+    }
 
     &.hidden {
       transform: scale(0.01);

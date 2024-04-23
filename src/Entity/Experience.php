@@ -28,6 +28,9 @@ class Experience
     #[Translatable(key: "experience.postName")]
     private ?string $postName = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $location = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $startDate = null;
 
@@ -79,6 +82,18 @@ class Experience
     public function setPostName(string $postName): static
     {
         $this->postName = $postName;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): static
+    {
+        $this->location = $location;
 
         return $this;
     }

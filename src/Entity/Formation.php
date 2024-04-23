@@ -28,6 +28,9 @@ class Formation
     #[Translatable(key: "formation.school_name")]
     private ?string $schoolName = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $location = null;
+
     #[Translatable(key: "formation.description")]
     private ?string $description = null;
 
@@ -91,6 +94,18 @@ class Formation
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): static
+    {
+        $this->location = $location;
 
         return $this;
     }

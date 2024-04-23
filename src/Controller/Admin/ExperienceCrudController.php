@@ -44,8 +44,9 @@ class ExperienceCrudController extends AbstractCrudController
             TextField::new('companyName'),
             TextField::new('postName'),
             TextEditorField::new('description'),
-            DateTimeField::new('startDate'),
-            DateTimeField::new('EndDate'),
+            DateTimeField::new('startDate')->onlyOnForms(),
+            DateTimeField::new('EndDate')->onlyOnForms(),
+            TextField::new('location'),
             ImageField::new('logo')
                 ->setBasePath('/uploads/experiences/')
                 ->onlyOnIndex(),

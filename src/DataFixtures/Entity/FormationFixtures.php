@@ -29,6 +29,7 @@ class FormationFixtures extends Fixture implements DependentFixtureInterface
             $this->setLocaleFields($formation, $i);
             $formation->setStartDate(new \DateTime('2021-01-01'));
             $formation->setEndDate(new \DateTime('2021-12-31'));
+            $formation->setLocation('Location ' . $i);
             $formation->setLogoFile(FileHelper::createUploadedFile('formation' . $i . '.webp'));
             $formation->addSkill(array_pop($allSkills));
             for ($j = 1; $j <= rand(1, 3); $j++)

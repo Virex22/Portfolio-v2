@@ -43,8 +43,9 @@ class FormationCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             TextEditorField::new('description'),
-            DateTimeField::new('startDate'),
-            DateTimeField::new('endDate'),
+            DateTimeField::new('startDate')->onlyOnForms(),
+            DateTimeField::new('endDate')->onlyOnForms(),
+            TextField::new('location'),
             ImageField::new('logo')
                 ->setBasePath('/uploads/formations/')
                 ->onlyOnIndex(),

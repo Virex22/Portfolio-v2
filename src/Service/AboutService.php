@@ -26,6 +26,8 @@ class AboutService
      *       'startDate' => 2021-01-01,
      *      'endDate' => 2021-01-01,
      *      'name' => 'formation name',
+     *     'subtitle' => 'school name',
+     *    'location' => 'location',
      *      'logoUrl' => 'logo image',
      *     'description' => 'description',
      *    ],
@@ -34,6 +36,8 @@ class AboutService
      *     'startDate' => 2020-01-01,
      *     'endDate' => 2021-01-01,
      *      'name' => 'experience name',
+     *     'subtitle' => 'post name',
+     *    'location' => 'location',
      *     'logoUrl' => 'logo image',
      *    'description' => 'description',
      *      ]
@@ -52,6 +56,7 @@ class AboutService
                 'endDate' => $formation->getEndDate(),
                 'name' => $formation->getName(),
                 'subtitle' => $formation->getSchoolName(),
+                'location' => $formation->getLocation(),
                 'logoUrl' => '/uploads/formations/' . $formation->getLogo(),
                 'description' => $formation->getDescription(),
             ];
@@ -64,6 +69,7 @@ class AboutService
                 'endDate' => $experience->getEndDate(),
                 'name' => $experience->getCompanyName(),
                 'subtitle' => $experience->getPostName(),
+                'location' => $experience->getLocation(),
                 'logoUrl' => '/uploads/experiences/' . $experience->getLogo(),
                 'description' => $experience->getDescription(),
             ];

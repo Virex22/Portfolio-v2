@@ -12,7 +12,11 @@
                             <img src="{{element.logoUrl}}" alt="{{ element.name }}">
                             <div>
                                 <h3>{{ element.name }}</h3>
-                                <p>{{ element.subtitle }}</p>
+                                <p>{{ element.subtitle }} <span class="location">
+{#                                        use publi/about/location.svg#}
+                                        {{ source('@public/images/about/location.svg') }}
+                                        {{ element.location }}</span>
+                                </p>
                             </div>
                         </div>
                         <p>{{ element.description | raw }}</p>

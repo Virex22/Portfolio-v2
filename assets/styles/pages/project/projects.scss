@@ -48,6 +48,22 @@
       flex-wrap: wrap;
       margin: 5px 0;
 
+      .project-card-skills-img {
+        img {
+          width: 25px;
+          height: 25px;
+          margin: 5px;
+          border-radius: 5px;
+        }
+      }
+
+      .project-card-skills-tag {
+        height: 25px;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+      }
+
       span {
         cursor: default;
         color: #6c63ff;

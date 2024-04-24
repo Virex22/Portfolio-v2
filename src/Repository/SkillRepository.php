@@ -34,4 +34,13 @@ class SkillRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findWhereBadgeUrlIsNotNull(): array
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.badgeUrl IS NOT NULL')
+            ->orderBy('s.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

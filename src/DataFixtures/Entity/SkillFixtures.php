@@ -20,7 +20,9 @@ class SkillFixtures extends Fixture
         for ($i = 1; $i <= self::$count; $i++) {
             $skill = new Skill();
             $this->setLocaleFields($skill, $i);
-            $skill->setBadgeFile(FileHelper::createUploadedFile('skill' . $i . '.webp'));
+            if ($i % 2 === 0) {
+                $skill->setBadgeFile(FileHelper::createUploadedFile('skill' . $i . '.webp'));
+            }
             $manager->persist($skill);
         }
         $manager->flush();

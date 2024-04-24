@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ServiceRepository;
 use App\Repository\SkillRepository;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,7 @@ class HomeController extends AbstractController
     {
         return $this->render('pages/home/home.html.twig', [
             'services' => $serviceRepository->findBy([], ['priority' => 'ASC']),
-            'skills' => $skillRepository->findBy([], ['id' => 'ASC']),
+            'skills' => $skillRepository->findWhereBadgeUrlIsNotNull(),
         ]);
     }
 

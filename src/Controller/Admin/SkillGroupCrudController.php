@@ -38,8 +38,9 @@ class SkillGroupCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->onlyOnIndex(),
             TextField::new('customName'),
+            NumberField::new('priority'),
             NumberField::new('acquiredPercentage'),
             AssociationField::new('skills')
                 ->formatValue(fn ($value) => $this->formatValue($value))

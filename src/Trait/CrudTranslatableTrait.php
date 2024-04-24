@@ -14,9 +14,11 @@ trait CrudTranslatableTrait
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
+        $entityManager->persist($entityInstance);
+        $entityManager->flush();
         $this->persistTranslatedFields($entityManager, $entityInstance);
-        parent::persistEntity($entityManager, $entityInstance);
     }
+
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         $this->persistTranslatedFields($entityManager, $entityInstance);

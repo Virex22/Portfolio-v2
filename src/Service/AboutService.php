@@ -2,17 +2,18 @@
 
 namespace App\Service;
 
+use App\Manager\CustomTranslationManager;
 use App\Repository\ExperienceRepository;
 use App\Repository\FormationRepository;
 
 class AboutService
 {
-    private FormationRepository $skillGroupRepository;
+    private FormationRepository $formationRepository;
     private ExperienceRepository $experienceRepository;
 
-    public function __construct(FormationRepository $skillGroupRepository, ExperienceRepository $experienceRepository)
+    public function __construct(FormationRepository $formationRepository, ExperienceRepository $experienceRepository)
     {
-        $this->skillGroupRepository = $skillGroupRepository;
+        $this->formationRepository = $formationRepository;
         $this->experienceRepository = $experienceRepository;
     }
 
@@ -46,9 +47,9 @@ class AboutService
      */
     public function getTimeLineData(): array
     {
-        $formations = $this->skillGroupRepository->findBy([], ['startDate' => 'DESC']);
-        $experiences = $this->experienceRepository->findBy([], ['startDate' => 'DESC']);
-
+        $formations = $this->formationRepository->findAllWithSkills();
+        $experiences = $this->experienceRepository->findAllWithSkills();
+        CustomTranslationManager::getInstance()->processTranslationRequests();
         $timelineData = [];
 
         foreach ($formations as $formation) {

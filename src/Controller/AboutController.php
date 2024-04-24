@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Helper\ConfigurationHelper;
+use App\Manager\CustomTranslationManager;
 use App\Repository\ExperienceRepository;
 use App\Repository\FormationRepository;
 use App\Repository\SkillGroupRepository;
@@ -20,10 +21,14 @@ class AboutController extends AbstractController
         ConfigurationHelper $configurationHelper
     ): Response
     {
+        $skillGroups = $skillGroupRepository->findAllWithSkills();
+        $timeline = $aboutService->getTimeLineData();
+        $cvLink = $configurationHelper->getConfiguration('CV_LINK', '#');
+
         return $this->render('pages/about/about.html.twig', [
-            'skillGroups' => $skillGroupRepository->findBy([], ['acquiredPercentage' => 'DESC']),
-            'timeline' => $aboutService->getTimeLineData(),
-            'cvLink' => $configurationHelper->getConfiguration('CV_LINK', '#'),
+            'skillGroups' => $skillGroups,
+            'timeline' => $timeline,
+            'cvLink' => $cvLink,
         ]);
     }
 }

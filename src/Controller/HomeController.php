@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Manager\CustomTranslationManager;
 use App\Repository\ServiceRepository;
 use App\Repository\SkillRepository;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,9 +23,13 @@ class HomeController extends AbstractController
     #[Route('/', name: 'portfolio_home')]
     public function index(ServiceRepository $serviceRepository, SkillRepository $skillRepository): Response
     {
+        $services = $serviceRepository->findBy([], ['priority' => 'ASC']);
+        $skills = $skillRepository->findWhereBadgeUrlIsNotNull();
+
+        CustomTranslationManager::getInstance()->processTranslationRequests();
         return $this->render('pages/home/home.html.twig', [
-            'services' => $serviceRepository->findBy([], ['priority' => 'ASC']),
-            'skills' => $skillRepository->findWhereBadgeUrlIsNotNull(),
+            'services' => $services,
+            'skills' => $skills,
         ]);
     }
 

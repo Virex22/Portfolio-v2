@@ -5,6 +5,7 @@ namespace App\EventSubscriber;
 use App\Attributes\Translatable;
 use App\Entity\Translation;
 use App\Helper\LocaleHelper;
+use App\Manager\CustomTranslationManager;
 use App\Repository\TranslationRepository;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
@@ -65,11 +66,14 @@ class TranslatableSubscriber implements EventSubscriberInterface
             return;
         }
         $locale = LocaleHelper::getLocales()[0];
-        if ($locale = $this->requestStack->getCurrentRequest()) {
+        if ($this->requestStack->getCurrentRequest()) {
             $locale = $this->requestStack->getCurrentRequest()->getLocale();
         }
-        $translations = $this->translationRepository->findBy(['entity_id' => $entity->getId(), 'locale' => $locale]);
-        $this->setTranslatedField($entity, $translations);
+        $fields = Translatable::getTranslatableFields($entity);
+        foreach ($fields as $field) {
+            $key = Translatable::getTranslationKey($entity, $field);
+            CustomTranslationManager::getInstance()->setEntityManager($this->entityManager)->requestTranslation($entity, $entity->getId(), $locale, $key, $field);
+        }
     }
 
     #[PreRemove]
@@ -120,22 +124,5 @@ class TranslatableSubscriber implements EventSubscriberInterface
         $translation->setValue($value);
         $this->entityManager->persist($translation);
         $this->entityManager->flush();
-    }
-
-    private function setTranslatedField(object $entity, array $translations): void
-    {
-        $fields = Translatable::getTranslatableFields($entity);
-        foreach ($fields as $field) {
-            $key = Translatable::getTranslationKey($entity, $field);
-            foreach ($translations as $translation) {
-                if ($translation->getDomain() === $key) {
-                    $camelizedAttributeName = ucfirst(str_replace('_', '', lcfirst($field)));
-                    $setter = 'set' . $camelizedAttributeName;
-                    if (method_exists($entity, $setter)) {
-                        $entity->$setter($translation->getValue());
-                    }
-                }
-            }
-        }
     }
 }

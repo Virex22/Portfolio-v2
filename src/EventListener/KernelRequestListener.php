@@ -32,12 +32,15 @@ class KernelRequestListener
             }
         }
 
-        if (!$this->configurationHelper->existConfiguration(self::$maintenanceConfigKey)) {
+
+        $maintenanceConfig = $this->configurationHelper->getConfiguration(self::$maintenanceConfigKey);
+
+        if (!$maintenanceConfig) {
             $this->configurationHelper->setConfiguration(self::$maintenanceConfigKey, 'false');
             return;
         }
 
-        if ($this->configurationHelper->getConfiguration(self::$maintenanceConfigKey) !== 'true') {
+        if ($maintenanceConfig !== 'true') {
             return;
         }
 
@@ -62,14 +65,14 @@ class KernelRequestListener
             try {
                 $availableLocales = json_decode($this->configurationHelper->getConfiguration('APP_SUPPORTED_LOCALES'));
                 if (!is_array($availableLocales)) {
-                    $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', "['en','fr']");
+                    $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', '["en","fr"]');
                     return;
                 }
                 if (!in_array($locale, $availableLocales)) {
                     return;
                 }
             } catch (\Exception $e) {
-                $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', "['en','fr']");
+                $this->configurationHelper->setConfiguration('APP_SUPPORTED_LOCALES', '["en","fr"]');
                 return;
             }
         }

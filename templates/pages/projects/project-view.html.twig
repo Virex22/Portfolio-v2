@@ -11,10 +11,21 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'pages/projects/_partials/_hero.html.twig' with {
-        'title': project.name,
-        'description': project.description,
-    } %}
+    <div class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="title">{{ project.name }}</h1>
+            <p class="description"> {{ project.description }}</p>
+        </div>
+        <div class="project-skills">
+            {% for skill in project.skills %}
+                {% if skill.badgeUrl is not null %}
+                    <div class="project-skills-img">
+                        <img src="{{ vich_uploader_asset(skill, 'badgeFile') }}" alt="{{ skill.name }}">
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
     {% for content in project.projectContents %}
         <section class="project-content {{ content.viewType }}">
             {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
@@ -32,4 +43,14 @@
             {% endif %}
         </section>
     {% endfor %}
+
+    <div class="project-view-footer">
+        <div class="project-view-footer-hashtags">
+            {% for skill in project.skills %}
+                {% if skill.badgeUrl is null %}
+                    <span>#{{ skill.name }}</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

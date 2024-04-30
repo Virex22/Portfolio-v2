@@ -24,7 +24,8 @@ about:
         career: My professional experience
         convinced: Convinced?
     skill:
-        summary: See the details of skill levels
+        explanation:
+            title: "Because we don't all have the same definition of 100%, here's what I mean by these skill levels:"
         content:
             0: Never heard of this subject.
             25: Basic knowledge, but no practical experience.

@@ -377,33 +377,17 @@ h2.home-subtitle {
 /* skills section */
 
 .skill-explanation {
-  border: 1px solid #e9ecef;
-  border-radius: 0.25rem;
   width: max-content;
-  margin: 1rem auto;
+  margin: $space-between-parts 0 $space-between-parts 70px;
 }
 
-.skill-explanation summary {
-  background-color: #f6f8fa;
-  border-bottom: 1px solid #e9ecef;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  list-style: none;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.skill-explanation[open] summary {
-  background-color: #e9ecef;
+.skill-explanation p {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .skill-explanation .skill-explanation-content {
   padding: 1rem;
-  border-top: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
 
@@ -412,7 +396,6 @@ h2.home-subtitle {
     justify-content: space-between;
     margin: 10px 0;
   }
-
 }
 
 .skill-grid {

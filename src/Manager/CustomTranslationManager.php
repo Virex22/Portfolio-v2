@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 class CustomTranslationManager
 {
+    private bool $active = true;
     private static CustomTranslationManager $instance;
     private array $translationRequests = [];
     private EntityManagerInterface $entityManager;
@@ -31,6 +32,18 @@ class CustomTranslationManager
         return self::$instance;
     }
 
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): CustomTranslationManager
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
     public function setEntityManager(EntityManagerInterface $entityManager) : CustomTranslationManager
     {
         $this->entityManager = $entityManager;
@@ -41,6 +54,9 @@ class CustomTranslationManager
     public function requestTranslation(object $entity, int $entityId, string $locale, string $key, string $field): void
     {
         $this->translationRequests[] = ['entity' => $entity, 'entityId' => $entityId, 'locale' => $locale, 'key' => $key, 'field' => $field];
+        if (!$this->active) {
+            $this->processTranslationRequests();
+        }
     }
 
     public function processTranslationRequests(): void

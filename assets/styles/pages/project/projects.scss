@@ -36,11 +36,27 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-    padding: 0 0 20px;
+    padding: 0;
     transition: 0.1s ease;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: $foldmobile) {
       width: 250px;
+    }
+
+    .project-card-skills-hashtag {
+      min-height: 25px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color : #6c63ff;
+      flex-wrap: wrap;
+
+      span {
+        margin: 2px 5px;
+      }
     }
 
     .project-card-skills-container {
@@ -57,13 +73,6 @@
           margin: 5px;
           border-radius: 5px;
         }
-      }
-
-      .project-card-skills-tag {
-        height: 25px;
-        margin: 5px;
-        display: flex;
-        align-items: center;
       }
 
       span {
@@ -128,12 +137,18 @@
       height: 150px;
     }
 
-    .project-card-button {
-      border: 1px solid #000;
-      margin: auto;
-      padding: 5px 10px;
-      display: block;
-      cursor: pointer;
+    .project-card-button-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      .project-card-button {
+        border: 1px solid #000;
+        margin: auto;
+        padding: 5px 10px;
+        display: block;
+        cursor: pointer;
+      }
     }
   }
 

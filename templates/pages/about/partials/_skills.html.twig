@@ -6,8 +6,8 @@
         </div>
     {% endfor %}
 </div>
-<details class="skill-explanation">
-    <summary> {{ "about.skill.summary" | trans({}, 'about') }} </summary>
+<div class="skill-explanation">
+    <p>{{ "about.skill.explanation.title" | trans({}, 'about') }} </p>
     <ul class="skill-explanation-content">
         <li>0% : {{ "about.skill.content.0" | trans({}, 'about') }}</li>
         <li>25% : {{ "about.skill.content.25" | trans({}, 'about') }}</li>
@@ -15,5 +15,4 @@
         <li>75% : {{ "about.skill.content.75" | trans({}, 'about') }}</li>
         <li>100% : {{ "about.skill.content.100" | trans({}, 'about') }}</li>
     </ul>
-</details>
-
+</div>

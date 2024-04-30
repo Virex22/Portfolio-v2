@@ -24,7 +24,8 @@ about:
     career: Mon parcours professionnel
     convinced: Convaincu ?
   skill:
-    summary: Voir les détails des niveaux de compétence
+    explanation:
+      title: "Parce qu'on a pas tous la même définition du 100%, voici ce que j'entends par ces niveaux de compétences :"
     content:
         0: Jamais entendu parler de ce sujet.
         25: Connaissance de base, mais pas de grosse expérience pratique.

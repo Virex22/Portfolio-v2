@@ -18,7 +18,7 @@ class SkillCrudController extends AbstractCrudController
 
     public function __construct(RequestStack $requestStack)
     {
-        $this->requestStack = $requestStack;
+        $this->translateInit($requestStack);
     }
 
     public static function getEntityFqcn(): string

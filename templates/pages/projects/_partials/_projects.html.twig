@@ -47,22 +47,26 @@
                             </div>
                         {% endif %}
                     {% endfor %}
-                    {% for skill in project.skills %}
-                        {%  if skill.badgeUrl is null %}
-                            <div class="project-card-skills-tag">
-                                <span>{{ skill.name }}</span>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
                 </div>
                 <div class="project-card-content">
                     <a href="{{ path('project_show', {'id': project.id}) }}">
                         <h2 class="project-card-title">{{ project.name }}</h2></a>
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
-                <button class="project-card-button"
-                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'"> {{ 'projects.list.button' | trans({}, 'projects') }}
-                </button>
+                <div class="project-card-button-container">
+                    <button class="project-card-button"
+                            onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'"> {{ 'projects.list.button' | trans({}, 'projects') }}
+                    </button>
+                </div>
+                <div class="project-card-footer">
+                    <div class="project-card-skills-hashtag">
+                        {% for skill in project.skills %}
+                            {% if skill.badgeUrl is null %}
+                                <span>#{{ skill.name }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>

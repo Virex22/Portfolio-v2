@@ -3,7 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Project;
+use App\Manager\CustomTranslationManager;
 use App\Trait\CrudTranslatableTrait;
+use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -11,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjectCrudController extends AbstractCrudController
@@ -19,7 +23,7 @@ class ProjectCrudController extends AbstractCrudController
 
     public function __construct(RequestStack $requestStack)
     {
-        $this->requestStack = $requestStack;
+        $this->translateInit($requestStack);
     }
 
     public static function getEntityFqcn(): string

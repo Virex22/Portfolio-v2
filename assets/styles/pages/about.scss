@@ -114,10 +114,6 @@ h2.home-subtitle {
   position: relative;
   z-index: 1;
 
-  @media (max-width: $mobile) {
-    height: 650px;
-  }
-
   &::before {
     content: "";
     position: absolute;
@@ -158,6 +154,7 @@ h2.home-subtitle {
       display: flex;
       flex-direction: column;
       align-self: flex-end;
+      z-index: 9;
 
       @media (max-width: $mobile) {
         align-self: flex-start;
@@ -165,11 +162,11 @@ h2.home-subtitle {
         top: 10px;
         right: -10px;
         width: 95%;
-        margin: 10px 0;
       }
 
       @media (max-width: $foldmobile) {
-        width: 100%;
+        align-self: center;
+        margin: 0;
         right: 0;
       }
 
@@ -189,7 +186,7 @@ h2.home-subtitle {
       &:not(.no-button-clicked) {
         .text-bubble-title {
 
-          @media (max-width: $foldmobile) {
+          @media (max-width: $mobile) {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -205,7 +202,7 @@ h2.home-subtitle {
             left: 40px;
             color: #968CAD;
 
-            @media (max-width: $foldmobile) {
+            @media (max-width: $mobile) {
               position: relative;
               top: 0;
               left: 0;
@@ -219,7 +216,7 @@ h2.home-subtitle {
               left: -10px;
               color: #968CAD;
 
-              @media (max-width: $foldmobile) {
+              @media (max-width: $mobile) {
                 content: "";
               }
             }
@@ -235,8 +232,10 @@ h2.home-subtitle {
             left: 20px;
             color: #6c6c6c;
 
-            @media (max-width: $foldmobile) {
+            @media (max-width: $mobile) {
               position: relative;
+              bottom: 0;
+              left: 0;
             }
           }
         }
@@ -586,38 +585,29 @@ progress::-moz-progress-bar {
       margin: 50px 0;
 
       @media (max-width: $mobile) {
-        margin: 20px 0;
+        margin: 100px 0;
         width: 100%;
+        justify-content: center;
       }
+      @media (min-width: $mobile + 1) {
+        &:nth-child(odd) {
+          justify-content: flex-start;
 
-      &:nth-child(odd) {
-        justify-content: flex-start;
-        @media (max-width: $mobile) {
-          justify-content: flex-end;
+          .item::before {
+            right: -7px;
+            border-top: 1px solid #d1c3f3;
+            border-right: 1px solid #d1c3f3;
+          }
         }
 
-        .item::before {
-          right: -7px;
-          border-top: 1px solid #d1c3f3;
-          border-right: 1px solid #d1c3f3;
+        &:nth-child(even) {
+          justify-content: flex-end;
 
-          @media (max-width: $mobile) {
+          .item::before {
             left: -7px;
             border-bottom: 1px solid #d1c3f3;
             border-left: 1px solid #d1c3f3;
-            border-top: none;
-            border-right: none;
           }
-        }
-      }
-
-      &:nth-child(even) {
-        justify-content: flex-end;
-
-        .item::before {
-          left: -7px;
-          border-bottom: 1px solid #d1c3f3;
-          border-left: 1px solid #d1c3f3;
         }
       }
 
@@ -633,6 +623,21 @@ progress::-moz-progress-bar {
         }
 
         .content {
+          &::before {
+            @media (max-width: $mobile) {
+              position: absolute;
+              content: "";
+              bottom: 3px;
+              left: calc(50% - 7.5px);
+              transform: rotate(45deg) translate(50%,50%);
+              height: 15px;
+              width: 15px;
+              background-color: #f3f3f3;
+              border-bottom: 1px solid #d1c3f3;
+              border-right: 1px solid #d1c3f3;
+              z-index: 1;
+            }
+          }
 
           .elements-skills-container {
             display: flex;
@@ -733,14 +738,6 @@ progress::-moz-progress-bar {
           @media (max-width: $mobile) {
             display: none;
           }
-
-          @media (max-width: $mobile) {
-            display: block;
-          }
-
-          @media (max-width: $foldmobile) {
-            display: none;
-          }
         }
       }
 
@@ -763,9 +760,9 @@ progress::-moz-progress-bar {
 
 
         @media (max-width: $mobile) {
-          left: 0;
-          width: 25px;
-          height: 25px;
+          left: 50%;
+          bottom: -90px;
+          top: auto;
         }
 
         @media (max-width: $foldmobile) {
@@ -795,7 +792,7 @@ progress::-moz-progress-bar {
     transform: translateX(-50%);
 
     @media (max-width: $mobile) {
-      left: 0;
+      left: 50%;
     }
 
     @media (max-width: $foldmobile) {

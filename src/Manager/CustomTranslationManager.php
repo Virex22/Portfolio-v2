@@ -45,6 +45,7 @@ class CustomTranslationManager
 
     public function processTranslationRequests(): void
     {
+
         if (empty($this->translationRequests)) {
             return;
         }

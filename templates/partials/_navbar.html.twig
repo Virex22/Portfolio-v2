@@ -8,10 +8,10 @@
         <span class="line"></span>
     </div>
     <ul>
-        <li><a href="{{ path('portfolio_home') }}">{{ "navbar.menu.home" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_about') }}">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_projects') }}">{{ "navbar.menu.projects" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_contact') }}">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_home' %} class="active"{% endif %}><a href="{{ path('portfolio_home') }}">{{ "navbar.menu.home" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_about' %} class="active"{% endif %}><a href="{{ path('portfolio_about') }}">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_projects' %} class="active"{% endif %}><a href="{{ path('portfolio_projects') }}">{{ "navbar.menu.projects" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_contact' %} class="active"{% endif %}><a href="{{ path('portfolio_contact') }}">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
         <li>
             <div class="language">
                 {% if app.request.locale == 'fr' %}

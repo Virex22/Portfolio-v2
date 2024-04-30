@@ -22,7 +22,7 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    public function findAllByType(string $type): array
+    public function findAllByTypeAndSkill(string $type): array
     {
         if (!in_array($type, ESkillType::toArray())) {
             throw new \InvalidArgumentException('Invalid skill type');

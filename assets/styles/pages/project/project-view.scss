@@ -30,11 +30,12 @@ section {
   }
 
   .text-content {
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-self: center;
 
     p {
       font-size: 1.2rem;

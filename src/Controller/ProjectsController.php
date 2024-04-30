@@ -16,10 +16,9 @@ class ProjectsController extends AbstractController
     public function index(ProjectRepository $projectRepository, ProjectService $projectService): Response
     {
         $projects = $projectRepository->findAllWithSkills();
-        $technicalFacetOptions = $projectService->getFacetOptionsWithType(ESkillType::TECH_SKILL);
-        $softFacetOptions = $projectService->getFacetOptionsWithType(ESkillType::SOFT_SKILL);
+        $technicalFacetOptions = $projectService->getFacetOptionsWithTypeAndSkill(ESkillType::TECH_SKILL);
+        $softFacetOptions = $projectService->getFacetOptionsWithTypeAndSkill(ESkillType::SOFT_SKILL);
 
-        CustomTranslationManager::getInstance()->processTranslationRequests();
 
         return $this->render('pages/projects/projects.html.twig', [
             'projects' => $projects,

@@ -382,8 +382,8 @@ h2.home-subtitle {
 }
 
 .skill-explanation p {
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .skill-explanation .skill-explanation-content {
@@ -606,13 +606,18 @@ progress::-moz-progress-bar {
         }
 
         .content {
+          padding: 20px 20px 0;
+          background-color: #f3f3f3;
+          border-radius: 0 0 10px 10px;
+          border: #d1c3f3 1px solid;
+
           &::before {
             @media (max-width: $mobile) {
               position: absolute;
               content: "";
               bottom: 3px;
               left: calc(50% - 7.5px);
-              transform: rotate(45deg) translate(50%,50%);
+              transform: rotate(45deg) translate(50%, 50%);
               height: 15px;
               width: 15px;
               background-color: #f3f3f3;
@@ -622,28 +627,41 @@ progress::-moz-progress-bar {
             }
           }
 
+
+          .elements-skills-hashtag-container {
+            min-height: 20px;
+            .elements-skills-hashtag {
+              p {
+                min-height: 25px;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                font-size: 0.8rem;
+                color: #6c63ff;
+                flex-wrap: wrap;
+
+                span {
+                  margin: 2px 5px;
+                }
+              }
+            }
+          }
+
           .elements-skills-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             margin: 5px 0;
+            object-fit: contain;
 
-            span {
-              cursor: default;
-              color: #6c63ff;
-              border: 1px solid #6c63ff;
-              padding: 5px 10px;
-              border-radius: 20px;
+            img {
+              width: 25px;
+              height: 25px;
               margin: 5px;
-              font-size: 0.8rem;
+              border-radius: 5px;
             }
           }
-
-          padding: 20px;
-          background-color: #f3f3f3;
-          border-radius: 0 0 10px 10px;
-          border: #d1c3f3 1px solid;
 
           div {
             display: flex;
@@ -763,6 +781,7 @@ progress::-moz-progress-bar {
         }
       }
     }
+
   }
 
   .center-line {
@@ -782,4 +801,5 @@ progress::-moz-progress-bar {
       display: none;
     }
   }
+
 }

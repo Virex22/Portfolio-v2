@@ -21,10 +21,23 @@
                         </div>
                         <div class="elements-skills-container">
                             {% for skill in element.skills %}
-                                <span>{{ skill.name }}</span>
+                                {% if skill.badgeUrl is not null %}
+                                    <div class="project-card-skills-img">
+                                        <img src="{{ vich_uploader_asset(skill, 'badgeFile') }}" alt="{{ skill.name }}">
+                                    </div>
+                                {% endif %}
                             {% endfor %}
                         </div>
                         <p>{{ element.description | raw }}</p>
+                        <div class="elements-skills-hashtag-container">
+                            {% for skill in element.skills %}
+                                {% if skill.badgeUrl is null %}
+                                    <div class="elements-skills-hashtag">
+                                        <p>#{{ skill.name }}</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 <div class="circle">

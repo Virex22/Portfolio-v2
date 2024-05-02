@@ -42,7 +42,7 @@
                 <div class="project-card-skills-container">
                     {% for skill in project.skills %}
                         {% if skill.badgeUrl is not null %}
-                            <div class="project-card-skills-img">
+                            <div>
                                 <img src="{{ vich_uploader_asset(skill, 'badgeFile') }}" alt="{{ skill.name }}">
                             </div>
                         {% endif %}

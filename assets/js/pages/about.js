@@ -46,9 +46,6 @@ window.resetElemY = resetElemY;
 window.addEventListener("resize", () => {
     resetElemY();
 });
-document.querySelector("summary").addEventListener("click", () => {
-    setTimeout(resetElemY, 50);
-});
 
 window.addEventListener("scroll", () => {
         const inResponsive = window.getComputedStyle(document.querySelector(".about-bottom-container")).getPropertyValue("flex-direction") === "column";

@@ -7,7 +7,7 @@ import 'swiper/css/effect-fade';
 
 import Swiper from 'swiper';
 import {Pagination, Autoplay, EffectFade, Navigation} from 'swiper/modules';
-import "../utility/mobile-navbar";
+import "../utility/navbar";
 
 Swiper.use([Pagination, Autoplay, EffectFade, Navigation]);
 

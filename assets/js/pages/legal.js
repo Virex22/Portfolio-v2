@@ -1,2 +1,2 @@
 import "../../styles/pages/legal.scss";
-import "../utility/mobile-navbar";
+import "../utility/navbar";

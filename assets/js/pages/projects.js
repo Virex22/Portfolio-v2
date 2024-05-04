@@ -1,6 +1,6 @@
 import "../../styles/pages/project/projects.scss";
 import TomSelect from 'tom-select';
-import "../utility/mobile-navbar";
+import "../utility/navbar";
 
 /* Selectize part */
 const select = document.querySelectorAll('.tom-select');

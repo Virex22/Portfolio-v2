@@ -1,13 +1,14 @@
 @import "variables";
+@import 'tom-select/src/scss/tom-select.default.scss';
 
 nav {
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
-  overflow: hidden;
   width: 100%;
   box-shadow: 0 2px 12px 0 #00000012;
   height: 75px;
+  overflow: visible;
 
   &.active {
     z-index: 1000;
@@ -117,28 +118,41 @@ nav {
 
       &.active {
         border-bottom: 4px solid #007bff;
+        @media (max-width: $tablet) {
+          border-bottom: none;
+          a {
+            text-decoration: underline;
+          }
+        }
       }
 
-      .language {
-        display: flex;
-        align-items: center;
-        margin-left: 15px;
-        text-wrap: nowrap;
-
-        @media (max-width: $tablet) {
-          margin-left: 0;
+      .select-box-language {
+        min-width: 100px;
+        .ts-wrapper {
         }
-
-        img {
-          margin-left: 5px;
-          height: 20px;
-          width: auto;
-          object-fit: cover;
-          border-radius: 5px;
-          @media (max-width: $tablet) {
-            margin-left: 0;
-            height: 30px;
+        #lang-select-ts-control {
+          background-color: #fff;
+          background-image: none;
+          cursor: pointer;
+          border: none;
+          box-shadow: none;
+          &:focus, &:focus-visible, &:active {
+            outline: none;
           }
+        }
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+        }
+        .ts-dropdown.single {
+          background-color: #fff;
+          border: none;
+        }
+        .ts-container {
+          display: flex;
+            align-items: center;
+            justify-content: center;
         }
       }
 

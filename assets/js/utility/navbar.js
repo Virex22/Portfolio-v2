@@ -1,3 +1,4 @@
+import TomSelect from 'tom-select';
 
 /* Mobile Navbar */
 
@@ -33,4 +34,30 @@ mobileNavbarButton.addEventListener("click", () => {
     } else {
         unobfuscatePage();
     }
+});
+
+/* Select language */
+
+const langSelect = document.querySelector('.tom-select-lang');
+
+if (langSelect) {
+    new TomSelect(langSelect, {
+        mode: 'single',
+        controlInput: null,
+        render: {
+            option: function(data) {
+                return `<div class="ts-container"><img alt="${data.text}" src="${data.imgSrc}">${data.text}</div>`;
+            },
+            item: function(item) {
+                return `<div class="ts-container"><img alt="${item.text}" src="${item.imgSrc}">${item.text}</div>`;
+            },
+        },
+    });
+}
+
+/* Handle langSelect url change */
+
+langSelect.addEventListener('change', (e) => {
+    console.log(e.target.options[e.target.selectedIndex].getAttribute('data-url'));
+    window.location.href = e.target.options[e.target.selectedIndex].getAttribute('data-url');
 });

@@ -18,9 +18,7 @@
         <div class="form-wrapper">
             <h1>{{ "contact.title"|trans({}, 'contact') }}</h1>
             <p>
-                {{ "contact.description.line1"|trans({}, 'contact') }}
-                <br/>
-                {{ "contact.description.line2"|trans({}, 'contact') }}
+                {{ "contact.description"|trans({}, 'contact') }}
             </p>
 
             {{ form_start(form) }}
@@ -49,31 +47,44 @@
             </p>
         </div>
         <aside>
+            <img src="{{ asset('images/vincent-remy.jpg') }}" alt="Vincent REMY"/>
             <div>
                 <h2>{{ "contact.contact.title"|trans({}, 'contact') }}</h2>
                 <ul>
-                    <li>{{ "contact.contact.phone"|trans({}, 'contact') }} 06 50 76 00 28</li>
-                    <li>{{ "contact.contact.email"|trans({}, 'contact') }} vincentremy222@gmail.com</li>
+                    <li> {{ "contact.contact.phone"|trans({}, 'contact') }} 06 50 76 00 28</li>
+                    <li> {{ "contact.contact.email"|trans({}, 'contact') }} vincentremy222@gmail.com</li>
                 </ul>
             </div>
             <div>
-                <h2>{{ "contact.legal.title"|trans({}, 'contact') }}</h2>
-                <p>{{ "contact.legal.address"|trans({}, 'contact') }}</p>
-            </div>
-            <div>
-                <h2>{{ "contact.faq.title"|trans({}, 'contact') }}</h2>
-                <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
-                <p>
-                    {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
-                </p>
-                <h3>{{ "contact.faq.pricing.title"|trans({}, 'contact') }}</h3>
-                <p>
-                    {{ "contact.faq.pricing.answer"|trans({}, 'contact') }}
-                </p>
-                <h3>{{ "contact.faq.availability.title"|trans({}, 'contact') }}</h3>
-                <p>
-                    {{ "contact.faq.availability.answer"|trans({}, 'contact') }}
-                </p>
+                <h2>{{ "contact.social.title"|trans({}, 'contact') }}</h2>
+                <div class="network-container">
+                    <div class="network-block">
+                        <a href="https://www.youtube.com/channel/UCA5GNHsUW0LybjZjlDiOWPQ" target="_blank">
+                            <img src="{{ asset('images/youtube.svg') }}" alt="youtube svg"/>
+                        </a>
+                    </div>
+                    <div class="network-block">
+                        <a href="https://www.codingame.com/profile/1fdf1790089d2e14a7ba6dba93aeabb40764934"
+                           target="_blank">
+                            <img src="{{ asset('images/codingame.svg') }}" alt="codingame svg"/>
+                        </a>
+                    </div>
+                    <div class="network-block">
+                        <a href="https://github.com/Virex22" target="_blank">
+                            <img src="{{ asset('images/github.svg') }}" alt="github svg"/>
+                        </a>
+                    </div>
+                    <div class="network-block">
+                        <a href="https://discord.com/invite/D96cKg3" target="_blank">
+                            <img src="{{ asset('images/discord.svg') }}" alt="discord svg"/>
+                        </a>
+                    </div>
+                    <div class="network-block">
+                        <a href="https://www.linkedin.com/in/vincent-remy2/" target="_blank">
+                            <img src="{{ asset('images/linkedin.svg') }}" alt="linkedin svg"/>
+                        </a>
+                    </div>
+                </div>
             </div>
         </aside>
     </div>

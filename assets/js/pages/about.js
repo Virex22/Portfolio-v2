@@ -6,10 +6,10 @@ const bubbles = document.querySelectorAll(".circle-bubble");
 
 bubbles.forEach((bubble) => {
     const delay = Math.floor(Math.random() * 10000);
-    bubble.style.animationDelay = `${delay}ms`;
-    bubble.style.animationDuration = `20s`;
+    bubble.style.animationDelay = `-${delay}ms`;
+    bubble.style.animationDuration = `40s`;
     bubble.style.animationIterationCount = "infinite";
-    bubble.style.animationTimingFunction = "linear";
+    bubble.style.animationTimingFunction = "ease-in-out";
     bubble.style.animationName = "bubble";
 });
 

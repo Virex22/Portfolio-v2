@@ -39,66 +39,68 @@ h2.home-subtitle {
   }
 }
 
+$anim-multiplier: 1.5;
+
 @keyframes bubble {
   0% {
     transform: scale(1) translate(-50%, -50%);
   }
   5% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   10% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   15% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   20% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   25% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   30% {
-    transform: scale(1) translate(calc(-50% + 3px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   35% {
-    transform: scale(1) translate(calc(-50% - 1px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   40% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% - 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 3px)));
   }
   45% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   50% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   55% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% + 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% + ($anim-multiplier * 1px)));
   }
   60% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   65% {
-    transform: scale(1) translate(calc(-50% + 3px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   70% {
-    transform: scale(1) translate(calc(-50% - 1px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   75% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% - 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 3px)));
   }
   80% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   85% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   90% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% + 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% + ($anim-multiplier * 1px)));
   }
   95% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   100% {
     transform: scale(1) translate(-50%, -50%);
@@ -154,6 +156,7 @@ h2.home-subtitle {
       display: flex;
       flex-direction: column;
       align-self: flex-end;
+      margin-bottom: 75px;
       z-index: 9;
 
       @media (max-width: $mobile) {
@@ -170,72 +173,57 @@ h2.home-subtitle {
         right: 0;
       }
 
-      &.no-button-clicked {
-        .text-bubble-title {
+      span {
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: #6c6c6c;
+
+        @media (max-width: $mobile) {
+          position: relative;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .text-bubble-title {
+
+        @media (max-width: $mobile) {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+
+        h1 {
           font-size: 1.5rem;
           font-weight: bold;
           padding: 10px;
           text-align: left;
           position: absolute;
-          bottom: 20px;
-          left: 20px;
+          top: 20px;
+          left: 40px;
           color: #968CAD;
-        }
-      }
-
-      &:not(.no-button-clicked) {
-        .text-bubble-title {
 
           @media (max-width: $mobile) {
             position: relative;
-            display: flex;
-            flex-direction: column;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin-bottom: 20px;
           }
 
-          h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 10px;
-            text-align: left;
+          &::before {
+            content: ">";
             position: absolute;
-            top: 20px;
-            left: 40px;
+            left: -10px;
             color: #968CAD;
 
             @media (max-width: $mobile) {
-              position: relative;
-              top: 0;
-              left: 0;
-              text-align: center;
-              margin-bottom: 20px;
-            }
-
-            &::before {
-              content: ">";
-              position: absolute;
-              left: -10px;
-              color: #968CAD;
-
-              @media (max-width: $mobile) {
-                content: "";
-              }
-            }
-          }
-
-          span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px;
-            text-align: left;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #6c6c6c;
-
-            @media (max-width: $mobile) {
-              position: relative;
-              bottom: 0;
-              left: 0;
+              content: "";
             }
           }
         }
@@ -243,7 +231,7 @@ h2.home-subtitle {
     }
 
     .about-hero-img {
-      height: 300px;
+      height: 450px;
       width: 300px;
       position: relative;
 
@@ -268,8 +256,8 @@ h2.home-subtitle {
         &.circle-bubble-1 {
           height: 150px;
           width: 150px;
-          top: 11%;
-          left: 34%;
+          top: 13%;
+          left: 33%;
         }
 
         &.circle-bubble-2 {
@@ -347,8 +335,8 @@ h2.home-subtitle {
         }
 
         &.leg-circle-button {
-          bottom: 9%;
-          left: 51%;
+          bottom: 18%;
+          left: 53%;
         }
 
         &.phone-circle-button {
@@ -357,8 +345,8 @@ h2.home-subtitle {
         }
 
         &.hand-circle-button {
-          top: 52%;
-          left: 64%;
+          top: 51%;
+          left: 76%;
         }
       }
     }
@@ -368,7 +356,7 @@ h2.home-subtitle {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 300px;
+      height: 450px;
       z-index: 8;
     }
   }
@@ -630,6 +618,7 @@ progress::-moz-progress-bar {
 
           .elements-skills-hashtag-container {
             min-height: 20px;
+
             .elements-skills-hashtag {
               p {
                 min-height: 25px;

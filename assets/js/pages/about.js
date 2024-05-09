@@ -2,6 +2,7 @@ import "../../styles/pages/about.scss";
 import "../utility/navbar";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+
 AOS.init();
 
 /* animate hero bubbles */
@@ -39,11 +40,17 @@ const realMeetMe = document.querySelector(".about-bottom-meet-me:not(.keep)");
 const keepMeetMePosition = document.querySelector(".about-bottom-meet-me.keep");
 let elemY = realMeetMe.getBoundingClientRect().top + window.scrollY;
 elemY -= (window.innerHeight / 2) - (realMeetMe.offsetHeight / 2);
+realMeetMe.style.alignSelf = "end";
+let elemEndY = realMeetMe.getBoundingClientRect().top + window.scrollY;
+elemEndY -= (window.innerHeight / 2) - (realMeetMe.offsetHeight / 2);
 function resetElemY() {
     realMeetMe.classList.remove("fixed");
     keepMeetMePosition.style.display = "none";
     elemY = realMeetMe.getBoundingClientRect().top + window.scrollY;
     elemY -= (window.innerHeight / 2) - (realMeetMe.offsetHeight / 2);
+    realMeetMe.style.alignSelf = "end";
+    elemEndY = realMeetMe.getBoundingClientRect().top + window.scrollY;
+    elemEndY -= (window.innerHeight / 2) - (realMeetMe.offsetHeight / 2);
 }
 window.resetElemY = resetElemY;
 window.addEventListener("resize", () => {
@@ -55,12 +62,19 @@ window.addEventListener("scroll", () => {
         if (inResponsive && !realMeetMe.classList.contains("fixed")) {
             return;
         }
-        if (window.scrollY > elemY) {
+        const isAfterEnd = window.scrollY > elemEndY;
+        if (window.scrollY > elemY && !isAfterEnd) {
             realMeetMe.classList.add("fixed");
             keepMeetMePosition.style.display = "block";
-        } else {
+        }
+        else if (isAfterEnd) {
             realMeetMe.classList.remove("fixed");
             keepMeetMePosition.style.display = "none";
+            realMeetMe.style.alignSelf = "end";
+        }else {
+            realMeetMe.classList.remove("fixed");
+            keepMeetMePosition.style.display = "none";
+            realMeetMe.style.alignSelf = "start";
         }
     }
 );

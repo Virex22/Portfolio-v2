@@ -1,5 +1,16 @@
 @import "reset";
+
+@font-face {
+  font-family: 'HuLi-Regular';
+  src: url('../../fonts/HuLi-Regular.ttf') format('truetype');
+}
+
 /* Global layout */
+
+.title-font {
+  font-family: 'HuLi-Regular', sans-serif;
+}
+
 .layout-container {
   display: flex;
   flex-direction: column;

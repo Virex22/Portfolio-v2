@@ -1,30 +1,31 @@
 <div class="presentation-section">
-    <div class="presentation presentation-about">
-        <img src="{{ asset('images/home/presentation-about.svg') }}" alt="abouts" class="presentation-image">
-        <div class="presentation-right">
-            <p class="presentation-title">{{ "home.presentation.about.title" | trans({}, 'home') }}</p>
-            <p>{{ "home.presentation.about.content" | trans({}, 'home') }}</p>
+    <div class="bg-w">
+        <div class="presentation presentation-about home-mw img-first">
+            <img src="{{ asset('images/characterz/home_about.png') }}" alt="abouts" class="presentation-image" data-aos="zoom-in-down">
+            <div>
+                <p class="presentation-title title-font" data-aos="fade-up">{{ "home.presentation.about.title" | trans({}, 'home') }}</p>
+                <p data-aos="fade-up">{{ "home.presentation.about.content" | trans({}, 'home') | raw }}</p>
+            </div>
         </div>
     </div>
-    <div class="presentation presentation-skill">
-        <img src="{{ asset('images/home/presentation-skill.svg') }}" alt="skills" class="presentation-image">
-        <div class="presentation-right">
-            <p class="presentation-title">{{ "home.presentation.skill.title" | trans({}, 'home') }}</p>
-            <p>{{ "home.presentation.skill.content" | trans({}, 'home') }}</p>
+    <div class="separator-wg"></div>
+    <div class="bg-g">
+        <div class="presentation presentation-like home-mw">
+            <div>
+                <p class="presentation-title title-font" data-aos="fade-up">{{ "home.presentation.like.title" | trans({}, 'home') }}</p>
+                <p data-aos="fade-up">{{ "home.presentation.like.content" | trans({}, 'home') | raw}}</p>
+            </div>
+            <img src="{{ asset('images/characterz/home_like.png') }}" alt="likes" class="presentation-image" data-aos="zoom-in-down">
         </div>
     </div>
-    <div class="presentation presentation-passion">
-        <img src="{{ asset('images/home/presentation-passions.svg') }}" alt="passions" class="presentation-image">
-        <div class="presentation-right">
-            <p class="presentation-title"> {{ "home.presentation.passion.title" | trans({}, 'home') }}</p>
-            <p> {{ "home.presentation.passion.content" | trans({}, 'home') }}</p>
-        </div>
-    </div>
-    <div class="presentation presentation-realization">
-        <img src="{{ asset('images/home/presentation-realization.svg') }}" alt="projects" class="presentation-image">
-        <div class="presentation-right">
-            <p class="presentation-title"> {{ "home.presentation.projects.title" | trans({}, 'home') }}</p>
-            <p> {{ "home.presentation.projects.content" | trans({}, 'home') }}</p>
+    <div class="bg-w">
+        <div class="presentation presentation-objective home-mw img-first">
+            <img src="{{ asset('images/characterz/home_objective.png') }}" alt="objective"
+                 class="presentation-image" data-aos="zoom-in-down">
+            <div>
+                <p class="presentation-title title-font" data-aos="fade-up"> {{ "home.presentation.objective.title" | trans({}, 'home') }}</p>
+                <p data-aos="fade-up"> {{ "home.presentation.objective.content" | trans({}, 'home') | raw }}</p>
+            </div>
         </div>
     </div>
 </div>

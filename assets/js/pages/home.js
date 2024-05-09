@@ -3,6 +3,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+AOS.init();
 /* Swiper */
 
 import Swiper from 'swiper';

@@ -2,7 +2,7 @@
     <div class="career-timeline">
         <div class="center-line"></div>
         {% for element in timeline %}
-            <div class="row">
+            <div class="row" data-aos="zoom-in-{% if loop.index is odd %}right{% else %}left{% endif %}">
                 <div class="item">
                     <div class="date">
                         <p>{{ element.startDate | date('M Y') }} {% if element.endDate %} - {{ element.endDate | date('M Y') }}{% endif %}</p>

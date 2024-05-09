@@ -1,5 +1,8 @@
 import "../../styles/pages/about.scss";
 import "../utility/navbar";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+AOS.init();
 
 /* animate hero bubbles */
 const bubbles = document.querySelectorAll(".circle-bubble");

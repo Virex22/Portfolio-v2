@@ -1,12 +1,12 @@
 <div class="skill-grid">
     {% for skill in skillGroups %}
-        <div class="skill-group">
+        <div class="skill-group" data-aos="fade-up">
             <p>{{ skill.customName }}</p>
             <progress value="{{ skill.acquiredPercentage }}" max="100">{{ skill.acquiredPercentage }}%</progress>
         </div>
     {% endfor %}
 </div>
-<div class="skill-explanation">
+<div class="skill-explanation" data-aos="fade-up">
     <p>{{ "about.skill.explanation.title" | trans({}, 'about') }} </p>
     <ul class="skill-explanation-content">
         <li>0% : {{ "about.skill.content.0" | trans({}, 'about') }}</li>

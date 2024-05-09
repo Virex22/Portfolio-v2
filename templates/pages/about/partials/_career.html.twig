@@ -28,7 +28,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <p>{{ element.description | raw }}</p>
+                        <p class="text-gray">{{ element.description | raw }}</p>
                         <div class="elements-skills-hashtag-container">
                             {% for skill in element.skills %}
                                 {% if skill.badgeUrl is null %}

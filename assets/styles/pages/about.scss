@@ -12,7 +12,7 @@ $space-timeline-row: 55px;
 h2.home-subtitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #7367D4;
+  color: $text-black;
   margin: $space-between-parts 0 $space-between-parts 70px;
 
   @media (max-width: $tablet) {
@@ -140,7 +140,7 @@ $anim-multiplier: 1.5;
       width: 100%;
     }
 
-    @media (max-width: $foldmobile) {
+    @media (max-width: $fold-mobile) {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -167,21 +167,19 @@ $anim-multiplier: 1.5;
         width: 95%;
       }
 
-      @media (max-width: $foldmobile) {
+      @media (max-width: $fold-mobile) {
         align-self: center;
         margin: 0;
         right: 0;
       }
 
       span {
-        font-size: 1.2rem;
         font-weight: bold;
         padding: 10px;
         text-align: left;
         position: absolute;
         bottom: 20px;
         left: 20px;
-        color: #6c6c6c;
 
         @media (max-width: $mobile) {
           position: relative;
@@ -206,7 +204,7 @@ $anim-multiplier: 1.5;
           position: absolute;
           top: 20px;
           left: 40px;
-          color: #968CAD;
+          color: $blue;
 
           @media (max-width: $mobile) {
             position: relative;
@@ -220,7 +218,7 @@ $anim-multiplier: 1.5;
             content: ">";
             position: absolute;
             left: -10px;
-            color: #968CAD;
+            color: $blue;
 
             @media (max-width: $mobile) {
               content: "";
@@ -244,12 +242,12 @@ $anim-multiplier: 1.5;
       }
 
       .circle-bubble {
-        background-color: #d1c3f3;
+        background-color: $light-violet;
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
 
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           display: none;
         }
 
@@ -318,7 +316,7 @@ $anim-multiplier: 1.5;
       }
 
       .circle-button {
-        background-color: #09c3fd;
+        background-color: $blue;
         height: 20px;
         width: 20px;
         border-radius: 50%;
@@ -364,30 +362,44 @@ $anim-multiplier: 1.5;
 
 /* skills section */
 
-.skill-explanation {
-  width: max-content;
-  margin: $space-between-parts 0 $space-between-parts 70px;
-}
-
-.skill-explanation p {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.skill-explanation .skill-explanation-content {
-  padding: 1rem;
+.skill-explanation-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  background-color: $gray-light;
+  padding: 20px 0;
 
-  li {
+  img {
+    width: 40%;
+    max-height: 350px;
+    object-fit: contain;
+  }
+
+  .skill-explanation {
+    width: max-content;
     display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .skill-explanation p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .skill-explanation .skill-explanation-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
   }
 }
 
 .skill-grid {
-  max-width: 90%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
@@ -431,12 +443,12 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #d1c3f3;
+  background-color: $light-violet;
   border-radius: 20px;
 }
 
 progress::-moz-progress-bar {
-  background-color: #d1c3f3;
+  background-color: $light-violet;
   border-radius: 20px;
 }
 
@@ -531,7 +543,7 @@ progress::-moz-progress-bar {
       border: none;
       cursor: pointer;
       width: 80%;
-      color: #eeeeee;
+      color: $gray-light;
       margin: 10px auto;
       background: linear-gradient(to right, #b7aeef 0%, #2b8cbf 100%);
       border-radius: 10px;
@@ -566,8 +578,8 @@ progress::-moz-progress-bar {
 
           .item::before {
             right: -7px;
-            border-top: 1px solid #d1c3f3;
-            border-right: 1px solid #d1c3f3;
+            border-top: 1px solid $light-violet;
+            border-right: 1px solid $light-violet;
           }
         }
 
@@ -576,8 +588,8 @@ progress::-moz-progress-bar {
 
           .item::before {
             left: -7px;
-            border-bottom: 1px solid #d1c3f3;
-            border-left: 1px solid #d1c3f3;
+            border-bottom: 1px solid $light-violet;
+            border-left: 1px solid $light-violet;
           }
         }
       }
@@ -589,15 +601,15 @@ progress::-moz-progress-bar {
         @media (max-width: $mobile) {
           width: 95%;
         }
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           width: 100%;
         }
 
         .content {
           padding: 20px 20px 0;
-          background-color: #f3f3f3;
+          background-color: $gray-light;
           border-radius: 0 0 10px 10px;
-          border: #d1c3f3 1px solid;
+          border: $light-violet 1px solid;
 
           &::before {
             @media (max-width: $mobile) {
@@ -608,9 +620,9 @@ progress::-moz-progress-bar {
               transform: rotate(45deg) translate(50%, 50%);
               height: 15px;
               width: 15px;
-              background-color: #f3f3f3;
-              border-bottom: 1px solid #d1c3f3;
-              border-right: 1px solid #d1c3f3;
+              background-color: $gray-light;
+              border-bottom: 1px solid $light-violet;
+              border-right: 1px solid $light-violet;
               z-index: 1;
             }
           }
@@ -666,7 +678,7 @@ progress::-moz-progress-bar {
             h3 {
               font-size: 1.5rem;
               font-weight: bold;
-              color: #7367D4;
+              color: $violet;
             }
 
             p {
@@ -703,7 +715,7 @@ progress::-moz-progress-bar {
         }
 
         .date {
-          background-color: #d1c3f3;
+          background-color: $light-violet;
           text-align: center;
           color: white;
           font-size: 1.25rem;
@@ -722,7 +734,7 @@ progress::-moz-progress-bar {
           z-index: 2;
           height: 15px;
           width: 15px;
-          background-color: #f3f3f3;
+          background-color: $gray-light;
           transform: rotate(45deg);
 
           @media (max-width: $mobile) {
@@ -755,7 +767,7 @@ progress::-moz-progress-bar {
           top: auto;
         }
 
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           display: none;
         }
 
@@ -786,7 +798,7 @@ progress::-moz-progress-bar {
       left: 50%;
     }
 
-    @media (max-width: $foldmobile) {
+    @media (max-width: $fold-mobile) {
       display: none;
     }
   }

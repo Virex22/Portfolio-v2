@@ -8,18 +8,10 @@ $space-between-parts-responsive: 50px;
   General styles
  */
 
-main {
-  overflow: hidden;
-}
-
-.bold {
-  font-weight: 700;
-}
-
 h2.home-subtitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #7367D4;
+  color: $text-black;
   margin: $space-between-parts 0 $space-between-parts 70px;
 
   @media (max-width: $tablet) {
@@ -31,28 +23,6 @@ h2.home-subtitle {
   @media (max-width: $mobile) {
     font-size: 1.75rem;
   }
-}
-.home-mw {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.bg-g,
-.bg-w {
-  width: 100%;
-  padding: 20px 0;
-}
-.bg-g {
-    background-color: #eeeeee;
-}
-.bg-w {
-  background-color: #ffffff;
-}
-.separator-wg {
-  width: 0;
-  height: 0;
-  border-bottom: 40px solid #eeeeee;
-  border-left: 100vw solid transparent;
-  overflow: hidden;
 }
 
 /*
@@ -103,7 +73,7 @@ header {
       }
 
       &.slide-1 .circle {
-        background-color: #d1c3f3;
+        background-color: $light-violet;
       }
 
       .slide-text-wrapper {
@@ -267,8 +237,10 @@ header {
     > div {
       flex-direction: column;
       display: flex;
+      justify-content: space-around;
       margin: 1rem;
       width: 60%;
+
       @media (max-width: $tablet) {
         width: 90%;
         margin: 1rem auto;
@@ -278,8 +250,7 @@ header {
       .presentation-title {
         font-size: 2rem;
         font-weight: 600;
-        color: #7367D4;
-        flex: 1;
+        color: $text-black;
 
         @media (max-width: $tablet) {
           margin: 2rem auto;
@@ -292,14 +263,12 @@ header {
         }
       }
 
-      p {
-        flex: 1;
-      }
-
       p:not(.presentation-title) {
         font-size: 1.3rem;
         font-weight: 400;
-        color: #020202;
+        color: $text-black;
+        line-height: 1.5em;
+
         @media (max-width: $tablet) {
           font-size: 1rem;
         }
@@ -357,7 +326,7 @@ header {
         margin: 0 5px;
 
         .line {
-          background-color: #D1C3F3;
+          background-color: $light-violet;
           height: 100%;
           width: 3px;
           margin: 0 2px;

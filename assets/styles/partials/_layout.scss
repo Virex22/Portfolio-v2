@@ -1,4 +1,5 @@
 @import "reset";
+@import "variables";
 
 @font-face {
   font-family: 'HuLi-Regular';
@@ -29,4 +30,40 @@ body {
 main {
   flex: 1;
   position: relative;
+  overflow: hidden;
+}
+
+/* Tools for all pages */
+
+.bold {
+  font-weight: 700;
+  color: $violet;
+}
+.bg-g,
+.bg-w {
+  width: 100%;
+  padding: 20px 0;
+}
+.bg-g {
+  background-color: $gray-light;
+}
+.bg-w {
+  background-color: #ffffff;
+}
+.separator-wg {
+  width: 0;
+  height: 0;
+  border-bottom: 40px solid $gray-light;
+  border-left: 100vw solid transparent;
+  overflow: hidden;
+}
+
+.page-mw {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.text-gray {
+  color: $text-gray;
+  font-size: 1.2rem;
 }

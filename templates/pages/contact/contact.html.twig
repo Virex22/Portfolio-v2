@@ -16,10 +16,7 @@
     </div>
     <div class="container">
         <div class="form-wrapper">
-            <h1>{{ "contact.title"|trans({}, 'contact') }}</h1>
-            <p>
-                {{ "contact.description"|trans({}, 'contact') }}
-            </p>
+            <h1 class="title-font">{{ "contact.title"|trans({}, 'contact') }}</h1>
 
             {{ form_start(form) }}
             <div>
@@ -34,12 +31,36 @@
                         </div>
                     {% endif %}
                 {% endif %}
-                {{ form_row(form.name) }}
-                {{ form_row(form.surname) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.subject) }}
-                {{ form_row(form.message) }}
-                {{ form_row(form.submit) }}
+                <div class="input-group">
+                    {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'required': true} }) }}
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    {{ form_label(form.name, null, { 'label_attr': {'class': 'label'} }) }}
+                </div>
+                <div class="input-group">
+                    {{ form_widget(form.surname, { 'attr': {'class': 'form-control', 'required': true} }) }}
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    {{ form_label(form.surname, null, { 'label_attr': {'class': 'label'} }) }}
+                </div>
+                <div class="input-group">
+                    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'required': true} }) }}
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    {{ form_label(form.email, null, { 'label_attr': {'class': 'label'} }) }}
+                </div>
+                <div class="input-group">
+                    {{ form_widget(form.subject, { 'attr': {'class': 'form-control', 'required': true} }) }}
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    {{ form_label(form.subject, null, { 'label_attr': {'class': 'label'} }) }}
+                </div>
+                <div class="input-group">
+                    {{ form_widget(form.message, { 'attr': {'class': 'form-control', 'rows': 5, 'style': 'resize: vertical;'} }) }}
+                    <span class="bar"></span>
+                    {{ form_label(form.message, null, { 'label_attr': {'class': 'label'} }) }}
+                </div>
+                {{ form_row(form.submit, { 'attr': {'class': 'button'} }) }}
             </div>
             {{ form_end(form) }}
             <p class="notice">
@@ -49,14 +70,14 @@
         <aside>
             <img src="{{ asset('images/vincent-remy.jpg') }}" alt="Vincent REMY"/>
             <div>
-                <h2>{{ "contact.contact.title"|trans({}, 'contact') }}</h2>
+                <h2 class="title-font">{{ "contact.contact.title"|trans({}, 'contact') }}</h2>
                 <ul>
                     <li> {{ "contact.contact.phone"|trans({}, 'contact') }} 06 50 76 00 28</li>
                     <li> {{ "contact.contact.email"|trans({}, 'contact') }} vincentremy222@gmail.com</li>
                 </ul>
             </div>
             <div>
-                <h2>{{ "contact.social.title"|trans({}, 'contact') }}</h2>
+                <h2 class="title-font">{{ "contact.social.title"|trans({}, 'contact') }}</h2>
                 <div class="network-container">
                     <div class="network-block">
                         <a href="https://www.youtube.com/channel/UCA5GNHsUW0LybjZjlDiOWPQ" target="_blank">
@@ -87,5 +108,6 @@
                 </div>
             </div>
         </aside>
+        <img class="contact-show" src="{{ asset('images/characterz/contact_show.png') }}" alt="contact show"/>
     </div>
 {% endblock %}

@@ -3,13 +3,18 @@
 
 @font-face {
   font-family: 'HuLi-Regular';
-  src: url('../../fonts/HuLi-Regular.ttf') format('truetype');
+  src: url('../../fonts/HuLi-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Alpino-Regular';
+  src: url('../../fonts/GeneralSans-Regular.woff2') format('woff2');
 }
 
 /* Global layout */
 
 .title-font {
   font-family: 'HuLi-Regular', sans-serif;
+  text-transform: uppercase;
 }
 
 .layout-container {
@@ -19,7 +24,7 @@
 }
 
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Alpino-Regular', Arial, sans-serif;
 }
 
 body {
@@ -66,4 +71,43 @@ main {
 .text-gray {
   color: $text-gray;
   font-size: 1.2rem;
+}
+
+.button {
+  color: $violet;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 70px;
+  width: 250px;
+  margin: 1rem auto;
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid $violet;
+  transition: 0.4s;
+  z-index: 5;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    bottom: 0;
+    left: 0;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid $violet;
+    transform: translateX(-100%);
+    transition: 0.4s;
+  }
+
+  &:hover {
+    color: white;
+
+    &:before {
+      transform: translateX(0);
+      z-index: -1;
+    }
+  }
 }

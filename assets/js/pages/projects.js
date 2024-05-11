@@ -1,6 +1,10 @@
 import "../../styles/pages/project/projects.scss";
 import TomSelect from 'tom-select';
 import "../utility/navbar";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+
+AOS.init();
 
 /* Selectize part */
 const select = document.querySelectorAll('.tom-select');

@@ -24,7 +24,7 @@ let circleButton = document.querySelectorAll(".circle-button");
 
 circleButton.forEach((button) => {
     button.addEventListener("click", () => {
-        let h1 = chatBubble.querySelector("h1");
+        let h1 = chatBubble.querySelector(".title.title-font");
         let span = chatBubble.querySelector("span");
         let bubbleTitle = button.getAttribute("data-bubble-title");
         let bubbleContent = button.getAttribute("data-bubble-content");

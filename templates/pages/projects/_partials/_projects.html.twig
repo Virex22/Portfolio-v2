@@ -31,7 +31,7 @@
         {% for project in projects %}
             {% set encodedSkills = project.skills | map(s => s.id) | join(',') | base64_encode %}
             {#  placeholder for the first dev #}
-            <div class="project-card" data-skill="{{ encodedSkills }}"
+            <div class="project-card" data-skill="{{ encodedSkills }}" data-aos="zoom-in-up" data-aos-once="true"
                  data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
                 <a href="{{ path('project_show', {'id': project.id}) }}">
                     <div class="project-card-image">
@@ -54,7 +54,7 @@
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
                 <div class="project-card-button-container">
-                    <button class="project-card-button"
+                    <button class="project-card-button button"
                             onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'"> {{ 'projects.list.button' | trans({}, 'projects') }}
                     </button>
                 </div>

@@ -1,6 +1,5 @@
 contact:
     title: Contact me
-    description: You can contact me, it's just below!
     contact:
         title: Contact information
         phone: "Phone :"
@@ -11,19 +10,14 @@ contact:
 type:
     name:
         label: First name or company name
-        placeholder: Vincent or Chaussea
     surname:
         label: Last name (optional)
-        placeholder: REMY
     email:
         label: Email
-        placeholder: vincentremy222@gmail.com
     subject:
         label: Subject
-        placeholder: Quote request
     message:
         label: Message
-        placeholder: Hello Vincent, I would like to get a quote for the creation of a task automation script.
     captcha:
         error: Captcha verification failed. Please try again.
     submit:

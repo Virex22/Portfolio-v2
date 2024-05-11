@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Enum\ESkillType;
+use App\Manager\CustomTranslationManager;
 use App\Repository\SkillRepository;
 
 class ProjectService
@@ -20,15 +21,17 @@ class ProjectService
      * @param string $type ESkillType The skill type in ESkillType enum.
      * @return array
      */
-    public function getFacetOptionsWithType(string $type): array
+    public function getFacetOptionsWithTypeAndSkill(string $type): array
     {
-        $skills = $this->skillRepository->findAllByType($type);
+        $skills = $this->skillRepository->findAllByTypeAndSkill($type);
         $skillsOptions = [
             [
                 'value' => 'all',
                 'label' => 'Tous'
             ]
         ];
+
+        CustomTranslationManager::getInstance()->processTranslationRequests();
 
         foreach ($skills as $skill) {
             $skillsOptions[] = [

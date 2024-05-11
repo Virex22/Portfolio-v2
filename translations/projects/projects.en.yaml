@@ -1,3 +1,17 @@
 projects:
-  list:
-    title: My realization
+    list:
+        title: My projects
+        description: Here is a selection of projects that I had the privilege to lead or actively contribute to
+        filter:
+            technology: Technology
+            softskill: Soft Skill
+            sortby:
+                title: Sort by
+                relevance: Relevance
+                bdate-desc: Start date (descending)
+                bdate-asc: Start date (ascending)
+                edate-desc: End date (descending)
+                edate-asc: End date (ascending)
+                duration-desc: Duration (descending)
+                duration-asc: Duration (ascending)
+        button: View project

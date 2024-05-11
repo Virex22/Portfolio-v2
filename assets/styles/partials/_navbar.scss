@@ -1,13 +1,14 @@
 @import "variables";
+@import 'tom-select/src/scss/tom-select.default.scss';
 
 nav {
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
-  overflow: hidden;
   width: 100%;
   box-shadow: 0 2px 12px 0 #00000012;
   height: 75px;
+  overflow: visible;
 
   &.active {
     z-index: 1000;
@@ -58,10 +59,12 @@ nav {
     }
   }
 
-  img {
-    align-self: center;
-    height: 50px;
+  &>a:first-child {
     margin: 0 25px;
+    align-self: center;
+    img {
+      height: 50px;
+    }
   }
 
   ul {
@@ -92,6 +95,8 @@ nav {
         padding: 15px;
         border-bottom: 1px solid #f2f2f2;
         text-align: center;
+        display: flex;
+        justify-content: center;
 
         &:first-child {
           border-top: 1px solid #f2f2f2;
@@ -110,10 +115,45 @@ nav {
       align-items: center;
       padding: 0 15px;
       box-sizing: border-box;
-      border-right: 1px solid #f2f2f2;
 
-      &:last-child {
-        border-right: none;
+      &.active {
+        border-bottom: 4px solid #007bff;
+        @media (max-width: $tablet) {
+          border-bottom: none;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .select-box-language {
+        min-width: 100px;
+        .ts-wrapper {
+        }
+        #lang-select-ts-control {
+          background-color: #fff;
+          background-image: none;
+          cursor: pointer;
+          border: none;
+          box-shadow: none;
+          &:focus, &:focus-visible, &:active {
+            outline: none;
+          }
+        }
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+        }
+        .ts-dropdown.single {
+          background-color: #fff;
+          border: none;
+        }
+        .ts-container {
+          display: flex;
+            align-items: center;
+            justify-content: center;
+        }
       }
 
       a {
@@ -123,7 +163,6 @@ nav {
         color: #333;
         font-weight: 400;
         font-size: 14px;
-        font-family: Inter, sans-serif;
         transition: color 0.3s;
         line-height: 100%;
         display: flex;

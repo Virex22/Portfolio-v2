@@ -29,3 +29,13 @@ phpstan.neon
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> jetbrains/phpstorm ###
+/.idea/*
+###< jetbrains/phpstorm ###
+
+###> uploadfiles ###
+# but no /public/uploads/ph.webp
+/public/uploads/*
+!/public/uploads/ph.webp
+

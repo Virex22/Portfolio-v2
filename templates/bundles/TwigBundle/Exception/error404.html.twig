@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Vincent REMY - {{ 'error404.title'|trans({}, 'error404') }}{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('404') }}
+{% endblock %}
+
+{% block content %}
+    <div class="error404">
+        <div class="error404-wrapper">
+            <div class="error404-text">
+                <h1>{{ 'error404.title'|trans({}, 'error404') }}</h1>
+                <p>{{ 'error404.message'|trans({}, 'error404') }}</p>
+                <p><a href="{{ path('portfolio_home') }}">{{ 'error404.back'|trans({}, 'error404') }}</a></p>
+            </div>
+            <div class="error404-image">
+                <img src="{{ asset('images/404.svg') }}"
+                     alt="{{ 'error404.title'|trans({}, 'error404') | lower }}">
+            </div>
+        </div>
+    </div>
+{% endblock %}

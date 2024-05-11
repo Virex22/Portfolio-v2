@@ -3,10 +3,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+AOS.init();
 /* Swiper */
 
 import Swiper from 'swiper';
 import {Pagination, Autoplay, EffectFade, Navigation} from 'swiper/modules';
+import "../utility/navbar";
 
 Swiper.use([Pagination, Autoplay, EffectFade, Navigation]);
 
@@ -62,6 +66,7 @@ new Swiper(".skills-swiper", {
     spaceBetween: 20,
     slidesPerView: "auto",
     speed: 500,
+    allowTouchMove: false,
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
@@ -69,41 +74,5 @@ new Swiper(".skills-swiper", {
     on: {
         resize: centerSwiperIfFewSlides,
         init: centerSwiperIfFewSlides
-    }
-});
-
-/* Mobile Navbar */
-
-const mobileNavbarButton = document.querySelector(".mobile-lines");
-
-const obfuscatePage = () => {
-    const obfuscate = document.createElement("div");
-    obfuscate.classList.add("obfuscate-page");
-    document.querySelector("main").appendChild(obfuscate);
-
-    obfuscate.addEventListener("click", () => {
-        obfuscate.remove();
-        mobileNavbarButton.click();
-    });
-};
-
-const unobfuscatePage = () => {
-    document.querySelector(".obfuscate-page").remove();
-};
-
-mobileNavbarButton.addEventListener("click", () => {
-    const ul = mobileNavbarButton.parentNode.querySelector("ul");
-    ul.classList.toggle("active");
-    mobileNavbarButton.classList.toggle("active");
-    ul.style.opacity = "0";
-
-    setTimeout(() => {
-        ul.style.opacity = "1";
-    }, 10);
-
-    if (ul.classList.contains("active")) {
-        obfuscatePage();
-    } else {
-        unobfuscatePage();
     }
 });

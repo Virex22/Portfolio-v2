@@ -2,7 +2,7 @@
     <div class="swiper-wrapper">
         {% for skill in skills %}
             <div class="swiper-slide">
-                <img src="{{ skill.badgeUrl }}"
+                <img src="{{ vich_uploader_asset(skill, 'badgeFile') }}"
                      alt="{{ skill.name }}">
             </div>
         {% endfor %}

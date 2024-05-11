@@ -1,14 +1,36 @@
 <nav>
-    <img src="{{ asset('images/logo.png') }}" alt="Logo">
+    <a href="{{ path('portfolio_home') }}" class="logo">
+        <img src="{{ asset('images/logo.svg') }}" alt="Logo">
+    </a>
     <div class="mobile-lines">
         <span class="line"></span>
         <span class="line"></span>
         <span class="line"></span>
     </div>
     <ul>
-        <li><a href="{{ path('portfolio_home') }}">{{ "navbar.menu.home" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_about') }}">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_projects') }}">{{ "navbar.menu.projects" | trans({}, "navbar") }}</a></li>
-        <li><a href="{{ path('portfolio_contact') }}">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_home' %} class="active"{% endif %}><a
+                    href="{{ path('portfolio_home') }}">{{ "navbar.menu.home" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_about' %} class="active"{% endif %}><a
+                    href="{{ path('portfolio_about') }}">{{ "navbar.menu.about" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_projects' %} class="active"{% endif %}><a
+                    href="{{ path('portfolio_projects') }}">{{ "navbar.menu.projects" | trans({}, "navbar") }}</a></li>
+        <li{% if app.request.attributes.get('_route') == 'portfolio_contact' %} class="active"{% endif %}><a
+                    href="{{ path('portfolio_contact') }}">{{ "navbar.menu.contact" | trans({}, "navbar") }}</a></li>
+        <li>
+            <div class="select-box-language">
+                <select name="lang-select" id="lang-select" class="tom-select-lang">
+                    <option value="fr" {% if app.request.locale == 'fr' %} selected{% endif %}
+                            data-img-src="{{ asset('images/fr.svg') }}"
+                            data-url="{{ path('portfolio_locale', {'locale': 'fr'}) }}">
+                        FR
+                    </option>
+                    <option value="en" {% if app.request.locale == 'en' %} selected{% endif %}
+                            data-img-src="{{ asset('images/en.svg') }}"
+                            data-url="{{ path('portfolio_locale', {'locale': 'en'}) }}">
+                            EN
+                    </option>
+                </select>
+            </div>
+        </li>
     </ul>
 </nav>

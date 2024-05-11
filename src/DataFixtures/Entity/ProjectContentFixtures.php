@@ -2,8 +2,10 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Project;
 use App\Entity\ProjectContent;
+use App\Helper\LocaleHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -20,13 +22,6 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
         ];
     }
 
-    private function getRandomSizedImage(): string
-    {
-        $width = rand(400, 800);
-        $height = rand(400, 800);
-        return "https://via.placeholder.com/{$width}x{$height}";
-    }
-
     public function load(ObjectManager $manager): void
     {
         $allProjects = $manager->getRepository(Project::class)->findAll();
@@ -38,18 +33,18 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
             $rand4 = rand(1, 4);
             if ($rand4 === 1) {
                 $projectContent->setViewType(EProjectViewType::ALL_TEXT);
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
-            } elseif ($rand4 === 2) {
+                $this->setLocaleFields($projectContent, $i);
+           } elseif ($rand4 === 2) {
                 $projectContent->setViewType(EProjectViewType::ALL_IMAGE);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
             } elseif ($rand4 === 3) {
                 $projectContent->setViewType(EProjectViewType::IMAGE_LEFT);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
+                $this->setLocaleFields($projectContent, $i);
             } else {
                 $projectContent->setViewType(EProjectViewType::IMAGE_RIGHT);
-                $projectContent->setImgUrl($this->getRandomSizedImage());
-                $projectContent->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.');
+                $projectContent->setImageFile(FileHelper::createUploadedFile('projectContent' . $i . '.webp'));
+                $this->setLocaleFields($projectContent, $i);
             }
 
             $projectContent->setPosition($project->getProjectContents()->count() + 1);
@@ -57,5 +52,13 @@ class ProjectContentFixtures extends Fixture implements DependentFixtureInterfac
             $manager->persist($projectContent);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(ProjectContent $projectContent, int $i): void
+    {
+        $locales = LocaleHelper::getLocales();
+        foreach ($locales as $locale) {
+            $projectContent->setTranslatedField('text_content', 'Project Content ' . $i . ' ' . $locale, $locale);
+        }
     }
 }

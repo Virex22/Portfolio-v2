@@ -6,9 +6,7 @@ use App\Helper\ConfigurationHelper;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
-use Symfony\Component\Security\Http\Attribute\CurrentUser;
+use Symfony\Component\Translation\LocaleSwitcher;
 use Twig\Environment;
 
 class KernelRequestListener
@@ -16,11 +14,13 @@ class KernelRequestListener
     public static $maintenanceConfigKey = 'APP_MAINTENANCE';
     private Environment $twig;
     private ConfigurationHelper $configurationHelper;
+    private LocaleSwitcher $localeSwitcher;
 
-    public function __construct(Environment $twig, ConfigurationHelper $configurationHelper)
+    public function __construct(Environment $twig, ConfigurationHelper $configurationHelper, LocaleSwitcher $localeSwitcher)
     {
         $this->twig = $twig;
         $this->configurationHelper = $configurationHelper;
+        $this->localeSwitcher = $localeSwitcher;
     }
 
     #[AsEventListener(event: RequestEvent::class, priority: 5000)]
@@ -32,12 +32,10 @@ class KernelRequestListener
             }
         }
 
-        if (!$this->configurationHelper->existConfiguration(self::$maintenanceConfigKey)) {
-            $this->configurationHelper->setConfiguration(self::$maintenanceConfigKey, 'false');
-            return;
-        }
 
-        if ($this->configurationHelper->getConfiguration(self::$maintenanceConfigKey) !== 'true') {
+        $maintenanceConfig = $this->configurationHelper->getConfiguration(self::$maintenanceConfigKey, 'false');
+
+        if ($maintenanceConfig !== 'true') {
             return;
         }
 
@@ -45,6 +43,31 @@ class KernelRequestListener
 
         $event->setResponse($response);
         $event->stopPropagation();
+    }
+
+    #[AsEventListener(event: RequestEvent::class, priority: 1000)]
+    public function onKernelRequestLocale(RequestEvent $event): void
+    {
+        $request = $event->getRequest();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $locale = $_SESSION['_sf2_attributes']['_locale'] ?? null;
+        session_write_close();
+
+        if (!$locale) {
+            $availableLocales = json_decode($this->configurationHelper->getConfiguration('APP_SUPPORTED_LOCALES', '["en","fr"]'));
+
+            if (!in_array($locale, $availableLocales)) {
+                return;
+            }
+        }
+
+        $this->localeSwitcher->setLocale($locale);
+
+        if ($locale) {
+            $request->setLocale($locale);
+        }
     }
 
     private function getExcludeRoutes(): array

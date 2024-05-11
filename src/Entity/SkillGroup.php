@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
 use App\Repository\SkillGroupRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -11,12 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: SkillGroupRepository::class)]
 class SkillGroup
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
+    #[Translatable(key: 'skillGroup.customName')]
     private ?string $customName = null;
 
     #[ORM\Column(type: Types::SMALLINT)]

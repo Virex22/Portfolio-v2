@@ -1,9 +1,30 @@
-<div class="skill-grid">
-    {% for skill in skillGroups %}
-        <div class="skill-group">
-            <p>{{ skill.customName }}</p>
-            <progress value="{{ skill.acquiredPercentage }}" max="100">{{ skill.acquiredPercentage }}%</progress>
-        </div>
-    {% endfor %}
+<div class="page-mw">
+    <h2 class="about-subtitle title-font" data-aos="fade-up"> {{ 'about.title.myskill'|trans({}, 'about') }} </h2>
+    <div class="skill-grid">
+        {% for skill in skillGroups %}
+            <div class="skill-group" data-aos="fade-up">
+                <p class="text-gray">{{ skill.customName }}</p>
+                <progress value="{{ skill.acquiredPercentage }}" max="100">{{ skill.acquiredPercentage }}%</progress>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
+<div class="separator-wg"></div>
+<div class="skill-explanation-wrapper bg-g">
+    <div class="page-mw">
+        <div class="skill-explanation-wrapper bg-g">
+            <img src="{{ asset('images/characterz/about_signification.png') }}" alt="signification">
+            <div class="skill-explanation" data-aos="fade-up">
+                <p>{{ "about.skill.explanation.title" | trans({}, 'about') }} </p>
+                <ul class="skill-explanation-content text-gray">
+                    <li data-aos="fade-left">0% : {{ "about.skill.content.0" | trans({}, 'about') }}</li>
+                    <li data-aos="fade-left">25% : {{ "about.skill.content.25" | trans({}, 'about') }}</li>
+                    <li data-aos="fade-left">50% : {{ "about.skill.content.50" | trans({}, 'about') }}</li>
+                    <li data-aos="fade-left">75% : {{ "about.skill.content.75" | trans({}, 'about') }}</li>
+                    <li data-aos="fade-left">100% : {{ "about.skill.content.100" | trans({}, 'about') }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

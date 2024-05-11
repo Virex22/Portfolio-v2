@@ -2,28 +2,31 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
 use App\Repository\ServiceRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
 class Service
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable(key: 'service.name')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $priority = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[Translatable(key: 'service.description')]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[Translatable(key: 'service.subtitle')]
     private ?string $subtitle = null;
 
     public function getId(): ?int

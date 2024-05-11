@@ -21,28 +21,13 @@ class SkillGroupRepository extends ServiceEntityRepository
         parent::__construct($registry, SkillGroup::class);
     }
 
-//    /**
-//     * @return SkillGroup[] Returns an array of SkillGroup objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?SkillGroup
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findAllWithSkills()
+    {
+        return $this->createQueryBuilder('sg')
+            ->leftJoin('sg.skills', 's')
+            ->addSelect('s')
+            ->orderBy('sg.acquiredPercentage', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

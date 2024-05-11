@@ -1,12 +1,12 @@
 <div class="button-container">
-    <a>
-        <button class="btn-multicolor">
+    <a href="{{ path('portfolio_contact') }}">
+        <button class="button">
             {{ "about.meetme.button.contactme" | trans({}, 'about') }}
         </button>
     </a>
 
-    <a>
-        <button class="btn-multicolor">
+    <a href="{{ cvLink }}" target="_blank">
+        <button class="button">
             {{ "about.meetme.button.mycv" | trans({}, 'about') }}
         </button>
     </a>

@@ -2,17 +2,33 @@
 
 /* Global Footer */
 
+
 html footer {
   display: flex;
   flex-direction: row;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     flex-direction: column;
   }
 }
 
+footer {
+  background: rgb(121,182,210);
+  background: linear-gradient(90deg, rgba(121,182,210,1) 0%, rgb(133, 164, 203) 100%);
+  * {
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.footer-img {
+  object-fit: contain;
+}
+
 .footer-part {
-  border: antiquewhite 1px solid;
   margin: 0;
 }
 
@@ -20,10 +36,6 @@ html footer {
   width: 30%;
 
   @media (max-width: $tablet) {
-    width: 20%;
-  }
-
-  @media (max-width: $mobile) {
     width: 100%;
   }
 }
@@ -32,10 +44,6 @@ html footer {
   width: 40%;
 
   @media (max-width: $tablet) {
-    width: 60%;
-  }
-
-  @media (max-width: $mobile) {
     width: 100%;
     order: 3;
   }
@@ -50,13 +58,16 @@ html footer {
   margin: 0 auto;
 
   @media (max-width: $tablet) {
-    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 10px), 1fr));
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
   }
   @media (max-width: $mobile) {
-    grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 10px), 1fr));
+    padding: 20px 0;
   }
-  @media (max-width: $foldmobile) {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  @media (max-width: $fold-mobile) {
+    width: 100%;
   }
 
   .network-block {
@@ -64,21 +75,31 @@ html footer {
     text-align: center;
     padding: 15px;
     margin: 5px;
-    width: 100%;
+    width: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
 
-    @media (max-width: $foldmobile) {
-      padding: 0;
-      margin: 0;
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: fill;
+    }
+
+    @media (max-width: $fold-mobile) {
+      padding: 5px;
+      margin: 2px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: fill;
+      }
     }
   }
 
   a {
-    text-decoration: none;
-    color: inherit;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -94,16 +115,19 @@ html footer {
 
 .mention {
   text-align: center;
+  font-size: 1.1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 10px;
+  @media (max-width: $tablet) {
+    padding: 20px 0;
+  }
   @media (max-width: $mobile) {
-    padding: 0;
     font-size: 0.8em;
   }
-  @media (max-width: $foldmobile) {
+  @media (max-width: $fold-mobile) {
     font-size: 0.6em;
   }
 }
@@ -111,33 +135,30 @@ html footer {
 /* Sitemap Part */
 
 .footer-part.sitemap {
-  text-align: right;
   padding: 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
 
-  @media (max-width: $mobile) {
-    text-align: center;
-    padding: 0;
+  @media (max-width: $tablet) {
+    width: 100%;
+    padding: 20px 0;
   }
 
   p.footer-title {
-    text-align: right;
     margin-bottom: 10px;
     font-size: 1.5em;
     font-weight: bold;
-    @media (max-width: $mobile) {
-      text-align: center;
-    }
+    text-align: center;
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: 5px;
-    }
-
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    font-size: 1.1em;
+    flex: 0.5;
     a {
       text-decoration: none;
       color: inherit;

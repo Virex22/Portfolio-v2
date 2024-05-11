@@ -1,6 +1,6 @@
 <div class="projects-container">
     <div class="filter-projects">
-        {#        filre disponible : technologie, soft skill; trie disponible: date, temps passé #}
+        {#        filtre disponible : technologie, soft skill; trie disponible: date, temps passé #}
         {% if technicalFacetOptions|length > 1 %}
             {% include 'pages/projects/_partials/components/_select.html.twig' with {
                 'label': 'projects.list.filter.technology' | trans({}, 'projects'),
@@ -31,22 +31,42 @@
         {% for project in projects %}
             {% set encodedSkills = project.skills | map(s => s.id) | join(',') | base64_encode %}
             {#  placeholder for the first dev #}
-            <div class="project-card" data-skill="{{ encodedSkills }}"
+            <div class="project-card" data-skill="{{ encodedSkills }}" data-aos="zoom-in-up" data-aos-once="true"
                  data-date="{{ project.startDate | date('Y-m-d') }},{{ project.endDate | date('Y-m-d') }}">
                 <a href="{{ path('project_show', {'id': project.id}) }}">
                     <div class="project-card-image">
                         {#  placeholder for the first dev #}
-                        <img src="https://picsum.photos/200/300" alt="project image">
+                        <img src="{{ vich_uploader_asset(project, 'coverImageFile') }}" alt="{{ project.name }}">
                     </div>
                 </a>
+                <div class="project-card-skills-container">
+                    {% for skill in project.skills %}
+                        {% if skill.badgeUrl is not null %}
+                            <div class="project-card-skills-img">
+                                <img src="{{ vich_uploader_asset(skill, 'badgeFile') }}" alt="{{ skill.name }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 <div class="project-card-content">
                     <a href="{{ path('project_show', {'id': project.id}) }}">
                         <h2 class="project-card-title">{{ project.name }}</h2></a>
                     <p class="project-card-description">{{ project.description }}</p>
                 </div>
-                <button class="project-card-button"
-                        onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'">Voir le projet
-                </button>
+                <div class="project-card-button-container">
+                    <button class="project-card-button button"
+                            onclick="window.location.href='{{ path('project_show', {'id': project.id}) }}'"> {{ 'projects.list.button' | trans({}, 'projects') }}
+                    </button>
+                </div>
+                <div class="project-card-footer">
+                    <div class="project-card-skills-hashtag">
+                        {% for skill in project.skills %}
+                            {% if skill.badgeUrl is null %}
+                                <span>#{{ skill.name }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>

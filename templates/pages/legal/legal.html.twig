@@ -1,0 +1,96 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Vincent REMY - {{ 'maintenance.title'|trans({}, 'maintenance') }}{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('legal') }}
+{% endblock %}
+
+{% block content %}
+
+    {% set site_name = 'Vincent REMY Portfolio' %}
+    {% set owner_name = 'Vincent REMY' %}
+    {% set owner_address = '7 rue André Theuriet 57000 Metz' %}
+    {% set owner_email = 'vincentremy222@gmail.com' %}
+    {% set owner_status = 'legal.section1.owner.status'| trans({}, 'legal') %}
+    {% set webmaster_name = 'Vincent REMY' %}
+    {% set webmaster_email = 'vincentremy222@gmail.com' %}
+    {% set host_address = 'OVH' %}
+    {% set host_city = 'Paris' %}
+    {% set host_postal_code = '75000' %}
+    {% set host_country = 'France' %}
+    {% set website_link = 'https://vincent-remy.fr' %}
+    {% set website_label = 'vincent-remy.fr ' ~ 'legal.or'| trans({}, 'legal') ~ ' vincent-remy.com' %}
+    <div class="container">
+        <h1>{{ 'legal.title' | trans({}, 'legal') }}</h1>
+
+        <section>
+            <p>{{ 'legal.intro' | trans({}, 'legal') }}</p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section1.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section1.owner.status' | trans({}, 'legal') }} : <strong>{{ owner_status }}</strong><br/>
+                {{ 'legal.section1.owner.info' | trans({}, 'legal') }} : <strong>{{ owner_name }}</strong><br/>
+                {{ 'legal.section1.owner.address' | trans({}, 'legal') }} : <strong>{{ owner_address }}</strong><br/>
+                <br/>
+                {{ 'legal.section1.creator.info' | trans({}, 'legal') }} : <strong>{{ owner_name }}</strong><br/>
+                {{ 'legal.section1.publisher.info' | trans({}, 'legal') }} : <strong>{{ owner_name }}</strong><br/>
+                {{ 'legal.section1.publisher.contact' | trans({}, 'legal') }} : <strong>{{ owner_email }}</strong><br/>
+                {{ 'legal.section1.publisher.physical' | trans({}, 'legal') }}<br/>
+                <br/>
+                {{ 'legal.section1.webmaster.info' | trans({}, 'legal') }} : <strong>{{ owner_name }}</strong><br/>
+                {{ 'legal.section1.webmaster.contact' | trans({}, 'legal') }} : <strong><a
+                            href="mailto:{{ webmaster_email }}?subject=Contact">{{ webmaster_email }}</a></strong><br/>
+                {{ 'legal.section1.host.info' | trans({}, 'legal') }} :
+                <strong>{{ host_address }} {{ host_city }} {{ host_postal_code }} {{ host_country }}</strong><br/>
+            </p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section2.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section2.website.presentation' | trans({}, 'legal') }}
+                <strong>{{ website_label }}</strong> {{ 'legal.section2.website.presentation.continue' | trans({}, 'legal') }}
+                <br/>
+                {{ 'legal.section2.website.disclaimer' | trans({}, 'legal') }}
+            </p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section3.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section3.accessibility.info' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section3.accessibility.interruption' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section3.accessibility.unavailability' | trans({}, 'legal') }}
+            </p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section4.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section4.intellectual_property' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section4.reproduction' | trans({}, 'legal') }}<br/>
+            </p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section5.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section5.hyperlinks_cookies' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section5.hyperlinks_content' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section5.cookies_info' | trans({}, 'legal') }}
+            </p>
+        </section>
+
+        <section>
+            <h2>{{ 'legal.section6.title' | trans({}, 'legal') }}:</h2>
+            <p>
+                {{ 'legal.section6.data_rights' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section6.user_rights' | trans({}, 'legal') }}<br/>
+                {{ 'legal.section6.info_publishing' | trans({}, 'legal') }}
+            </p>
+        </section>
+    </div>
+{% endblock %}

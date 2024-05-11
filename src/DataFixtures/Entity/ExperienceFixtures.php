@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures\Entity;
 
+use App\DataFixtures\Utils\FileHelper;
 use App\Entity\Experience;
 use App\Entity\Skill;
 use DateTime;
@@ -28,11 +29,11 @@ class ExperienceFixtures extends Fixture
         $allSkills = $manager->getRepository(Skill::class)->findAll();
         for ($i = 1; $i <= self::$count; $i++) {
             $experience = new Experience();
-            $experience->setCompangyLogoUrl('https://via.placeholder.com/150');
-            $experience->setCompagnyName('Compagny ' . $i);
-            $experience->setPostName('Post ' . $i);
+            $this->setLocaleFields($experience, $i);
             $experience->setStartDate(new DateTime('now - ' . $i . ' years'));
             $experience->setEndDate(new DateTime('now - ' . ($i - 1) . ' years'));
+            $experience->setLocation('Location ' . $i);
+            $experience->setLogoFile(FileHelper::createUploadedFile('experience' . $i . '.webp'));
 
             for ($j = 1; $j <= rand(1, 3); $j++)
                 if (count($allSkills) > self::$count - $i)
@@ -41,5 +42,15 @@ class ExperienceFixtures extends Fixture
             $manager->persist($experience);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(Experience $experience, int $i): void
+    {
+        $locales = ['en', 'fr'];
+        foreach ($locales as $locale) {
+            $experience->setTranslatedField('companyName', "Company $i $locale", $locale);
+            $experience->setTranslatedField('postName', "Post $i $locale", $locale);
+            $experience->setTranslatedField('description', "Description $i $locale", $locale);
+        }
     }
 }

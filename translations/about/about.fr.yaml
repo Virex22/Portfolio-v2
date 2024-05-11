@@ -3,6 +3,7 @@ about:
     bubble:
       title: Envie de me connaître
       text: Un peu plus ?
+      explain: cliquer sur un point pour en savoir plus
     head:
       title: Un esprit curieux
       content: Je suis un développeur web fullstack avec une soif d'apprendre insatiable.
@@ -14,7 +15,7 @@ about:
       content: Envie d'avancer ensemble ? N'hésitez pas à me contacter.
     leg:
       title: De solide Base
-      content: Je suis un développeur web fullstack sérieux et soucieux, vous pouvez me faire confiance.
+      content: Je suis sérieux et soucieux, vous pouvez me faire confiance.
   meetme:
     button:
       contactme: Me contacter
@@ -23,3 +24,12 @@ about:
     myskill: Mes compétences
     career: Mon parcours professionnel
     convinced: Convaincu ?
+  skill:
+    explanation:
+      title: "Parce qu'on a pas tous la même définition du 100%, voici ce que j'entends par ces niveaux de compétences :"
+    content:
+        0: Jamais entendu parler de ce sujet.
+        25: Connaissance de base, mais pas de grosse expérience pratique.
+        50: Connaissance intermédiaire, avec une expérience pratique sur quelques projets.
+        75: Bonne connaissance, avec une expérience pratique sur plusieurs projets et la capacité de comprendre comment fonctionne le sujet en plus de l'utiliser.
+        100: Maîtrise complète du sujet, avec une expérience approfondie et la capacité de restituer le sujet à d'autres personnes avec aisance.

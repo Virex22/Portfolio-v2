@@ -24,6 +24,7 @@ class ContactMessageCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('surname'),
             TextField::new('email'),
+            TextField::new('subject'),
             TextEditorField::new('message'),
             DateTimeField::new('dateAdd')->hideOnForm(),
             DateTimeField::new('dateUpdate')->hideOnForm(),

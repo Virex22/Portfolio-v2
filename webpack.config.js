@@ -28,6 +28,8 @@ Encore
     .addEntry('contact', './assets/js/pages/contact.js')
     .addEntry('projects', './assets/js/pages/projects.js')
     .addEntry('project-view', './assets/js/pages/project-view.js')
+    .addEntry('404', './assets/js/pages/404.js')
+    .addEntry('legal', './assets/js/pages/legal.js')
 
     // SCSS
     .addEntry('maintenance', './assets/styles/pages/maintenance.scss')

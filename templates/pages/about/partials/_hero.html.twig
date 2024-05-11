@@ -2,12 +2,12 @@
     <div class="about-hero-container">
         <div class="text-bubble-container no-button-clicked">
             <div class="text-bubble-title">
-                <h1>{{ "about.hero.bubble.title" | trans({}, 'about') }}</h1>
-                <span>{{ "about.hero.bubble.text" | trans({}, 'about') }}</span>
+                <p class="title title-font">{{ "about.hero.bubble.title" | trans({}, 'about') }}<br />{{ "about.hero.bubble.text" | trans({}, 'about') }}</p>
+                <span class="text-gray">{{ "about.hero.bubble.explain" | trans({}, 'about') }}</span>
             </div>
         </div>
         <div class="about-hero-img">
-            <img alt="avatar" src="{{ asset('images/about/avatar.png') }}" class="img-avatar">
+            <img alt="avatar" src="{{ asset('images/characterz/about.png') }}" class="img-avatar">
             <div class="circle-button head-circle-button"
                  data-bubble-title="{{ "about.hero.head.title" | trans({}, 'about') }}"
                  data-bubble-content="{{ "about.hero.head.content" | trans({}, 'about') }}">

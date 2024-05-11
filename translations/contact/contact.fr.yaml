@@ -1,44 +1,25 @@
 contact:
-  title: Me contacter
-  description:
-    line1: Besoin d’en savoir plus ? Envie d’avancer ensemble ?
-    line2: Vous pouvez me contacter, c’est juste en dessous !
-  contact:
-    title: Coordonnées
-    phone: "Téléphone :"
-    email: "Email :"
-  legal:
-    title: Mentions légales
-    address: Ce site est édité par Vincent REMY.
-  faq:
-    title: FAQ
-    availability:
-      title: Quels sont vos disponibilités ?
-      answer: Je suis actuellement en mission et je ne serai pas disponible avant fin octobre 2022. Vous pouvez toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau pour le développement de votre projet.
-    pricing:
-      title: Quels sont vos tarifs ?
-      answer: La tarification dépend du projet et surtout du temps qui sera nécessaire pour le mener à bien. À titre indicatif mon tarif journalier moyen se situe aux alentour de 700€/jour.
-    missions:
-      title: Effectuez-vous des missions en Agence ?
-      answer: J'effectue l'ensemble de mes missions à distance.
-  success: Votre message a bien été envoyé.
+    title: Me contacter
+    contact:
+        title: Coordonnées
+        phone: "Téléphone :"
+        email: "Email :"
+    success: Votre message a bien été envoyé.
+    notice: En envoyant ce formulaire, vous acceptez que vos données soient utilisées et traitées pour vous recontacter.
+    social:
+        title: Ou retrouvez-moi sur ces réseaux
 type:
-  name:
-    label: Prénom ou nom de l'entreprise
-    placeholder: Vincent ou Chaussea
-  surname:
-    label: Nom (optionnel)
-    placeholder: REMY
-  email:
-    label: Email
-    placeholder: vincentremy222@gmail.com
-  subject:
-    label: Objet
-    placeholder: Demande de devis
-  message:
-    label: Message
-    placeholder: Bonjour Vincent, je souhaiterais obtenir un devis pour la création d'un script d'automatisation de tâches.
-  captcha:
-    error: La vérification captcha a échoué. Veuillez réessayer.
-  submit:
-    label: Envoyer le message
+    name:
+        label: Prénom ou nom de l'entreprise
+    surname:
+        label: Nom (optionnel)
+    email:
+        label: Email
+    subject:
+        label: Objet
+    message:
+        label: Message
+    captcha:
+        error: La vérification captcha a échoué. Veuillez réessayer.
+    submit:
+        label: Envoyer le message

@@ -1,6 +1,7 @@
 @import "../../partials/footer";
 @import "../../partials/layout";
 @import "../../partials/navbar";
+@import "../../partials/render-wysiwyg";
 @import "hero";
 
 /* Project View part */
@@ -13,7 +14,7 @@ section {
   @media (max-width: $tablet) {
     flex-direction: column;
   }
-  @media (max-width: $foldmobile) {
+  @media (max-width: $fold-mobile) {
     padding: 10px;
   }
 
@@ -23,24 +24,65 @@ section {
     border-radius: 8px;
     margin: 0 auto 20px;
     max-width: 100%;
-    @media (max-width: $foldmobile) {
+    @media (max-width: $fold-mobile) {
       margin: 0 auto 10px;
     }
   }
 
   .text-content {
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-self: center;
 
     p {
       font-size: 1.2rem;
       font-weight: 400;
       line-height: 1.5;
       margin: 20px;
-      @media (max-width: $foldmobile) {
+      @media (max-width: $fold-mobile) {
         margin: 10px;
       }
+    }
+  }
+}
+/* Skills part */
+.project-skills {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 8;
+  display: flex;
+  min-width: max-content;
+  transform: translateX(-50%);
+  padding: 5px;
+  .project-skills-img{
+    img {
+      width: 25px;
+      height: 25px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  }
+}
+
+/* Hashtags part */
+.project-view-footer {
+  margin-bottom: 50px;
+  .project-view-footer-hashtags {
+    min-height: 25px;
+    max-width: 1225px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color : #6c63ff;
+    flex-wrap: wrap;
+
+    span {
+      margin: 2px 5px;
     }
   }
 }

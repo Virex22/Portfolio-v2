@@ -2,17 +2,18 @@
 
 namespace App\Service;
 
+use App\Manager\CustomTranslationManager;
 use App\Repository\ExperienceRepository;
 use App\Repository\FormationRepository;
 
 class AboutService
 {
-    private FormationRepository $skillGroupRepository;
+    private FormationRepository $formationRepository;
     private ExperienceRepository $experienceRepository;
 
-    public function __construct(FormationRepository $skillGroupRepository, ExperienceRepository $experienceRepository)
+    public function __construct(FormationRepository $formationRepository, ExperienceRepository $experienceRepository)
     {
-        $this->skillGroupRepository = $skillGroupRepository;
+        $this->formationRepository = $formationRepository;
         $this->experienceRepository = $experienceRepository;
     }
 
@@ -25,21 +26,30 @@ class AboutService
      *        'type' => 'formation',
      *       'startDate' => 2021-01-01,
      *      'endDate' => 2021-01-01,
-     *  'name' => 'formation name',
+     *      'name' => 'formation name',
+     *    'skills' => ['skill1', 'skill2'],
+     *     'subtitle' => 'school name',
+     *    'location' => 'location',
+     *      'logoUrl' => 'logo image',
+     *     'description' => 'description',
      *    ],
      *      2 => [
      *      'type' => 'experience',
      *     'startDate' => 2020-01-01,
      *     'endDate' => 2021-01-01,
      *      'name' => 'experience name',
-     *      'logo' => 'company logo url',
+     *    'skills' => ['skill1', 'skill2'],
+     *     'subtitle' => 'post name',
+     *    'location' => 'location',
+     *     'logoUrl' => 'logo image',
+     *    'description' => 'description',
      *      ]
      */
     public function getTimeLineData(): array
     {
-        $formations = $this->skillGroupRepository->findBy([], ['startDate' => 'DESC']);
-        $experiences = $this->experienceRepository->findBy([], ['startDate' => 'DESC']);
-
+        $formations = $this->formationRepository->findAllWithSkills();
+        $experiences = $this->experienceRepository->findAllWithSkills();
+        CustomTranslationManager::getInstance()->processTranslationRequests();
         $timelineData = [];
 
         foreach ($formations as $formation) {
@@ -48,6 +58,11 @@ class AboutService
                 'startDate' => $formation->getStartDate(),
                 'endDate' => $formation->getEndDate(),
                 'name' => $formation->getName(),
+                'skills' => $formation->getSkills(),
+                'subtitle' => $formation->getSchoolName(),
+                'location' => $formation->getLocation(),
+                'logoUrl' => '/uploads/formations/' . $formation->getLogo(),
+                'description' => $formation->getDescription(),
             ];
         }
 
@@ -56,8 +71,12 @@ class AboutService
                 'type' => 'experience',
                 'startDate' => $experience->getStartDate(),
                 'endDate' => $experience->getEndDate(),
-                'name' => $experience->getCompagnyName(),
-                'logo' => $experience->getCompangyLogoUrl(),
+                'name' => $experience->getCompanyName(),
+                'skills' => $experience->getSkills(),
+                'subtitle' => $experience->getPostName(),
+                'location' => $experience->getLocation(),
+                'logoUrl' => '/uploads/experiences/' . $experience->getLogo(),
+                'description' => $experience->getDescription(),
             ];
         }
 

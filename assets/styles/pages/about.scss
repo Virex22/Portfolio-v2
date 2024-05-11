@@ -9,10 +9,10 @@ $space-timeline-row: 55px;
 
 /* Global styles */
 
-h2.home-subtitle {
+h2.about-subtitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #7367D4;
+  color: $text-black;
   margin: $space-between-parts 0 $space-between-parts 70px;
 
   @media (max-width: $tablet) {
@@ -39,66 +39,68 @@ h2.home-subtitle {
   }
 }
 
+$anim-multiplier: 1.5;
+
 @keyframes bubble {
   0% {
     transform: scale(1) translate(-50%, -50%);
   }
   5% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   10% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   15% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   20% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   25% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   30% {
-    transform: scale(1) translate(calc(-50% + 3px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   35% {
-    transform: scale(1) translate(calc(-50% - 1px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   40% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% - 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 3px)));
   }
   45% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   50% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   55% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% + 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% + ($anim-multiplier * 1px)));
   }
   60% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   65% {
-    transform: scale(1) translate(calc(-50% + 3px), calc(-50% - 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 3px)), calc(-50% - ($anim-multiplier * 2px)));
   }
   70% {
-    transform: scale(1) translate(calc(-50% - 1px), calc(-50% + 4px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 4px)));
   }
   75% {
-    transform: scale(1) translate(calc(-50% + 2px), calc(-50% - 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 3px)));
   }
   80% {
-    transform: scale(1) translate(calc(-50% - 2px), calc(-50% - 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 2px)), calc(-50% - ($anim-multiplier * 1px)));
   }
   85% {
-    transform: scale(1) translate(calc(-50% + 4px), calc(-50% + 2px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 4px)), calc(-50% + ($anim-multiplier * 2px)));
   }
   90% {
-    transform: scale(1) translate(calc(-50% - 3px), calc(-50% + 1px));
+    transform: scale(1) translate(calc(-50% - ($anim-multiplier * 3px)), calc(-50% + ($anim-multiplier * 1px)));
   }
   95% {
-    transform: scale(1) translate(calc(-50% + 1px), calc(-50% + 3px));
+    transform: scale(1) translate(calc(-50% + ($anim-multiplier * 1px)), calc(-50% + ($anim-multiplier * 3px)));
   }
   100% {
     transform: scale(1) translate(-50%, -50%);
@@ -113,10 +115,6 @@ h2.home-subtitle {
   height: 500px;
   position: relative;
   z-index: 1;
-
-  @media (max-width: $mobile) {
-    height: 650px;
-  }
 
   &::before {
     content: "";
@@ -142,7 +140,7 @@ h2.home-subtitle {
       width: 100%;
     }
 
-    @media (max-width: $foldmobile) {
+    @media (max-width: $fold-mobile) {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -158,6 +156,8 @@ h2.home-subtitle {
       display: flex;
       flex-direction: column;
       align-self: flex-end;
+      margin-bottom: 75px;
+      z-index: 9;
 
       @media (max-width: $mobile) {
         align-self: flex-start;
@@ -165,78 +165,63 @@ h2.home-subtitle {
         top: 10px;
         right: -10px;
         width: 95%;
-        margin: 10px 0;
       }
 
-      @media (max-width: $foldmobile) {
-        width: 100%;
+      @media (max-width: $fold-mobile) {
+        align-self: center;
+        margin: 0;
         right: 0;
       }
 
-      &.no-button-clicked {
-        .text-bubble-title {
+      span {
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        @media (max-width: $mobile) {
+          position: relative;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .text-bubble-title {
+
+        @media (max-width: $mobile) {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+
+        p.title {
           font-size: 1.5rem;
           font-weight: bold;
           padding: 10px;
           text-align: left;
           position: absolute;
-          bottom: 20px;
-          left: 20px;
-          color: #968CAD;
-        }
-      }
+          top: 20px;
+          left: 40px;
+          color: $blue;
 
-      &:not(.no-button-clicked) {
-        .text-bubble-title {
-
-          @media (max-width: $foldmobile) {
+          @media (max-width: $mobile) {
             position: relative;
-            display: flex;
-            flex-direction: column;
+            top: 0;
+            left: 0;
+            text-align: center;
+            margin-bottom: 20px;
           }
 
-          h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 10px;
-            text-align: left;
+          &::before {
+            content: ">";
             position: absolute;
-            top: 20px;
-            left: 40px;
-            color: #968CAD;
+            left: -10px;
+            color: $blue;
 
-            @media (max-width: $foldmobile) {
-              position: relative;
-              top: 0;
-              left: 0;
-              text-align: center;
-              margin-bottom: 20px;
-            }
-
-            &::before {
-              content: ">";
-              position: absolute;
-              left: -10px;
-              color: #968CAD;
-
-              @media (max-width: $foldmobile) {
-                content: "";
-              }
-            }
-          }
-
-          span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px;
-            text-align: left;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #6c6c6c;
-
-            @media (max-width: $foldmobile) {
-              position: relative;
+            @media (max-width: $mobile) {
+              content: "";
             }
           }
         }
@@ -244,7 +229,7 @@ h2.home-subtitle {
     }
 
     .about-hero-img {
-      height: 300px;
+      height: 450px;
       width: 300px;
       position: relative;
 
@@ -257,20 +242,20 @@ h2.home-subtitle {
       }
 
       .circle-bubble {
-        background-color: #d1c3f3;
+        background-color: $light-violet;
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
 
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           display: none;
         }
 
         &.circle-bubble-1 {
           height: 150px;
           width: 150px;
-          top: 11%;
-          left: 34%;
+          top: 13%;
+          left: 33%;
         }
 
         &.circle-bubble-2 {
@@ -331,7 +316,7 @@ h2.home-subtitle {
       }
 
       .circle-button {
-        background-color: #09c3fd;
+        background-color: $blue;
         height: 20px;
         width: 20px;
         border-radius: 50%;
@@ -348,8 +333,8 @@ h2.home-subtitle {
         }
 
         &.leg-circle-button {
-          bottom: 9%;
-          left: 51%;
+          bottom: 18%;
+          left: 53%;
         }
 
         &.phone-circle-button {
@@ -358,8 +343,8 @@ h2.home-subtitle {
         }
 
         &.hand-circle-button {
-          top: 52%;
-          left: 64%;
+          top: 51%;
+          left: 76%;
         }
       }
     }
@@ -369,7 +354,7 @@ h2.home-subtitle {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 300px;
+      height: 450px;
       z-index: 8;
     }
   }
@@ -377,8 +362,44 @@ h2.home-subtitle {
 
 /* skills section */
 
+.skill-explanation-wrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: $gray-light;
+  padding: 20px 0;
+
+  img {
+    width: 40%;
+    max-height: 350px;
+    object-fit: contain;
+  }
+
+  .skill-explanation {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .skill-explanation p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .skill-explanation .skill-explanation-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+  }
+}
+
 .skill-grid {
-  max-width: 90%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
@@ -422,12 +443,12 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #d1c3f3;
+  background-color: $blue;
   border-radius: 20px;
 }
 
 progress::-moz-progress-bar {
-  background-color: #d1c3f3;
+  background-color: $blue;
   border-radius: 20px;
 }
 
@@ -438,6 +459,7 @@ progress::-moz-progress-bar {
   justify-content: space-between;
   margin: auto;
   width: 90%;
+  padding: $space-between-parts 0;
 
   @media (max-width: $tablet) {
     flex-direction: column;
@@ -452,7 +474,8 @@ progress::-moz-progress-bar {
     width: 65%;
     margin: auto;
 
-    h2.home-subtitle {
+    h2.about-subtitle {
+      margin: 20px auto;
       @media (max-width: $small-desktop) {
         margin: $space-between-parts-responsive 0;
         text-align: center;
@@ -470,6 +493,9 @@ progress::-moz-progress-bar {
     width: 300px;
     height: max-content;
     position: relative;
+    background-color: $gray-light;
+    border-radius: 25px 25px 25px 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 
     @media (max-width: $tablet) {
       width: 100%;
@@ -482,8 +508,8 @@ progress::-moz-progress-bar {
       transform: translateY(-50%);
     }
 
-    h2.home-subtitle {
-      margin: $space-between-parts auto 20px;
+    h2.about-subtitle {
+      margin: 20px auto;
       text-align: center;
       @media (max-width: $tablet) {
         margin: $space-between-parts-responsive auto 20px;
@@ -516,20 +542,6 @@ progress::-moz-progress-bar {
         flex-direction: column;
       }
     }
-
-    .btn-multicolor {
-      display: block;
-      border: none;
-      cursor: pointer;
-      width: 80%;
-      color: #eeeeee;
-      margin: 10px auto;
-      background: linear-gradient(to right, #b7aeef 0%, #2b8cbf 100%);
-      border-radius: 10px;
-      text-align: center;
-      font-size: 18px;
-      padding: 20px;
-    }
   }
 }
 
@@ -547,38 +559,29 @@ progress::-moz-progress-bar {
       margin: 50px 0;
 
       @media (max-width: $mobile) {
-        margin: 20px 0;
+        margin: 100px 0;
         width: 100%;
+        justify-content: center;
       }
+      @media (min-width: $mobile + 1) {
+        &:nth-child(odd) {
+          justify-content: flex-start;
 
-      &:nth-child(odd) {
-        justify-content: flex-start;
-        @media (max-width: $mobile) {
-          justify-content: flex-end;
-        }
-
-        .item::before {
-          right: -7px;
-          border-top: 1px solid #d1c3f3;
-          border-right: 1px solid #d1c3f3;
-
-          @media (max-width: $mobile) {
-            left: -7px;
-            border-bottom: 1px solid #d1c3f3;
-            border-left: 1px solid #d1c3f3;
-            border-top: none;
-            border-right: none;
+          .item::before {
+            right: -7px;
+            border-top: 1px solid $light-violet;
+            border-right: 1px solid $light-violet;
           }
         }
-      }
 
-      &:nth-child(even) {
-        justify-content: flex-end;
+        &:nth-child(even) {
+          justify-content: flex-end;
 
-        .item::before {
-          left: -7px;
-          border-bottom: 1px solid #d1c3f3;
-          border-left: 1px solid #d1c3f3;
+          .item::before {
+            left: -7px;
+            border-bottom: 1px solid $light-violet;
+            border-left: 1px solid $light-violet;
+          }
         }
       }
 
@@ -589,26 +592,121 @@ progress::-moz-progress-bar {
         @media (max-width: $mobile) {
           width: 95%;
         }
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           width: 100%;
         }
 
-        h3 {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #7367D4;
-          margin-bottom: 20px;
-        }
-
         .content {
-          padding: 20px;
-          background-color: #f3f3f3;
+          padding: 20px 20px 0;
+          background-color: $gray-light;
           border-radius: 0 0 10px 10px;
-          border: #d1c3f3 1px solid;
+          border: $light-violet 1px solid;
+
+          &::before {
+            @media (max-width: $mobile) {
+              position: absolute;
+              content: "";
+              bottom: 3px;
+              left: calc(50% - 7.5px);
+              transform: rotate(45deg) translate(50%, 50%);
+              height: 15px;
+              width: 15px;
+              background-color: $gray-light;
+              border-bottom: 1px solid $light-violet;
+              border-right: 1px solid $light-violet;
+              z-index: 1;
+            }
+          }
+
+
+          .elements-skills-hashtag-container {
+            min-height: 20px;
+
+            .elements-skills-hashtag {
+              p {
+                min-height: 25px;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                font-size: 0.8rem;
+                color: $violet;
+                flex-wrap: wrap;
+
+                span {
+                  margin: 2px 5px;
+                }
+              }
+            }
+          }
+
+          .elements-skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 5px 0;
+            object-fit: contain;
+
+            img {
+              width: 25px;
+              height: 25px;
+              margin: 5px;
+              border-radius: 5px;
+            }
+          }
+
+          div {
+            display: flex;
+
+            img {
+              width: 64px;
+              height: 64px;
+              border-radius: 50%;
+              object-fit: contain;
+              margin-right: 10px;
+            }
+
+            h3 {
+              font-size: 1.5rem;
+              font-weight: bold;
+              color: $violet;
+            }
+
+            p {
+              span {
+                font-size: 1rem;
+              }
+
+              color: $violet;
+              font-size: 1.25rem;
+              display: flex;
+
+              svg {
+                height: 1rem;
+                width: 1rem;
+                object-fit: contain;
+                margin: 0 0 0 10px;
+                fill: $violet;
+              }
+
+              .location {
+                display: flex;
+                align-items: center;
+                color: $violet;
+              }
+            }
+
+            & > div {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              margin-bottom: 0;
+            }
+          }
         }
 
         .date {
-          background-color: #d1c3f3;
+          background-color: $light-violet;
           text-align: center;
           color: white;
           font-size: 1.25rem;
@@ -627,18 +725,10 @@ progress::-moz-progress-bar {
           z-index: 2;
           height: 15px;
           width: 15px;
-          background-color: #f3f3f3;
+          background-color: $gray-light;
           transform: rotate(45deg);
 
           @media (max-width: $mobile) {
-            display: none;
-          }
-
-          @media (max-width: $mobile) {
-            display: block;
-          }
-
-          @media (max-width: $foldmobile) {
             display: none;
           }
         }
@@ -652,23 +742,23 @@ progress::-moz-progress-bar {
         height: 50px;
         width: 50px;
         border-radius: 50%;
-        background-color: #b7aeef;
+        background-color: $light-violet;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 1.5rem;
-        box-shadow: 0 0 0 3px #aba1ec, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+        box-shadow: 0 0 0 3px $light-violet, inset 0 2px 0 rgba(0, 0, 0, 0.08),
         0 3px 0 4px rgba(0, 0, 0, 0.05);
 
 
         @media (max-width: $mobile) {
-          left: 0;
-          width: 25px;
-          height: 25px;
+          left: 50%;
+          bottom: -90px;
+          top: auto;
         }
 
-        @media (max-width: $foldmobile) {
+        @media (max-width: $fold-mobile) {
           display: none;
         }
 
@@ -683,6 +773,7 @@ progress::-moz-progress-bar {
         }
       }
     }
+
   }
 
   .center-line {
@@ -691,15 +782,16 @@ progress::-moz-progress-bar {
     left: 50%;
     height: 100%;
     width: 4px;
-    background-color: #b7aeef;
+    background-color: $light-violet;
     transform: translateX(-50%);
 
     @media (max-width: $mobile) {
-      left: 0;
+      left: 50%;
     }
 
-    @media (max-width: $foldmobile) {
+    @media (max-width: $fold-mobile) {
       display: none;
     }
   }
+
 }

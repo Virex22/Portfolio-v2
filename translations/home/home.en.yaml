@@ -14,18 +14,14 @@ home:
       subtitle: You just have to contact me
   presentation:
     about:
-      title: About
-      content: I am a web and mobile developer, passionate about new technologies and new web trends.
-    skill:
-      title: Skills
-      content: I have different skills in web and mobile development, I am a fullstack and software developer, so I can develop web applications in full, but also mobile applications, software extensions or video games.
-    passion:
-      title: Passions
-      content: Development has been a passion since I was 15, I started by creating mobile games, then I started developing game mods and then web and mobile applications.
-    projects:
-      title: Projects
-      content: You will find on this site my achievements, whether they are personal projects or professional projects, as well as projects that I have carried out for school or for clients.
+      title: Who am I ?
+      content: Hello! I'm Vincent REMY, a full-stack developer passionate about development for a long time. I specialize in creating effective and sustainable software and web solutions. In search of new stimulating challenges, I constantly strive to learn and improve my skills to carry out even more interesting projects. Discover my achievements and contact me to discuss exciting collaborations!
+    like:
+      title: What do I like to do ?
+      content: Apart from development, I like to listen to music to stay inspired, closely follow the evolution of blockchain technologies in the field of finance and stock market, read books on personal development for continuous growth, and recently, I started going to the gym for a more balanced lifestyle.
+    objective:
+      title: What are my goals ?
+      content: My main goal is to continue to develop my computer skills and put them at the service of meaningful and stimulating projects. In the short term, I am looking to deepen my understanding of emerging technologies and improve my technical leadership skills. In the medium term, I aspire to play a more strategic role within a development team or a company, actively contributing to the definition of the technological vision and the achievement of ambitious goals.
   title:
-    presentation: Presentation
     skills: Skills
-    realization: Realizations
+    service: Services

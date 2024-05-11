@@ -4,6 +4,7 @@ namespace App\DataFixtures\Entity;
 
 use App\Entity\Skill;
 use App\Entity\SkillGroup;
+use App\Helper\LocaleHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -27,7 +28,7 @@ class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
             $skillGroup->setPriority($i);
             $skillGroup->setAcquiredPercentage($i * 10);
             if (rand(0, 1) === 1)
-                $skillGroup->setCustomName('Custom Name ' . $i);
+                $this->setLocaleFields($skillGroup, $i);
             // add some skills to the skill group (unique)
             $skillGroup->addSkill(array_pop($allSkills));
             for ($j = 1; $j <= rand(1, 3); $j++)
@@ -36,5 +37,13 @@ class SkillGroupFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($skillGroup);
         }
         $manager->flush();
+    }
+
+    private function setLocaleFields(SkillGroup $skillGroup, int $i): void
+    {
+        $locales = LocaleHelper::getLocales();
+        foreach ($locales as $locale) {
+            $skillGroup->setTranslatedField('customName', 'Skill Group ' . $i . ' ' . $locale, $locale);
+        }
     }
 }

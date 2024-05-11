@@ -23,18 +23,12 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'label' => new TranslatableMessage('type.name.label', [], 'contact'),
-                    'attr' => [
-                        'placeholder' => new TranslatableMessage('type.name.placeholder', [], 'contact'),
-                    ],
                 ]
             )
             ->add('surname',
                 TextType::class,
                 [
                     'label' => new TranslatableMessage('type.surname.label', [], 'contact'),
-                    'attr' => [
-                        'placeholder' => new TranslatableMessage('type.surname.placeholder', [], 'contact'),
-                    ],
                     'required' => false,
                 ]
             )
@@ -42,27 +36,18 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'label' => new TranslatableMessage('type.email.label', [], 'contact'),
-                    'attr' => [
-                        'placeholder' => new TranslatableMessage('type.email.placeholder', [], 'contact'),
-                    ],
                 ]
             )
             ->add('subject',
                 TextType::class,
                 [
                     'label' => new TranslatableMessage('type.subject.label', [], 'contact'),
-                    'attr' => [
-                        'placeholder' => new TranslatableMessage('type.subject.placeholder', [], 'contact'),
-                    ],
                 ]
             )
             ->add('message',
                 TextareaType::class,
                 [
                     'label' => new TranslatableMessage('type.message.label', [], 'contact'),
-                    'attr' => [
-                        'placeholder' => new TranslatableMessage('type.message.placeholder', [], 'contact'),
-                    ],
                 ]
             )
             ->add('captcha', Recaptcha3Type::class, [

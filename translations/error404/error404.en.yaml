@@ -1,0 +1,4 @@
+error404:
+  title: "Error 404"
+  message: "But how did you get here? There's nothing to see!"
+  back: "Back to home"

@@ -2,28 +2,31 @@
 
 namespace App\Entity;
 
+use App\Attributes\Translatable;
 use App\Repository\ProjectRepository;
+use App\Trait\TranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
+#[Vich\Uploadable]
 class Project
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[Translatable(key: "project.name")]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[Translatable(key: "project.description")]
     private ?string $description = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $content = null;
 
     #[ORM\ManyToMany(targetEntity: Skill::class, mappedBy: 'projects')]
     private Collection $skills;
@@ -36,6 +39,15 @@ class Project
 
     #[ORM\OneToMany(targetEntity: ProjectContent::class, mappedBy: 'project', orphanRemoval: true)]
     private Collection $projectContents;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $coverImage = null;
+
+    #[Vich\UploadableField(mapping: 'project_cover_images', fileNameProperty: 'coverImage')]
+    private ?File $coverImageFile = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function __construct()
     {
@@ -68,18 +80,6 @@ class Project
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): static
-    {
-        $this->content = $content;
 
         return $this;
     }
@@ -163,5 +163,50 @@ class Project
         }
 
         return $this;
+    }
+
+    public function getCoverImage(): ?string
+    {
+        return $this->coverImage;
+    }
+
+    public function setCoverImage(?string $coverImage): static
+    {
+        $this->coverImage = $coverImage;
+
+        return $this;
+    }
+
+    public function getCoverImageFile(): ?File
+    {
+        return $this->coverImageFile;
+    }
+
+    public function setCoverImageFile(?File $coverImageFile): static
+    {
+        $this->coverImageFile = $coverImageFile;
+
+        if ($this->coverImageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name ?? '[project]' . $this->id;
     }
 }

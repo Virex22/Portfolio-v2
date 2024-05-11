@@ -11,6 +11,7 @@ use App\Entity\ProjectContent;
 use App\Entity\Service;
 use App\Entity\Skill;
 use App\Entity\SkillGroup;
+use App\Helper\LocaleHelper;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -43,6 +44,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::section('Entities');
         yield MenuItem::linkToCrud('Configuration', 'fas fa-cogs', Configuration::class);
         yield MenuItem::linkToCrud('ContactMessages', 'fas fa-envelope', ContactMessage::class);
         yield MenuItem::linkToCrud('Experience', 'fas fa-briefcase', Experience::class);
@@ -52,5 +54,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Service', 'fas fa-handshake', Service::class);
         yield MenuItem::linkToCrud('Skill', 'fas fa-cogs', Skill::class);
         yield MenuItem::linkToCrud('SkillGroup', 'fas fa-cogs', SkillGroup::class);
+        yield MenuItem::section('Translation');
+        foreach (LocaleHelper::getLocales() as $locale) {
+            yield MenuItem::linkToRoute($locale, 'fas fa-language', 'portfolio_locale', ['locale' => $locale]);
+        }
     }
 }

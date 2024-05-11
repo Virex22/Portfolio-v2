@@ -12,10 +12,22 @@
 
 {% block content %}
     {% include 'pages/home/partials/_hero.html.twig' %}
-    <h2 class="home-subtitle"> {{ "home.title.presentation"| trans({}, 'home') }}</h2>
     {% include('pages/home/partials/_presentation.html.twig') %}
-    <h2 class="home-subtitle"> {{ "home.title.service"| trans({}, 'home') }}</h2>
-    {% include('pages/home/partials/_services.html.twig') %}
-    <h2 class="home-subtitle"> {{ "home.title.skills"| trans({}, 'home') }}</h2>
-    {% include('pages/home/partials/_skills.html.twig') %}
+    <div class="separator-wg"></div>
+    <div class="bg-g">
+        <div class="home-part">
+            <div class="home-wrapper page-mw">
+                <h2 class="home-subtitle title-font" data-aos="fade-up"> {{ "home.title.service"| trans({}, 'home') }}</h2>
+            </div>
+            {% include('pages/home/partials/_services.html.twig') %}
+        </div>
+    </div>
+    <div class="bg-w">
+        <div class="home-part">
+            <div class="home-wrapper page-mw">
+                <h2 class="home-subtitle title-font" data-aos="fade-up"> {{ "home.title.skills"| trans({}, 'home') }}</h2>
+            </div>
+            {% include('pages/home/partials/_skills.html.twig') %}
+        </div>
+    </div>
 {% endblock %}

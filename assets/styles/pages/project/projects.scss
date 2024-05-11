@@ -15,17 +15,19 @@
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     margin: auto;
-    gap: 20px;
+    gap: 75px;
     position: relative;
 
     @media (max-width: $tablet) {
       grid-template-columns: repeat(2, minmax(250px, 1fr));
+      gap: 30px;
     }
 
     @media (max-width: $mobile) {
       grid-template-columns: repeat(1, minmax(250px, 1fr));
+        gap: 20px;
     }
   }
 
@@ -33,9 +35,56 @@
     background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 0 0 20px;
+    width: 300px;
+    padding: 0;
     transition: 0.1s ease;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $fold-mobile) {
+      width: 250px;
+    }
+
+    .project-card-skills-hashtag {
+      min-height: 25px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color : #6c63ff;
+      flex-wrap: wrap;
+
+      span {
+        margin: 2px 5px;
+      }
+    }
+
+    .project-card-skills-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 5px 0;
+
+      .project-card-skills-img {
+        img {
+          width: 25px;
+          height: 25px;
+          margin: 5px;
+          border-radius: 5px;
+        }
+      }
+
+      span {
+        cursor: default;
+        color: #6c63ff;
+        border: 1px solid #6c63ff;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin: 5px;
+        font-size: 0.8rem;
+      }
+    }
 
     &.hidden {
       transform: scale(0.01);
@@ -88,12 +137,17 @@
       height: 150px;
     }
 
-    .project-card-button {
-      border: 1px solid #000;
-      margin: auto;
-      padding: 5px 10px;
-      display: block;
-      cursor: pointer;
+    .project-card-button-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      .project-card-button {
+        margin: auto;
+        padding: 5px 10px;
+        height: 30px;
+        display: block;
+      }
     }
   }
 
@@ -106,9 +160,8 @@
 /* Filter part */
 .filter-projects {
   display: flex;
-  justify-content: space-around;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 0 50px;
 
   @media (max-width: $tablet) {
     flex-direction: column;
@@ -125,7 +178,7 @@
 
   .select-box {
     position: relative;
-    font-family: Arial, sans-serif;
+    margin: 0 20px 0 0;
     width: 250px;
 
     @media (max-width: $tablet) {

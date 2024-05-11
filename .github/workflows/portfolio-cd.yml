@@ -7,6 +7,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up SSH keys
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Set timestamp
+        id: set_timestamp
+        run: echo "::set-output name=timestamp::$(date +'%Y%m%d%H%M%S')"
+
+      - name: Create timestamp directory
+        run: mkdir -p ${{ secrets.PROJECT_PATH }}/prod/${{ steps.set_timestamp.outputs.timestamp }}
+
       - name: Deploy Project
         uses: appleboy/ssh-action@master
         with:
@@ -15,10 +27,9 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ${{ secrets.PROJECT_PATH }}
-            git pull origin main
+            cd ${{ secrets.PROJECT_PATH }}/prod/${{ steps.set_timestamp.outputs.timestamp }}
+            git clone https://github.com/Virex22/Portfolio-v2.git .
             composer install
-            # Get nvm command
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -29,3 +40,24 @@ jobs:
             php bin/console doctrine:migrations:migrate --no-interaction
             php bin/console cache:clear
             php bin/console cache:warmup
+
+      - name: Switch current symlink
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            ln -sfn ${{ secrets.PROJECT_PATH }}/prod/${{ steps.set_timestamp.outputs.timestamp }} ${{ secrets.PROJECT_PATH }}/current
+
+      - name: Remove old deployments
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}/prod
+            ls -t | tail -n +6 | grep -v ${set_timestamp.outputs.timestamp} | xargs rm -rf

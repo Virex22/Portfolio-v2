@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Skill;
+use App\Enum\ESkillType;
 use App\Trait\CrudTranslatableTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -32,8 +33,14 @@ class SkillCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('badgeFile')->setFormType(VichImageType::class)->onlyOnForms(),
             ImageField::new('badgeUrl')->setBasePath('/uploads/skills')->onlyOnIndex(),
-            TextField::new('type'),
+            TextField::new('type')->setHelp($this->getSkillType()),
             TextField::new('name'),
         ];
+    }
+
+    private function getSkillType()
+    {
+        $types = ESkillType::toArray();
+        return implode(', ', $types);
     }
 }

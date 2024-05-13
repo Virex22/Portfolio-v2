@@ -222,7 +222,7 @@ header {
     }
 
     img {
-      max-height: 500px;
+      max-height: 400px;
       width: 40%;
       margin: 1rem;
       object-fit: contain;
@@ -230,6 +230,7 @@ header {
 
       @media (max-width: $tablet) {
         margin: 2rem auto;
+        width: 100%;
       }
     }
 
@@ -264,7 +265,6 @@ header {
 
       p:not(.presentation-title) {
         font-size: 1.3rem;
-        font-weight: 400;
         color: $text-black;
         line-height: 1.5em;
 
@@ -295,7 +295,6 @@ header {
     height: max-content;
     padding: 20px;
     position: relative;
-    align-items: center;
 
     @media (max-width: $mobile) {
       height: 300px;
@@ -304,18 +303,13 @@ header {
 
   .service-card {
     width: 300px;
-    height: 250px;
+    height: auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-
-    @media (max-width: $mobile) {
-      width: 250px;
-      height: 200px;
-    }
 
     .service-card-header {
       display: flex;
@@ -342,12 +336,12 @@ header {
       }
 
       .service-card-title {
-        font-size: 28px;
+        font-size: 20px;
         font-weight: bold;
         margin-bottom: 10px;
 
         @media (max-width: $mobile) {
-          font-size: 24px;
+          font-size: 18px;
         }
       }
 
@@ -362,14 +356,15 @@ header {
     }
 
     .service-card-description {
-      font-size: 14px;
+      font-size: 15px;
       margin-top: 15px;
+      line-height: 1.2;
       flex: 1;
       align-items: center;
       display: flex;
 
       @media (max-width: $mobile) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }

@@ -1,7 +1,7 @@
 home:
   hero:
     slide1:
-      title: Bonjour je suis Vincent Rémy
+      title: Bonjour je m’appelle
       subtitle: Je suis dévelopeur fullstack et logiciel
     slide2:
       title: Je suis un passionné depuis mes 13 ans !
@@ -15,7 +15,7 @@ home:
   presentation:
     about:
       title: Qui-suis-je ?
-      content: Bonjour ! Je suis <span class="bold">Vincent REMY</span>, un développeur full-stack passionné par le développement depuis très longtemps. Je suis spécialisé dans la création de solutions logicielles et web efficaces et durables. À la recherche de nouveaux <span class="bold">défis</span> stimulants, je m'efforce constamment d'apprendre et de perfectionner mes compétences pour effectuer toujours plus de projets intéressant. Découvrez mes réalisations et contactez-moi pour discuter de collaborations passionnantes !
+      content: Bonjour ! Je suis <span class="bold">Vincent RÉMY</span>, un développeur full-stack passionné par le développement depuis très longtemps. Je suis spécialisé dans la création de solutions logicielles et web efficaces et durables. À la recherche de nouveaux <span class="bold">défis</span> stimulants, je m'efforce constamment d'apprendre et de perfectionner mes compétences pour effectuer toujours plus de projets intéressant. Découvrez mes réalisations et contactez-moi pour discuter de collaborations passionnantes !
     like:
       title: Qu’est ce que j’aime faire ?
       content: En dehors du développement, j'aime écouter de la musique pour rester inspiré, suivre de près l'évolution des technologies blockchain dans le domaine de la finance et de la bourse, lire des livres sur le <span class="bold">développement personnel</span> pour une croissance continue, et récemment, j'ai commencé à fréquenter la salle de sport pour un mode de vie plus <span class="bold">équilibré</span>.

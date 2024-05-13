@@ -12,6 +12,7 @@
   align-self: center;
   width: max-content;
   position: relative;
+  min-height: 400px;
 
   .project-grid {
     display: grid;
@@ -131,10 +132,20 @@
     .project-card-content {
       flex-grow: 1;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
       flex-direction: column;
-      height: 150px;
+      height: 175px;
+      .project-card-description {
+        font-size: 0.9rem;
+        line-height: 1.2;
+        text-align: justify;
+        padding: 0 5px;
+      }
+      .project-card-title {
+        font-size: 1.3rem;
+        text-align: center;
+      }
     }
 
     .project-card-button-container {
@@ -146,7 +157,9 @@
         margin: auto;
         padding: 5px 10px;
         height: 30px;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

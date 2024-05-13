@@ -30,9 +30,9 @@ class ServiceCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('name'),
+            TextField::new('subtitle'),
             NumberField::new('priority'),
             TextEditorField::new('description'),
-            TextField::new('subtitle'),
         ];
     }
 }

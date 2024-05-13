@@ -118,10 +118,14 @@ nav {
 
       &.active {
         border-bottom: 4px solid #007bff;
+        a {
+          transform: translateY(2px);
+        }
         @media (max-width: $tablet) {
           border-bottom: none;
           a {
             text-decoration: underline;
+            transform: translateY(0);
           }
         }
       }
@@ -162,7 +166,7 @@ nav {
         text-decoration: none;
         color: #333;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 1em;
         transition: color 0.3s;
         line-height: 100%;
         display: flex;

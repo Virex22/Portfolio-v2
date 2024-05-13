@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\ContactMessage;
+use App\Helper\ConfigurationHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\MonologBundle\SwiftMailer\MessageFactory;
 use Symfony\Component\Mailer\MailerInterface;
@@ -14,12 +15,14 @@ class ContactService
     private EntityManagerInterface $entityManager;
     private MailerInterface $mailer;
     private Environment $twig;
+    private ConfigurationHelper $configurationHelper;
 
-    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer, Environment $twig)
+    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer, Environment $twig, ConfigurationHelper $configurationHelper)
     {
         $this->entityManager = $entityManager;
         $this->mailer = $mailer;
         $this->twig = $twig;
+        $this->configurationHelper = $configurationHelper;
     }
 
     public function handleForm(ContactMessage $contactMessage): bool
@@ -37,8 +40,8 @@ class ContactService
     private function sendEmail(ContactMessage $contactMessage): void
     {
         $message = (new Email())
-            ->from('contact-page@vincent-remy.fr')
-            ->to('vincentremy222@gmail.com')
+            ->from('contact@vincent-remy.fr')
+            ->to($this->configurationHelper->getConfiguration('APP_CONTACT_EMAIL', 'vincentremy222@gmail.com'))
             ->subject('Nouveau message de contact')
             ->html($this->twig->render('emails/contact.html.twig', ['contactMessage' => $contactMessage]));
 

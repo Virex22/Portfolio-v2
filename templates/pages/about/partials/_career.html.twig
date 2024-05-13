@@ -10,13 +10,15 @@
                     <div class="content">
                         <div>
                             <img src="{{element.logoUrl}}" alt="{{ element.name }}">
-                            <div>
-                                <h3>{{ element.name }}</h3>
-                                <p>{{ element.subtitle }} <span class="location">
-{#                                        use publi/about/location.svg#}
-                                        {{ source('@public/images/about/location.svg') }}
-                                        {{ element.location }}</span>
+                            <div class="content-header">
+                                <p class="content-title">{{ element.name }}</p>
+                                <p class="content-subtitle">
+                                    {{ element.subtitle }}
                                 </p>
+                                <span class="location">
+                                    {{ source('@public/images/about/location.svg') }}
+                                    {{ element.location }}
+                                </span>
                             </div>
                         </div>
                         <div class="elements-skills-container">
@@ -28,7 +30,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <p class="text-gray">{{ element.description | raw }}</p>
+                        <div class="elements-description">{{ element.description | trixify | raw }}</div>
                         <div class="elements-skills-hashtag-container">
                             {% for skill in element.skills %}
                                 {% if skill.badgeUrl is null %}

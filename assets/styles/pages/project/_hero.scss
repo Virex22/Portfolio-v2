@@ -8,6 +8,9 @@
   position: relative;
   z-index: 1;
 
+  &.project-view-hero::before {
+      background-color: rgba(0, 0, 0, 0.40);
+  }
   &::before {
     content: "";
     position: absolute;
@@ -26,17 +29,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: black;
+    color: $text-black;
     flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       margin-bottom: 2rem;
     }
 
-    p {
-      font-size: 1.5rem;
+    p{
+      font-size: 1.7rem;
       font-weight: 400;
     }
   }

@@ -44,6 +44,8 @@ class SkillGroupCrudController extends AbstractCrudController
             NumberField::new('acquiredPercentage'),
             AssociationField::new('skills')
                 ->formatValue(fn ($value) => $this->formatValue($value))
+                ->setFormTypeOption('label', 'Skills')
+                ->setFormTypeOption('by_reference', false)
                 ->autocomplete(),
         ];
     }

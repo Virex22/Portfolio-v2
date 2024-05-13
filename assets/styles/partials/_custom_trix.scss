@@ -1,0 +1,17 @@
+@import "variables";
+.trix-bold {
+    font-weight: bold;
+    color: $violet;
+}
+
+.trix-italic {
+    font-style: italic;
+}
+
+.trix-underline {
+    text-decoration: underline;
+}
+
+.trix-strikethrough {
+    text-decoration: line-through;
+}

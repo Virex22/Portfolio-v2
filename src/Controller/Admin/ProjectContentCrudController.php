@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\ProjectContent;
+use App\Enum\EProjectViewType;
 use App\Trait\CrudTranslatableTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -36,7 +37,8 @@ class ProjectContentCrudController extends AbstractCrudController
                 ->formatValue(fn($value) => $value->getId())
                 ->autocomplete(),
             NumberField::new('position'),
-            TextField::new('view_type'),
+            TextField::new('view_type')
+                ->setHelp($this->getViewType()),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyOnForms(),
             ImageField::new('image')->setBasePath('/uploads/projects-content')->onlyOnIndex(),
             TextEditorField::new('text_content')
@@ -48,6 +50,12 @@ class ProjectContentCrudController extends AbstractCrudController
                 ]),
         ];
 
+    }
+
+    private function getViewType()
+    {
+        $types = EProjectViewType::toArray();
+        return implode(', ', $types);
     }
 
     public function configureCrud(Crud $crud): Crud

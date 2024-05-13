@@ -174,7 +174,6 @@ $anim-multiplier: 1.5;
       }
 
       span {
-        font-weight: bold;
         padding: 10px;
         text-align: left;
         position: absolute;
@@ -354,7 +353,7 @@ $anim-multiplier: 1.5;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 450px;
+      height: 100%;
       z-index: 8;
     }
   }
@@ -367,11 +366,18 @@ $anim-multiplier: 1.5;
   justify-content: space-around;
   background-color: $gray-light;
   padding: 20px 0;
+  @media (max-width: $mobile) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
   img {
     width: 40%;
     max-height: 350px;
     object-fit: contain;
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
 
   .skill-explanation {
@@ -379,6 +385,11 @@ $anim-multiplier: 1.5;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: 10px;
+    @media (max-width: $mobile) {
+      width: 90%;
+      margin: 20px 0;
+    }
   }
 
   .skill-explanation p {
@@ -387,7 +398,6 @@ $anim-multiplier: 1.5;
   }
 
   .skill-explanation .skill-explanation-content {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
 
@@ -602,6 +612,31 @@ progress::-moz-progress-bar {
           border-radius: 0 0 10px 10px;
           border: $light-violet 1px solid;
 
+          .content-header{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 3px solid $violet;
+            padding-left: 10px;
+          }
+          .elements-description {
+            font-size: 1.1rem;
+            line-height: 1.2;
+            color: $text-gray;
+          }
+
+          .content-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $violet;
+          }
+
+          .content-subtitle {
+            font-size: 1rem;
+            color: $violet;
+            flex-direction: column;
+          }
+
           &::before {
             @media (max-width: $mobile) {
               position: absolute;
@@ -644,12 +679,12 @@ progress::-moz-progress-bar {
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            margin: 5px 0;
+            margin: 10px 0;
             object-fit: contain;
 
             img {
-              width: 25px;
-              height: 25px;
+              width: 30px;
+              height: 30px;
               margin: 5px;
               border-radius: 5px;
             }
@@ -659,41 +694,27 @@ progress::-moz-progress-bar {
             display: flex;
 
             img {
-              width: 64px;
-              height: 64px;
+              max-width: 75px;
+              max-height: 75px;
               border-radius: 50%;
               object-fit: contain;
               margin-right: 10px;
             }
 
-            h3 {
-              font-size: 1.5rem;
-              font-weight: bold;
-              color: $violet;
+
+            svg {
+              height: 1rem;
+              width: auto;
+              margin-right: 5px;
+              object-fit: contain;
+              fill: $violet;
             }
 
-            p {
-              span {
-                font-size: 1rem;
-              }
-
+            .location {
+              font-size: 1rem;
               color: $violet;
-              font-size: 1.25rem;
               display: flex;
-
-              svg {
-                height: 1rem;
-                width: 1rem;
-                object-fit: contain;
-                margin: 0 0 0 10px;
-                fill: $violet;
-              }
-
-              .location {
-                display: flex;
-                align-items: center;
-                color: $violet;
-              }
+              align-items: center;
             }
 
             & > div {
@@ -758,10 +779,6 @@ progress::-moz-progress-bar {
           top: auto;
         }
 
-        @media (max-width: $fold-mobile) {
-          display: none;
-        }
-
         img {
           width: 25px;
           height: 25px;
@@ -787,10 +804,6 @@ progress::-moz-progress-bar {
 
     @media (max-width: $mobile) {
       left: 50%;
-    }
-
-    @media (max-width: $fold-mobile) {
-      display: none;
     }
   }
 

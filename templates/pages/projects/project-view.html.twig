@@ -1,7 +1,5 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Vincent REMY - Portfolio{% endblock %}
-
 {% block stylesheets %}
     {{ encore_entry_link_tags('project-view') }}
 {% endblock %}
@@ -11,10 +9,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="project-hero">
+    <div class="project-view-hero project-hero" style="background-image: url('{{ vich_uploader_asset(project, 'coverImageFile') }}')">
         <div class="project-hero-content">
-            <h1 class="title">{{ project.name }}</h1>
-            <p class="description"> {{ project.description }}</p>
+            <h1 class="title title-font">{{ project.name }}</h1>
+            <div class="description"> {{ project.description | trixify | raw }} </div>
         </div>
         <div class="project-skills">
             {% for skill in project.skills %}
@@ -27,14 +25,14 @@
         </div>
     </div>
     {% for content in project.projectContents %}
-        <section class="project-content {{ content.viewType }}">
+        <section class="project-content {{ content.viewType }}" data-aos="fade-up">
             {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
                 <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
             {% endif %}
 
             {% if content.viewType != 'AllImage' %}
                 <div class="text-content wysiwyg-render">
-                    {{ content.textContent | raw }}
+                    {{ content.textContent | trixify | raw }}
                 </div>
             {% endif %}
 

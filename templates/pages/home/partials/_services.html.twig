@@ -14,7 +14,7 @@
                         <p class="service-card-subtitle">{{ service.subtitle }}</p>
                     </div>
                 </div>
-                <p class="service-card-description">{{ service.description }}</p>
+                <div class="service-card-description">{{ service.description | trixify | raw }}</div>
             </div>
         {% endfor %}
     </div>

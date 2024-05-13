@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+
 AOS.init();
 /* Swiper */
 
@@ -61,18 +62,39 @@ new Swiper(".services-swiper", {
 
 /* Swiper for skills section */
 
-new Swiper(".skills-swiper", {
-    loop: true,
-    spaceBetween: 20,
-    slidesPerView: "auto",
-    speed: 500,
-    allowTouchMove: false,
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-    },
-    on: {
-        resize: centerSwiperIfFewSlides,
-        init: centerSwiperIfFewSlides
+/* to fix the windows resize issue we recreate the swiper each time the window is resized */
+
+let skillSwiper = null;
+
+function createSkillSwiper() {
+    if (skillSwiper) {
+        skillSwiper.destroy();
+        console.log('destroyed');
     }
-});
+    skillSwiper = new Swiper(".skills-swiper", {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: "auto",
+        speed: 500,
+        allowTouchMove: false,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            waitForTransition: true
+        },
+        on: {
+            resize: function (swiper) {
+                centerSwiperIfFewSlides(swiper);
+            },
+            init: function (swiper) {
+                centerSwiperIfFewSlides(swiper);
+            },
+            beforeTransitionStart: function () {
+                console.log('beforeTransitionStart');
+            }
+        }
+    });
+}
+createSkillSwiper();
+
+window.addEventListener('resize', createSkillSwiper);

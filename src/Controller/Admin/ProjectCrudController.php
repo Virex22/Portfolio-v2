@@ -44,7 +44,7 @@ class ProjectCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            TextField::new('description'),
+            TextEditorField::new('description'),
             AssociationField::new('skills')
                 ->formatValue(fn ($value) => $this->formatValue($value))
                 ->setFormTypeOption('label', 'name')

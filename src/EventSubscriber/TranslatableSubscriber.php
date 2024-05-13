@@ -83,7 +83,8 @@ class TranslatableSubscriber implements EventSubscriberInterface
         if (!Translatable::isTranslatableEntity($entity)) {
             return;
         }
-        $translations = $this->translationRepository->findBy(['entity_id' => $entity->getId()]);
+        $domains = Translatable::getTranslatableFields($entity);
+        $translations = $this->translationRepository->findBy(['entity_id' => $entity->getId(), 'domain' => array_map(fn ($domain) => Translatable::getTranslationKey($entity, $domain), $domains)]);
         foreach ($translations as $translation) {
             $this->entityManager->remove($translation);
         }

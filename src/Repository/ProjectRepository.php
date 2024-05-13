@@ -29,6 +29,7 @@ class ProjectRepository extends ServiceEntityRepository
             ->leftJoin('p.skills', 's')
             ->addSelect('s')
             ->where('p.id = :id')
+            ->orderBy('c.position', 'ASC')
             ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult();

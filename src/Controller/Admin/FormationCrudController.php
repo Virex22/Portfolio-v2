@@ -54,7 +54,7 @@ class FormationCrudController extends AbstractCrudController
                 ->onlyOnForms(),
             AssociationField::new('skills')
                 ->formatValue(fn ($value) => $this->formatValue($value))
-                ->setFormTypeOption('label', 'name')
+                ->setFormTypeOption('label', 'Skills')
                 ->setFormTypeOption('by_reference', false)
                 ->autocomplete(),
 

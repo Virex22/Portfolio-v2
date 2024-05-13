@@ -7,7 +7,7 @@ projects:
             softskill: Soft Skill
             sortby:
                 title: Trier par
-                relevance: Pertinance
+                relevance: Pertinence
                 bdate-desc: Date de début (décroissant)
                 bdate-asc: Date de début (croissant)
                 edate-desc: Date de fin (décroissant)

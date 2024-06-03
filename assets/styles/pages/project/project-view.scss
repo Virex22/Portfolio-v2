@@ -6,14 +6,35 @@
 
 .project-view-hero .project-hero-content {
   color: white;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
-.project-hero-content .description{
-  font-size: 1.7rem;
-  font-weight: 400;
-  *[class^="trix-"] {
-    color: white;
+  @media (max-width: $tablet) {
+    width: 60%;
+  }
+  @media (max-width: $mobile) {
+      width: 80%;
+  }
+  @media (max-width: $fold-mobile) {
+      width: 90%;
+  }
+
+  .description {
+    font-size: 1.7rem;
+    font-weight: 400;
+
+    *[class^="trix-"] {
+      color: white;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 1.5rem;
+    }
+    @media (max-width: $mobile) {
+      font-size: 1.3rem;
+    }
+    @media (max-width: $fold-mobile) {
+      font-size: 1.1rem;
+    }
   }
 }
 

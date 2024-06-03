@@ -25,8 +25,6 @@ filters = filters.filter((filter) => { return filter !== null; });
 const sortSelect = document.querySelector('.select-box.sort');
 //handle all filters change but not the sort
 const handleFilterChange = () => {
-    console.log('filter change');
-    console.log(filters);
     const filtersValues = Array.from(filters).map((filter) => {
         return filter.querySelector('.item').getAttribute('data-value');
     }).filter((value) => {

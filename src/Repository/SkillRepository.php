@@ -30,6 +30,7 @@ class SkillRepository extends ServiceEntityRepository
 
         return $this->createQueryBuilder('s')
             ->andWhere('s.type = :type')
+            ->andWhere('s.projects IS NOT EMPTY')
             ->setParameter('type', $type)
             ->getQuery()
             ->getResult();

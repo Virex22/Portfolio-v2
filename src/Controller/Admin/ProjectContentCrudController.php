@@ -61,6 +61,6 @@ class ProjectContentCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setDefaultSort(['project' => 'ASC', 'position' => 'ASC']);
+            ->setDefaultSort(['project' => 'DESC', 'position' => 'DESC']);
     }
 }

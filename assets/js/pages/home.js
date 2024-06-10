@@ -98,3 +98,15 @@ function createSkillSwiper() {
 createSkillSwiper();
 
 window.addEventListener('resize', createSkillSwiper);
+
+/* Set title size equal to the biggest title */
+const titles = document.querySelectorAll('.service-card-header');
+let biggestTitle = 0;
+titles.forEach(title => {
+    if (title.clientHeight > biggestTitle) {
+        biggestTitle = title.clientHeight;
+    }
+});
+titles.forEach(title => {
+    title.style.height = `${biggestTitle}px`;
+});

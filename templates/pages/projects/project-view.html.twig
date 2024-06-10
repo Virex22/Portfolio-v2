@@ -27,7 +27,9 @@
     {% for content in project.projectContents %}
         <section class="project-content {{ content.viewType }}" data-aos="fade-up">
             {% if content.viewType == 'AllImage' or content.viewType == 'ImageLeft' %}
-                <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                <a href="{{ vich_uploader_asset(content, 'imageFile') }}" data-fancybox="gallery" class="img">
+                    <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                </a>
             {% endif %}
 
             {% if content.viewType != 'AllImage' %}
@@ -37,7 +39,9 @@
             {% endif %}
 
             {% if content.viewType == 'ImageRight' %}
-                <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                <a href="{{ vich_uploader_asset(content, 'imageFile') }}" data-fancybox="gallery" class="img">
+                    <img src="{{ vich_uploader_asset(content, 'imageFile') }}" alt="{{ project.name }}-image-{{ loop.index }}">
+                </a>
             {% endif %}
         </section>
     {% endfor %}

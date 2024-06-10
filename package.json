@@ -13,6 +13,7 @@
     "build": "encore production --progress"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "aos": "^2.3.4",
     "swiper": "^11.0.7",
     "tom-select": "^2.3.1"
